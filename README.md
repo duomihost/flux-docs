@@ -81,6 +81,17 @@ Use `https://eu.i.posthog.com` for EU Cloud, or your own domain for a
 self-hosted PostHog instance. Feedback is sent as the `docs_feedback` event
 with `path` and `vote` properties, and person profile processing is disabled.
 
+### Optional Crisp customer support
+
+To enable the Crisp chat widget, set this Cloudflare Pages environment
+variable:
+
+```text
+CRISP_WEBSITE_ID=<your Crisp website id>
+```
+
+When this value is not configured, the Crisp script is not loaded.
+
 ## Documentation Structure
 
 ```text

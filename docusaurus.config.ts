@@ -7,6 +7,7 @@ const config: Config = {
   tagline: 'Flux VPN and IDC service documentation',
   favicon: 'img/logo.svg',
   customFields: {
+    crispWebsiteId: process.env.CRISP_WEBSITE_ID ?? null,
     posthogProjectApiKey: process.env.POSTHOG_PROJECT_API_KEY ?? null,
     posthogHost: process.env.POSTHOG_HOST ?? 'https://us.i.posthog.com',
   },
