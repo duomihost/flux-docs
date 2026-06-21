@@ -31,6 +31,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/duomihost/flux-docs/tree/main/',
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
