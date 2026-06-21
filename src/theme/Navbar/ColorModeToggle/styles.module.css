@@ -1,0 +1,86 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.toggleGroup {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.darkNavbarColorModeToggle:hover,
+.darkNavbarButton:hover {
+  background: var(--ifm-color-gray-800);
+}
+
+.paletteSelector {
+  position: relative;
+}
+
+.paletteButton {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.paletteButton:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.previewSwatches {
+  border: 1px solid rgb(255 255 255 / 0.78);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.18);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 1rem;
+  overflow: hidden;
+  width: 1rem;
+}
+
+.previewSwatches span {
+  display: block;
+}
+
+.paletteMenu {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--flux-border);
+  border-radius: 8px;
+  box-shadow: 0 14px 32px rgb(15 23 42 / 0.16);
+  display: grid;
+  gap: 0.125rem;
+  min-width: 11rem;
+  padding: 0.35rem;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 1000;
+}
+
+.paletteMenuItem {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.875rem;
+  gap: 0.625rem;
+  padding: 0.55rem 0.65rem;
+  text-align: left;
+  width: 100%;
+}
+
+.paletteMenuItem:hover,
+.paletteMenuItem[data-active='true'] {
+  background: var(--flux-accent-soft);
+  color: var(--ifm-font-color-base);
+}

@@ -20,8 +20,9 @@ The static output is generated in the `build` directory.
 ## Color Palette
 
 The active site palette is defined in `src/css/custom.css` as Flux-specific
-CSS variables. The current palette is **Harbor**, tuned for a clean technical
-docs feel:
+CSS variables. Visitors can switch palettes from the navbar color button next
+to the light/dark toggle. The default palette is **Harbor**, tuned for a clean
+technical docs feel:
 
 ```text
 Background: #f8fbff / #ffffff

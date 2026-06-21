@@ -116,6 +116,123 @@ html[data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: var(--flux-accent-soft);
 }
 
+html[data-flux-palette='aurora'] {
+  --flux-bg-page: #f7f9f6;
+  --flux-bg-surface: #ffffff;
+  --flux-bg-soft: #edf5ec;
+  --flux-bg-raised: #f2f7f1;
+  --flux-text-primary: #1f2937;
+  --flux-text-secondary: #5f6f62;
+  --flux-border: #d8e2d4;
+  --flux-border-strong: #adbea7;
+  --flux-link: #16725f;
+  --flux-link-hover: #115e50;
+  --flux-accent: #65a30d;
+  --flux-accent-soft: rgba(101, 163, 13, 0.14);
+  --flux-shadow-soft: 0 10px 24px rgba(38, 65, 41, 0.08);
+  --ifm-color-primary-dark: #5b930c;
+  --ifm-color-primary-darker: #568b0b;
+  --ifm-color-primary-darkest: #477209;
+  --ifm-color-primary-light: #6fb40e;
+  --ifm-color-primary-lighter: #76bd12;
+  --ifm-color-primary-lightest: #91d33b;
+}
+
+html[data-flux-palette='graphite'] {
+  --flux-bg-page: #f7f7f8;
+  --flux-bg-surface: #ffffff;
+  --flux-bg-soft: #f0f1f4;
+  --flux-bg-raised: #f3f4f7;
+  --flux-text-primary: #18181b;
+  --flux-text-secondary: #62616a;
+  --flux-border: #dddde3;
+  --flux-border-strong: #b8b7c2;
+  --flux-link: #315f9f;
+  --flux-link-hover: #244c82;
+  --flux-accent: #7c3aed;
+  --flux-accent-soft: rgba(124, 58, 237, 0.13);
+  --flux-shadow-soft: 0 10px 24px rgba(39, 39, 48, 0.08);
+  --ifm-color-primary-dark: #6d28d9;
+  --ifm-color-primary-darker: #6726ce;
+  --ifm-color-primary-darkest: #5520aa;
+  --ifm-color-primary-light: #8b50ef;
+  --ifm-color-primary-lighter: #9662f1;
+  --ifm-color-primary-lightest: #b68df5;
+}
+
+html[data-flux-palette='pearl'] {
+  --flux-bg-page: #fbfaf7;
+  --flux-bg-surface: #ffffff;
+  --flux-bg-soft: #f4eee6;
+  --flux-bg-raised: #f8f4ee;
+  --flux-text-primary: #24201a;
+  --flux-text-secondary: #6e6254;
+  --flux-border: #e5d9ca;
+  --flux-border-strong: #c6b39f;
+  --flux-link: #a14d18;
+  --flux-link-hover: #7c3a13;
+  --flux-accent: #0f766e;
+  --flux-accent-soft: rgba(15, 118, 110, 0.14);
+  --flux-shadow-soft: 0 10px 24px rgba(71, 54, 35, 0.08);
+  --ifm-color-primary-dark: #0e6a63;
+  --ifm-color-primary-darker: #0d645d;
+  --ifm-color-primary-darkest: #0a524d;
+  --ifm-color-primary-light: #10827a;
+  --ifm-color-primary-lighter: #118b82;
+  --ifm-color-primary-lightest: #16ada2;
+}
+
+html[data-theme='dark'][data-flux-palette='aurora'] {
+  --flux-bg-page: #111a15;
+  --flux-bg-surface: #17231c;
+  --flux-bg-soft: #14231a;
+  --flux-bg-raised: #1d3024;
+  --flux-text-primary: #edf8ee;
+  --flux-text-secondary: #b8cbb8;
+  --flux-border: #304638;
+  --flux-border-strong: #566b5d;
+  --flux-link: #8ee6c8;
+  --flux-link-hover: #bcf3df;
+  --flux-accent: #9be15d;
+  --flux-accent-soft: rgba(155, 225, 93, 0.18);
+  --flux-shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.24);
+  --home-button-primary-text: #102018;
+}
+
+html[data-theme='dark'][data-flux-palette='graphite'] {
+  --flux-bg-page: #111116;
+  --flux-bg-surface: #191922;
+  --flux-bg-soft: #181824;
+  --flux-bg-raised: #242433;
+  --flux-text-primary: #f4f3f8;
+  --flux-text-secondary: #c3c1cf;
+  --flux-border: #343444;
+  --flux-border-strong: #5f5d70;
+  --flux-link: #9fc5ff;
+  --flux-link-hover: #c2dcff;
+  --flux-accent: #b692ff;
+  --flux-accent-soft: rgba(182, 146, 255, 0.18);
+  --flux-shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.26);
+  --home-button-primary-text: #17131f;
+}
+
+html[data-theme='dark'][data-flux-palette='pearl'] {
+  --flux-bg-page: #1b1712;
+  --flux-bg-surface: #251f18;
+  --flux-bg-soft: #2b2218;
+  --flux-bg-raised: #33281d;
+  --flux-text-primary: #fbf6ed;
+  --flux-text-secondary: #d6c7b3;
+  --flux-border: #4a3b2b;
+  --flux-border-strong: #7a654d;
+  --flux-link: #ffc184;
+  --flux-link-hover: #ffd7ad;
+  --flux-accent: #70d6ce;
+  --flux-accent-soft: rgba(112, 214, 206, 0.18);
+  --flux-shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.26);
+  --home-button-primary-text: #10201f;
+}
+
 /*
  * Collapsible <details> styling — Flux uses these in docs for optional steps.
  * Upstream RN does not style <details>, so this stays a Flux addition.
