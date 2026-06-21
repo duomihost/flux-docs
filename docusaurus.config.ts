@@ -6,6 +6,10 @@ const config: Config = {
   title: 'Flux Docs',
   tagline: 'Flux VPN and IDC service documentation',
   favicon: 'img/logo.svg',
+  customFields: {
+    posthogProjectApiKey: process.env.POSTHOG_PROJECT_API_KEY ?? null,
+    posthogHost: process.env.POSTHOG_HOST ?? 'https://us.i.posthog.com',
+  },
 
   future: {
     v4: true,

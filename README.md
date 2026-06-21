@@ -30,6 +30,21 @@ Root directory: /
 Environment variable: NODE_VERSION=22
 ```
 
+### Optional PostHog feedback analytics
+
+The "Was this page useful?" control works without analytics. To collect
+aggregated feedback in PostHog, set these Cloudflare Pages environment
+variables:
+
+```text
+POSTHOG_PROJECT_API_KEY=<your public PostHog project token>
+POSTHOG_HOST=https://us.i.posthog.com
+```
+
+Use `https://eu.i.posthog.com` for EU Cloud, or your own domain for a
+self-hosted PostHog instance. Feedback is sent as the `docs_feedback` event
+with `path` and `vote` properties, and person profile processing is disabled.
+
 ## Documentation Structure
 
 ```text
