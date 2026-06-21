@@ -17,6 +17,41 @@ npm run build
 
 The static output is generated in the `build` directory.
 
+## Color Palette
+
+The active site palette is defined in `src/css/custom.css` as Flux-specific
+CSS variables. The current palette is **Harbor**, tuned for a clean technical
+docs feel:
+
+```text
+Background: #f8fbff / #ffffff
+Text:       #172033 / #5f6b7a
+Link:       #0b6f91 / #085a78
+Accent:     #0ea5c6
+```
+
+Alternative combinations that work with the same variables:
+
+```text
+Aurora
+Background: #f7f9f6 / #ffffff
+Text:       #1f2937 / #5f6f62
+Link:       #16725f / #115e50
+Accent:     #65a30d
+
+Graphite
+Background: #f7f7f8 / #ffffff
+Text:       #18181b / #62616a
+Link:       #315f9f / #244c82
+Accent:     #7c3aed
+
+Pearl
+Background: #fbfaf7 / #ffffff
+Text:       #24201a / #6e6254
+Link:       #a14d18 / #7c3a13
+Accent:     #0f766e
+```
+
 ## Cloudflare Pages
 
 Recommended build settings:

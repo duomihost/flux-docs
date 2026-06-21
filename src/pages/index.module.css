@@ -8,8 +8,8 @@
     to bottom,
     var(--ifm-background-color) 0%,
     var(--ifm-background-color) 66%,
-    #ecf8fa 66%,
-    #ffffff 100%
+    var(--flux-bg-soft) 66%,
+    var(--flux-bg-surface) 100%
   );
   min-height: 760px;
   overflow: hidden;
@@ -18,8 +18,8 @@
 
 .heroGrid {
   background-image:
-    linear-gradient(rgba(97, 218, 251, 0.13) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(97, 218, 251, 0.13) 1px, transparent 1px);
+    linear-gradient(var(--flux-accent-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--flux-accent-soft) 1px, transparent 1px);
   background-size: 64px 64px;
   height: 430px;
   left: 50%;
@@ -88,27 +88,27 @@
 }
 
 .primaryButton {
-  background: #087ea4;
-  border: 1px solid #087ea4;
-  color: #fff;
+  background: var(--home-button-primary);
+  border: 1px solid var(--home-button-primary);
+  color: var(--home-button-primary-text);
 }
 
 .primaryButton:hover {
-  background: #4e98b6;
-  border-color: #4e98b6;
-  color: #fff;
+  background: var(--flux-link-hover);
+  border-color: var(--flux-link-hover);
+  color: var(--home-button-primary-text);
 }
 
 .secondaryButton {
-  background: #fff;
-  border: 1px solid #bcc1cd;
-  color: #404756;
+  background: var(--flux-bg-surface);
+  border: 1px solid var(--flux-border-strong);
+  color: var(--flux-text-secondary);
 }
 
 .secondaryButton:hover {
-  background: #f8f9fa;
-  border-color: #9298a6;
-  color: #20232a;
+  background: var(--flux-bg-raised);
+  border-color: var(--flux-border-strong);
+  color: var(--flux-text-primary);
 }
 
 .primaryButton:active,
@@ -130,12 +130,12 @@
 
 .device,
 .terminal {
-  border: 1px solid #5e687e;
+  border: 1px solid var(--flux-border-strong);
   box-shadow: 0 24px 70px rgba(29, 45, 67, 0.14);
 }
 
 .device {
-  background: #fff;
+  background: var(--flux-bg-surface);
   border-radius: 28px 28px 0 0;
   min-height: 330px;
   padding: 18px;
@@ -149,7 +149,7 @@
 }
 
 .deviceHeader span {
-  background: #dfe5ec;
+  background: var(--flux-border);
   border-radius: 999px;
   height: 8px;
   width: 8px;
@@ -157,8 +157,8 @@
 
 .signalPanel {
   align-items: center;
-  background: #f6f7f9;
-  border: 1px solid #e5e7eb;
+  background: var(--flux-bg-raised);
+  border: 1px solid var(--flux-border);
   border-radius: 18px;
   display: flex;
   gap: 1rem;
@@ -171,14 +171,14 @@
 }
 
 .signalPanel small {
-  color: #667085;
+  color: var(--flux-text-secondary);
   margin-top: 4px;
 }
 
 .signalRing {
   background:
-    radial-gradient(circle at center, #fff 0 28%, transparent 30%),
-    conic-gradient(from 20deg, #61dafb, #087ea4, #61dafb);
+    radial-gradient(circle at center, var(--flux-bg-surface) 0 28%, transparent 30%),
+    conic-gradient(from 20deg, var(--flux-accent), var(--flux-link), var(--flux-accent));
   border-radius: 999px;
   height: 62px;
   width: 62px;
@@ -191,17 +191,17 @@
 }
 
 .routeList span {
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
+  background: var(--flux-bg-surface);
+  border: 1px solid var(--flux-border);
   border-radius: 14px;
-  color: #404756;
+  color: var(--flux-text-secondary);
   font-weight: 650;
   padding: 12px 14px;
 }
 
 .terminal {
-  background: #20232a;
-  border-color: #373940;
+  background: #172033;
+  border-color: #334155;
   border-radius: 18px 18px 0 0;
   display: grid;
   gap: 12px;
@@ -213,7 +213,7 @@
 .terminal code {
   background: transparent;
   border: 0;
-  color: #d8f7ff;
+  color: #d9f7ff;
   display: block;
   font-size: 14px;
   padding: 0;
@@ -221,7 +221,7 @@
 }
 
 .quickLinks {
-  background: #fff;
+  background: var(--flux-bg-surface);
   padding: 3.25rem 0 4rem;
 }
 
@@ -232,10 +232,10 @@
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #dfe1e6;
+  background: var(--flux-bg-surface);
+  border: 1px solid var(--flux-border);
   border-radius: 9px;
-  color: #20232a;
+  color: var(--flux-text-primary);
   display: flex;
   flex-direction: column;
   min-height: 172px;
@@ -245,9 +245,9 @@
 }
 
 .card:hover {
-  border-color: #61dafb;
-  box-shadow: 0 10px 24px rgba(20, 35, 48, 0.08);
-  color: #20232a;
+  border-color: var(--flux-accent);
+  box-shadow: var(--flux-shadow-soft);
+  color: var(--flux-text-primary);
   transform: translateY(-2px);
 }
 
@@ -258,7 +258,7 @@
 }
 
 .cardDescription {
-  color: #64748b;
+  color: var(--flux-text-secondary);
   font-size: 0.96rem;
   line-height: 1.7;
 }
@@ -266,56 +266,56 @@
 html[data-theme='dark'] .hero {
   background: linear-gradient(
     to bottom,
-    #1b1b1d 0%,
-    #1b1b1d 66%,
-    #151517 66%,
-    #1b1b1d 100%
+    var(--flux-bg-page) 0%,
+    var(--flux-bg-page) 66%,
+    #0f1724 66%,
+    var(--flux-bg-page) 100%
   );
 }
 
 html[data-theme='dark'] .subtitle {
-  color: #c0c1c4;
+  color: var(--flux-text-secondary);
 }
 
 html[data-theme='dark'] .secondaryButton {
-  background: #1b1b1d;
-  border-color: #4e5668;
-  color: #f6f7f9;
+  background: var(--flux-bg-surface);
+  border-color: var(--flux-border-strong);
+  color: var(--flux-text-primary);
 }
 
 html[data-theme='dark'] .secondaryButton:hover {
-  background: #2b2b2d;
-  color: #fff;
+  background: var(--flux-bg-raised);
+  color: var(--flux-text-primary);
 }
 
 html[data-theme='dark'] .device,
 html[data-theme='dark'] .card,
 html[data-theme='dark'] .quickLinks {
-  background: #1b1b1d;
+  background: var(--flux-bg-surface);
 }
 
 html[data-theme='dark'] .device {
-  border-color: #404756;
+  border-color: var(--flux-border);
 }
 
 html[data-theme='dark'] .signalPanel,
 html[data-theme='dark'] .routeList span {
-  background: #242426;
-  border-color: #404756;
-  color: #e3e3e3;
+  background: var(--flux-bg-raised);
+  border-color: var(--flux-border);
+  color: var(--flux-text-primary);
 }
 
 html[data-theme='dark'] .card {
-  border-color: #404756;
-  color: #e3e3e3;
+  border-color: var(--flux-border);
+  color: var(--flux-text-primary);
 }
 
 html[data-theme='dark'] .card:hover {
-  color: #fff;
+  color: var(--flux-text-primary);
 }
 
 html[data-theme='dark'] .cardDescription {
-  color: #c0c1c4;
+  color: var(--flux-text-secondary);
 }
 
 @media (max-width: 996px) {

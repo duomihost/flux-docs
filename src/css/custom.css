@@ -9,25 +9,111 @@
 
 :root {
   /*
-   * Flux fills in the full Infima primary palette around the upstream
-   * --ifm-color-primary (#06bcee). Upstream only sets the base value and leans
-   * on its own --brand / --home-button-primary accents; Flux uses the standard
-   * Infima primary states (buttons, focus rings), so the cyan ramp is defined
-   * here to stay consistent instead of falling back to Infima's default green.
+   * Flux color system.
+   *
+   * Active palette: Harbor
+   * - Background: #f8fbff / #ffffff
+   * - Text: #172033 / #5f6b7a
+   * - Link: #0b6f91 / #085a78
+   * - Accent: #0ea5c6
+   *
+   * Other ready-to-use combinations:
+   * - Aurora: background #f7f9f6, text #1f2937, link #16725f, accent #65a30d
+   * - Graphite: background #f7f7f8, text #18181b, link #315f9f, accent #7c3aed
+   * - Pearl: background #fbfaf7, text #24201a, link #a14d18, accent #0f766e
    */
-  --ifm-color-primary-dark: #05a9d6;
-  --ifm-color-primary-darker: #059fca;
-  --ifm-color-primary-darkest: #0483a6;
-  --ifm-color-primary-light: #22c8f8;
-  --ifm-color-primary-lighter: #35cef9;
-  --ifm-color-primary-lightest: #69dafb;
+  --flux-bg-page: #f8fbff;
+  --flux-bg-surface: #ffffff;
+  --flux-bg-soft: #eef8fb;
+  --flux-bg-raised: #f4f8fb;
+  --flux-text-primary: #172033;
+  --flux-text-secondary: #5f6b7a;
+  --flux-border: #d8e0ea;
+  --flux-border-strong: #aeb9c8;
+  --flux-link: #0b6f91;
+  --flux-link-hover: #085a78;
+  --flux-accent: #0ea5c6;
+  --flux-accent-soft: rgba(14, 165, 198, 0.14);
+  --flux-shadow-soft: 0 10px 24px rgba(24, 43, 62, 0.08);
+
+  /*
+   * Flux fills in the full Infima primary palette around the upstream
+   * --ifm-color-primary. Upstream only sets the base value and leans on its
+   * own --brand / --home-button-primary accents; Flux uses the standard Infima
+   * primary states (buttons, focus rings), so the cyan ramp is defined here to
+   * stay consistent instead of falling back to Infima's default green.
+   */
+  --ifm-background-color: var(--flux-bg-page);
+  --ifm-background-surface-color: var(--flux-bg-surface);
+  --ifm-color-primary: var(--flux-accent);
+  --ifm-color-primary-dark: #0d95b2;
+  --ifm-color-primary-darker: #0c8ca8;
+  --ifm-color-primary-darkest: #0a748a;
+  --ifm-color-primary-light: #12b5d8;
+  --ifm-color-primary-lighter: #18bddf;
+  --ifm-color-primary-lightest: #45cde8;
+  --ifm-font-color-base: var(--flux-text-primary);
+  --ifm-font-color-secondary: var(--flux-text-secondary);
+  --ifm-link-color: var(--flux-link);
+  --ifm-link-hover-color: var(--flux-link-hover);
+  --ifm-toc-link-color: var(--flux-text-secondary);
+  --ifm-menu-color: var(--flux-text-primary);
+  --ifm-color-emphasis-200: var(--flux-border);
+  --ifm-color-emphasis-300: var(--flux-border-strong);
+  --brand: #45cde8;
+  --logo: var(--flux-link);
+  --home-button-primary: var(--flux-link);
+  --home-secondary-text: var(--flux-text-secondary);
+  --home-border: var(--flux-border);
 
   /* Highlight color for Docusaurus `// highlight-next-line` code lines. */
-  --docusaurus-highlighted-code-line-bg: rgba(97, 218, 251, 0.16);
+  --docusaurus-highlighted-code-line-bg: var(--flux-accent-soft);
+}
+
+html[data-theme='light'] {
+  --ifm-link-color: var(--flux-link);
+  --ifm-link-hover-color: var(--flux-link-hover);
 }
 
 html[data-theme='dark'] {
-  --docusaurus-highlighted-code-line-bg: rgba(97, 218, 251, 0.18);
+  --flux-bg-page: #111827;
+  --flux-bg-surface: #172033;
+  --flux-bg-soft: #142433;
+  --flux-bg-raised: #1d2a3d;
+  --flux-text-primary: #eef5fb;
+  --flux-text-secondary: #b5c1cf;
+  --flux-border: #2f3d52;
+  --flux-border-strong: #52627a;
+  --flux-link: #67d7f0;
+  --flux-link-hover: #9be8f8;
+  --flux-accent: #45cde8;
+  --flux-accent-soft: rgba(69, 205, 232, 0.18);
+  --flux-shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.24);
+
+  --ifm-background-color: var(--flux-bg-page);
+  --ifm-background-surface-color: var(--flux-bg-surface);
+  --ifm-color-primary: var(--flux-accent);
+  --ifm-color-primary-dark: #20c1df;
+  --ifm-color-primary-darker: #1bb7d4;
+  --ifm-color-primary-darkest: #1597af;
+  --ifm-color-primary-light: #60d5ed;
+  --ifm-color-primary-lighter: #75dbf0;
+  --ifm-color-primary-lightest: #a3e8f6;
+  --ifm-font-color-base: var(--flux-text-primary);
+  --ifm-font-color-secondary: var(--flux-text-secondary);
+  --ifm-link-color: var(--flux-link);
+  --ifm-link-hover-color: var(--flux-link-hover);
+  --ifm-toc-link-color: var(--flux-text-secondary);
+  --ifm-menu-color: var(--flux-text-primary);
+  --ifm-color-emphasis-200: var(--flux-border);
+  --ifm-color-emphasis-300: var(--flux-border-strong);
+  --brand: var(--flux-link);
+  --logo: var(--flux-link);
+  --home-button-primary: var(--flux-link);
+  --home-button-primary-text: #10202d;
+  --home-secondary-text: var(--flux-text-secondary);
+  --home-border: var(--flux-border);
+  --docusaurus-highlighted-code-line-bg: var(--flux-accent-soft);
 }
 
 /*
@@ -35,12 +121,12 @@ html[data-theme='dark'] {
  * Upstream RN does not style <details>, so this stays a Flux addition.
  */
 details {
-  background: #eefaff;
-  border: 1px solid #7ddeff;
+  background: var(--flux-bg-soft);
+  border: 1px solid var(--flux-border);
   border-radius: var(--ifm-alert-border-radius);
 }
 
 html[data-theme='dark'] details {
-  background: rgba(97, 218, 251, 0.08);
-  border-color: rgba(97, 218, 251, 0.28);
+  background: var(--flux-bg-soft);
+  border-color: var(--flux-border);
 }
