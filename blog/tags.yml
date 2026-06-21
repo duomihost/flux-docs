@@ -1,0 +1,6 @@
+docs:
+  label: Docs
+  description: Documentation updates
+release:
+  label: Release
+  description: Product and documentation releases
