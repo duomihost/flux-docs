@@ -1,0 +1,483 @@
+/**
+ * Ported from facebook/react-native-website
+ *   website/src/css/customTheme.scss @ a6a305451bf541ed994d51ca7fee220db1f642ef
+ * Original source licensed under the MIT license (Meta Platforms, Inc.).
+ *
+ * Page/content component styles (P4): content banner, native-code banner,
+ * labels, component grid, docs rating, Snack player placeholder, two-column
+ * code blocks, pill tabs and code-diff lines. Kept separate from the theme
+ * shell so component rules and chrome rules never override each other.
+ *
+ * Note: RN's blog two-column layout and the Algolia DocSearch styling are not
+ * ported — they depend on swizzled components / a search backend Flux does not
+ * use this round (P2/P3).
+ */
+
+/* Content banner */
+
+.content-banner {
+  background: #99d5e7;
+  padding: 20px 24px;
+  margin-bottom: 2em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: var(--dark);
+  border-radius: var(--ifm-alert-border-radius);
+}
+
+.content-banner p {
+  width: calc(75% - 2em);
+  margin: 0;
+}
+
+.content-banner-img {
+  width: 25%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.content-banner a:link,
+.content-banner a:visited,
+.content-banner a:hover,
+.content-banner a:active,
+.content-banner a:focus {
+  border-bottom-width: 2px;
+  background: none !important;
+  color: #134484 !important;
+  border-bottom-color: #134484 !important;
+}
+
+/* "Native Code Required" banner */
+
+.banner-native-code-required {
+  position: relative;
+  overflow: hidden;
+  background: #eeebfe;
+  padding: 24px 48px 24px 24px;
+  margin-bottom: 24px;
+  border: 1px solid #dad1ff;
+  border-radius: var(--ifm-alert-border-radius);
+
+  h2,
+  h3 {
+    color: #6170af;
+    margin-top: 0;
+    line-height: 32px;
+
+    &:before {
+      content: " ";
+      float: left;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--ifm-global-radius);
+      background-color: #6170af;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 23 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 18.036c.042.507.221 1.016.692 1.699.558.81 1.518 1.254 2.218.54.473-.481 5.582-9.335 8.045-12.69a.737.737 0 011.202 0c2.463 3.355 7.572 12.209 8.045 12.69.7.714 1.66.27 2.218-.54.55-.798.702-1.358.702-1.955 0-.407-7.958-15.086-8.76-16.308C13.593.297 13.357.042 12.053 0h-.994c-1.304.041-1.54.297-2.31 1.472C7.964 2.67.317 16.77 0 17.737v.299z' fill='%23fff'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px;
+      margin-right: 14px;
+      margin-top: -2px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  code {
+    background-color: rgb(89 91 145 / 0.12);
+  }
+}
+
+html[data-theme="dark"] .banner-native-code-required {
+  background: #6979bf4a;
+  border-color: #555b82;
+
+  h2,
+  h3 {
+    color: #999ec2;
+  }
+
+  h2:before,
+  h3:before {
+    background-color: #5d659a;
+  }
+
+  code {
+    background: rgb(165 175 219 / 0.15);
+  }
+}
+
+/* Color preview box */
+
+.color-box {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 2px 8px 0 0;
+  border: 0.05rem solid var(--deepdark);
+  border-radius: 3px;
+}
+
+td .color-box {
+  width: 20px;
+  height: 20px;
+}
+
+/* Labels */
+
+.label {
+  display: inline-block;
+  position: relative;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 32px;
+
+  /* Basic label */
+  &.basic {
+    border-style: solid;
+    border-width: 2px;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
+  /* Label variants */
+  &.primary {
+    background: var(--ifm-color-primary);
+  }
+
+  &.android {
+    background: #a4c936;
+
+    &:before {
+      border-right-color: #a4c936;
+    }
+  }
+
+  &.ios {
+    background: #222;
+
+    &:before {
+      border-right-color: #222;
+    }
+  }
+
+  &.tv {
+    background: #6170af;
+
+    &:before {
+      border-right-color: #6170af;
+    }
+  }
+
+  &.required {
+    margin-left: 0;
+    margin-right: 8px;
+    color: #fa5035;
+    border-color: #fa5035;
+    border-radius: 32px;
+    font-weight: 600;
+  }
+}
+
+html[data-theme="dark"] .label {
+  color: var(--text);
+
+  &:after {
+    background: var(--ifm-background-color);
+  }
+
+  &.ios {
+    background: #fff;
+
+    &:before {
+      border-right-color: #fff;
+    }
+  }
+
+  &.required {
+    color: #fa5035;
+  }
+}
+
+/* Label inside other tags */
+
+h2 .label {
+  top: -6px;
+  margin-left: 6px;
+  padding: 3px 12px;
+}
+
+h3 .label {
+  top: -3px;
+  margin-left: 8px;
+  line-height: 20px;
+}
+
+td .label {
+  padding: 0 8px 0 10px;
+  font-size: 0.7rem;
+  margin-left: 6px;
+
+  &:before {
+    left: -8px;
+    border-width: 10px 8px 10px 0;
+  }
+
+  &:after {
+    top: 8px;
+  }
+
+  &.required {
+    margin-left: 6px;
+    padding: 0 6px;
+    border-width: 1px;
+    margin-right: 0;
+  }
+
+  &.two-lines {
+    margin-left: 0;
+    margin-top: 5px;
+
+    &.ios,
+    &.android,
+    &.tv {
+      margin-left: 8px;
+    }
+  }
+}
+
+/* Components grid */
+
+article .component-grid {
+  margin-bottom: 22px;
+  display: grid;
+  column-gap: 22px;
+
+  .component {
+    border: 1px solid var(--ifm-table-border-color);
+    border-radius: var(--ifm-global-radius);
+    box-shadow: var(--ifm-table-box-shadow);
+    margin: 0 auto 24px;
+    width: 100%;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.033);
+    }
+
+    > a {
+      display: block;
+      height: 100%;
+      border-bottom: none;
+      background: none !important;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0 10px;
+      background-color: var(--home-button-primary);
+      color: var(--home-button-primary-text);
+      line-height: 36px;
+
+      a {
+        color: white;
+      }
+    }
+
+    p {
+      padding: 6px 10px 8px;
+      font-size: 15px;
+      margin: 2px;
+      color: var(--ifm-font-color-base);
+
+      code {
+        background-color: var(--ifm-code-background);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] .component {
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+@media only screen and (min-width: 768px) {
+  article .component-grid.component-grid-border {
+    border-bottom: 1px solid var(--ifm-table-border-color);
+  }
+
+  article .component {
+    width: 30%;
+    height: 150px;
+    margin: 0 22px 22px auto;
+    vertical-align: top;
+  }
+
+  article .component-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 1440px) {
+    article .component-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  article .component {
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+}
+
+/* Docs Rating Box */
+
+.docsRating {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 30px;
+  margin-top: 42px;
+  background-color: var(--docs-rating-background);
+  text-align: center;
+  color: var(--ifm-link-color);
+  line-height: 32px;
+  font-weight: 500;
+  border-radius: var(--ifm-alert-border-radius);
+
+  svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 0 0 6px;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      fill: var(--ifm-color-primary);
+    }
+  }
+
+  .i_thumbsup {
+    fill: #56a211;
+    margin-left: 12px;
+  }
+
+  .i_thumbsdown {
+    fill: #e9430f;
+    transform: scale(-1, -1);
+  }
+}
+
+html[data-theme="dark"] .docsRating {
+  color: #b8e0ef;
+}
+
+@media only screen and (max-width: 996px) {
+  .docsRating {
+    width: 100%;
+    margin: 36px 0 0 !important;
+    border-radius: var(--ifm-global-radius);
+  }
+}
+
+/* Snack Player */
+
+.snack-player {
+  height: 635px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: var(--ifm-global-radius);
+}
+
+.tabs-container .snack-player:last-child {
+  margin-bottom: 0;
+}
+
+/* Two columns code block */
+
+.two-columns {
+  display: grid;
+  gap: 0 2%;
+  grid-template: ". ." 1fr / 1fr 1fr;
+
+  div[class*="codeBlockContainer"] {
+    overflow: auto;
+  }
+
+  div[class*="codeBlockLines"] {
+    white-space: pre-wrap;
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  .two-columns {
+    gap: 0;
+    grid-template: "." 1fr "." 1fr / 1fr;
+  }
+}
+
+/* Pill tabs */
+
+.markdown .tabs.pill-tabs {
+  border-bottom: 0;
+
+  .tabs__item {
+    margin-right: 8px;
+    border-radius: 32px;
+    border: 2px solid var(--ifm-table-border-color);
+
+    &:hover {
+      border-radius: 32px;
+    }
+
+    &.tabs__item--active {
+      border-color: var(--ifm-tabs-color-active);
+    }
+  }
+}
+
+/*
+Prevent useless bottom margin for multiline <figcaption> tags in MDX.
+ */
+figcaption > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Diffing with code syntax highlighting */
+
+.code-remove-line {
+  background-color: var(--home-code-diff-removed);
+
+  .token {
+    background-color: var(--home-code-diff-removed-word);
+  }
+
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.code-add-line {
+  background-color: var(--home-code-diff-added);
+
+  .token {
+    background-color: var(--home-code-diff-added-word);
+  }
+
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}

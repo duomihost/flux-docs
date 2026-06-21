@@ -44,7 +44,14 @@ const config: Config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          // React Native theme is ported as Sass (see src/css/*.scss).
+          // _shared.scss is a Sass partial consumed via `@use "shared"`, so it
+          // is intentionally not listed here.
+          customCss: [
+            './src/css/react-native-theme.scss',
+            './src/css/react-native-components.scss',
+            './src/css/custom.css',
+          ],
         },
         sitemap: {
           changefreq: 'weekly',
@@ -55,6 +62,7 @@ const config: Config = {
   ],
 
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@easyops-cn/docusaurus-search-local',
       {
@@ -162,6 +170,25 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      // Enable RN-style code diffing via magic comments. The line classes are
+      // styled in src/css/react-native-components.scss.
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: {start: 'highlight-start', end: 'highlight-end'},
+        },
+        {
+          className: 'code-add-line',
+          line: 'added-line',
+          block: {start: 'added-start', end: 'added-end'},
+        },
+        {
+          className: 'code-remove-line',
+          line: 'removed-line',
+          block: {start: 'removed-start', end: 'removed-end'},
+        },
+      ],
     },
   } satisfies Preset.ThemeConfig,
 };
