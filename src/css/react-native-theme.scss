@@ -783,7 +783,12 @@ a[class*="tagRegular"] {
     }
 
     &.dropdown:not(.dropdown--right) {
-      a {
+      > .navbar__link {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .dropdown__menu a {
         font-weight: 400;
         font-size: 14px;
       }
