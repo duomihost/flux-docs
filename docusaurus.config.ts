@@ -68,6 +68,8 @@ const config: Config = {
 
   themeConfig: {
     colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     announcementBar: {
@@ -79,24 +81,41 @@ const config: Config = {
     },
     navbar: {
       title: 'Flux',
+      style: 'dark',
       logo: {
         alt: 'Flux Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docs',
+          label: '1.0',
           position: 'left',
-          label: '文档',
+          type: 'dropdown',
+          items: [
+            {label: '当前版本', to: '/docs/'},
+            {label: '更新日志', to: '/docs/changelog'},
+          ],
         },
-        {to: '/docs/installation/windows', label: '安装', position: 'left'},
-        {to: '/docs/subscription/overview', label: '订阅', position: 'left'},
-        {to: '/docs/api/overview', label: 'API', position: 'left'},
-        {to: '/blog', label: '更新日志', position: 'left'},
+        {
+          label: '文档',
+          type: 'dropdown',
+          position: 'right',
+          items: [
+            {label: '快速开始', to: '/docs/getting-started/overview'},
+            {label: '安装教程', to: '/docs/installation/windows'},
+            {label: '订阅教程', to: '/docs/subscription/overview'},
+            {label: '节点与线路', to: '/docs/nodes/overview'},
+            {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
+          ],
+        },
+        {to: '/docs/installation/windows', label: '安装', position: 'right'},
+        {to: '/docs/subscription/overview', label: '订阅', position: 'right'},
+        {to: '/docs/api/overview', label: 'API', position: 'right'},
+        {to: '/blog', label: '更新日志', position: 'right'},
         {
           href: 'https://github.com/duomihost/flux',
-          label: 'GitHub',
+          'aria-label': 'GitHub repository',
+          className: 'navbar-github-link',
           position: 'right',
         },
         {
