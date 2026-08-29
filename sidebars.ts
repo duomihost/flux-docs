@@ -70,6 +70,15 @@ const sidebars: SidebarsConfig = {
         'troubleshooting/slow-speed',
       ],
     },
+    {
+      type: 'category',
+      label: '服务与支持',
+      items: [
+        'support/tiktok',
+        'support/contact',
+        'support/terms',
+      ],
+    },
   ],
 };
 

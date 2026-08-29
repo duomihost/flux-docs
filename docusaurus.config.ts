@@ -139,6 +139,8 @@ const config: Config = {
           items: [
             {label: '订阅管理', to: '/docs/subscription/overview'},
             {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
+            {label: '联系我们', to: '/docs/support/contact'},
+            {label: '服务条款', to: '/docs/support/terms'},
           ],
         },
         {
