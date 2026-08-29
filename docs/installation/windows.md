@@ -30,9 +30,7 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 
 如果 Windows 显示“已保护你的电脑”，请先确认文件来自上面的官方下载目录，再点击“更多信息 → 仍要运行”。
 
-使用备用下载目录时，将鼠标移到 Windows 安装包上，点击出现的下载按钮：
-
-![从下载目录获取 Windows 安装包](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-8b586180e118c86be20cc78b000f571d0904727b%2F512122639.png?alt=media)
+使用备用下载目录时，将鼠标移到 Windows 安装包上，点击出现的下载按钮。
 
 如果浏览器提示“此文件通常不会下载”，请先确认网址是 Paxora 官方下载地址，再选择保留文件。
 
@@ -46,11 +44,7 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 2. 点击“登录”。
 3. 等待客户端同步套餐和节点。
 
-![Paxora Windows 登录界面](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-5f79276bdb225fcc41926bdaaed9cf48d011cef8%2F1-%E9%A6%96%E9%A1%B5.png?alt=media)
-
-登录成功后，点击首页的“切换”进入节点列表：
-
-![登录后点击切换节点](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-18e196c4578feb4807604c5798faad6b9b42bd0c%2F2-%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9.png?alt=media)
+登录成功后，点击首页的“切换”进入节点列表。
 
 ## 选择并连接节点
 
@@ -59,10 +53,6 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 3. 选中一个延迟较低的节点。
 4. 返回首页，点击“连接”。
 5. 等待客户端显示连接成功。
-
-![在 Paxora Windows 中选择节点](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-0f2871ecc0951ad08d9adabd58ef739b481f1e5f%2F3-%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9.png?alt=media)
-
-![点击连接并等待成功](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-37a90a40232a94887ebfeb268867f4b8d0fcfa2a%2F4-%E7%82%B9%E8%A7%A3%E8%BF%9E%E6%8E%A5.png?alt=media)
 
 连接成功后打开浏览器测试网络。不再使用时返回 Paxora 点击“断开连接”，再退出客户端。
 
