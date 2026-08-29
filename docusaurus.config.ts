@@ -85,13 +85,6 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-    announcementBar: {
-      id: 'paxora-docs-preview',
-      content: 'Paxora 文档正在整理中，请优先使用官方客户端并从官方渠道下载。',
-      backgroundColor: '#20232a',
-      textColor: '#f8fafc',
-      isCloseable: false,
-    },
     navbar: {
       title: 'Paxora',
       style: 'dark',
