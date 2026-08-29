@@ -1,9 +1,9 @@
 ---
-title: Linux 安装 Flux
-description: Linux 平台 Flux 客户端安装说明。
+title: Linux 安装 Paxora
+description: Linux 平台 Paxora 客户端安装说明。
 ---
 
-# Linux 安装 Flux
+# Linux 安装 Paxora
 
 Linux 客户端文档正在整理中。
 

@@ -18,37 +18,30 @@ const platforms: Platform[] = [
     badge: 'Windows',
     description: '适用于 Windows 10 / 11，推荐桌面用户优先下载。',
     href: '/docs/installation/windows',
-    meta: '64-bit 安装指南',
-    name: 'Flux for Windows',
+    meta: 'Paxora 官方客户端',
+    name: 'Paxora for Windows',
     primary: true,
   },
   {
     badge: 'macOS',
-    description: '支持 Apple Silicon 与 Intel Mac，适合日常代理和订阅管理。',
+    description: '支持 Apple Silicon 与 Intel Mac，查看安装与首次连接步骤。',
     href: '/docs/installation/macos',
-    meta: 'DMG 安装指南',
-    name: 'Flux for macOS',
+    meta: 'Paxora 官方客户端',
+    name: 'Paxora for macOS',
   },
   {
     badge: 'Android',
-    description: '在 Android 手机、平板和 TV 设备上导入订阅并快速连接。',
+    description: '在 Android 手机和平板上登录账号、同步节点并快速连接。',
     href: '/docs/installation/android',
-    meta: 'APK 安装指南',
-    name: 'Flux for Android',
+    meta: 'Paxora 官方客户端',
+    name: 'Paxora for Android',
   },
   {
     badge: 'iOS',
-    description: '面向 iPhone 与 iPad 用户，查看 App Store/TestFlight 安装说明。',
+    description: 'Paxora 暂无 iOS 客户端，请使用 Shadowrocket。',
     href: '/docs/installation/ios',
-    meta: '移动端安装指南',
-    name: 'Flux for iOS',
-  },
-  {
-    badge: 'Linux',
-    description: '用于桌面 Linux 或服务器环境，适合高级网络与 IDC 场景。',
-    href: '/docs/installation/linux',
-    meta: '命令行安装指南',
-    name: 'Flux for Linux',
+    meta: '第三方客户端',
+    name: 'iPhone / iPad',
   },
 ];
 
@@ -59,9 +52,9 @@ const guideLinks = [
     to: '/docs/getting-started/first-connection',
   },
   {
-    title: '导入订阅',
-    description: '添加订阅链接、更新节点列表并保护订阅地址。',
-    to: '/docs/subscription/import-subscription',
+    title: 'iPhone / iPad',
+    description: '使用 Shadowrocket 导入 Paxora 订阅。',
+    to: '/docs/installation/ios',
   },
   {
     title: '无法连接',
@@ -75,8 +68,8 @@ export default function Home(): ReactNode {
 
   return (
     <Layout
-      title="Flux 下载"
-      description="下载 Flux VPN 客户端，查看 Windows、macOS、Android、iOS 和 Linux 安装指南。">
+      title="Paxora 下载"
+      description="下载 Paxora 客户端，查看 Windows、macOS、Android 和 Apple 移动端使用教程。">
       <main className={styles.homepage}>
         <section className={styles.hero}>
           <div className={styles.heroGrid} aria-hidden="true" />
@@ -84,13 +77,13 @@ export default function Home(): ReactNode {
             <div className={styles.heroLayout}>
               <div className={styles.heroContent}>
                 <img className={styles.logo} src="/img/logo.svg" alt="" />
-                <span className={styles.eyebrow}>Flux Download Center</span>
+                <span className={styles.eyebrow}>Paxora Download Center</span>
                 <Heading as="h1" className={styles.title}>
-                  下载 Flux 客户端
+                  下载 Paxora
                 </Heading>
                 <p className={styles.subtitle}>
-                  为 Windows、macOS、Android、iOS 和 Linux 设备准备的安装入口。
-                  选择你的平台，查看官方安装步骤并安全导入订阅。
+                  Windows、macOS 和 Android 优先使用 Paxora 官方客户端。
+                  iPhone 与 iPad 暂时使用经过说明的第三方客户端。
                 </p>
                 <div className={styles.actions}>
                   <Link
@@ -105,9 +98,9 @@ export default function Home(): ReactNode {
                   </Link>
                 </div>
                 <div className={styles.releaseMeta} aria-label="版本信息">
-                  <span>当前文档版本 1.0</span>
-                  <span>最后更新 2026-06-21</span>
-                  <span>官方渠道优先</span>
+                  <span>Paxora 官方客户端优先</span>
+                  <span>Apple 移动端使用第三方客户端</span>
+                  <span>请保护个人订阅地址</span>
                 </div>
               </div>
 

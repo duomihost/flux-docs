@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Flux Docs',
-  tagline: 'Flux VPN and IDC service documentation',
+  title: 'Paxora Docs',
+  tagline: 'Paxora 客户端下载与使用文档',
   favicon: 'img/logo.svg',
   customFields: {
     crispWebsiteId: process.env.CRISP_WEBSITE_ID ?? null,
@@ -26,7 +26,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans', 'en'],
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -35,20 +35,19 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/duomihost/flux-docs/tree/main/',
-          showLastUpdateTime: true,
+          exclude: [
+            'api/**',
+            'changelog/**',
+            'faq/**',
+            'legal/**',
+            'nodes/**',
+            'getting-started/account.md',
+            'installation/linux.md',
+            'subscription/subscription-expired.md',
+            'troubleshooting/login-failed.md',
+          ],
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl: 'https://github.com/duomihost/flux-docs/tree/main/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           // React Native theme is ported as Sass (see src/css/*.scss).
           // _shared.scss is a Sass partial consumed via `@use "shared"`, so it
@@ -73,9 +72,9 @@ const config: Config = {
       '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
-        language: ['en', 'zh'],
+        language: ['zh'],
         indexDocs: true,
-        indexBlog: true,
+        indexBlog: false,
       },
     ],
   ],
@@ -87,55 +86,35 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'initial-docs',
-      content: 'Flux 文档站正在搭建中，第一版将优先覆盖安装、订阅、节点和故障排查。',
+      id: 'paxora-docs-preview',
+      content: 'Paxora 文档正在整理中，请优先使用官方客户端并从官方渠道下载。',
       backgroundColor: '#20232a',
       textColor: '#f8fafc',
       isCloseable: false,
     },
     navbar: {
-      title: 'Flux',
+      title: 'Paxora',
       style: 'dark',
       logo: {
-        alt: 'Flux Logo',
+        alt: 'Paxora Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {
-          label: '1.0',
-          position: 'left',
-          type: 'dropdown',
-          items: [
-            {label: '当前版本', to: '/docs/'},
-            {label: '更新日志', to: '/docs/changelog'},
-          ],
-        },
         {
           label: '文档',
           type: 'dropdown',
           position: 'right',
           items: [
             {label: '快速开始', to: '/docs/getting-started/overview'},
-            {label: '安装教程', to: '/docs/installation/windows'},
-            {label: '订阅教程', to: '/docs/subscription/overview'},
-            {label: '节点与线路', to: '/docs/nodes/overview'},
+            {label: 'Paxora 客户端', to: '/docs/installation/windows'},
+            {label: 'Apple 移动端', to: '/docs/installation/ios'},
+            {label: '第三方客户端', to: '/docs/third-party/windows-clash-verge'},
             {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
           ],
         },
-        {to: '/docs/installation/windows', label: '安装', position: 'right'},
-        {to: '/docs/subscription/overview', label: '订阅', position: 'right'},
-        {to: '/docs/api/overview', label: 'API', position: 'right'},
-        {to: '/blog', label: '更新日志', position: 'right'},
-        {
-          href: 'https://github.com/duomihost/flux',
-          'aria-label': 'GitHub repository',
-          className: 'navbar-github-link',
-          position: 'right',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
+        {to: '/docs/getting-started/download', label: '下载', position: 'right'},
+        {to: '/docs/installation/windows', label: 'Paxora 教程', position: 'right'},
+        {to: '/docs/installation/ios', label: '第三方教程', position: 'right'},
       ],
     },
     docs: {
@@ -152,26 +131,26 @@ const config: Config = {
           items: [
             {label: '快速开始', to: '/docs/getting-started/overview'},
             {label: '下载客户端', to: '/docs/getting-started/download'},
-            {label: '安装教程', to: '/docs/installation/windows'},
+            {label: 'Paxora 教程', to: '/docs/installation/windows'},
           ],
         },
         {
           title: '支持',
           items: [
-            {label: 'FAQ', to: '/docs/faq/account'},
+            {label: '订阅管理', to: '/docs/subscription/overview'},
             {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
-            {label: '更新日志', to: '/docs/changelog'},
           ],
         },
         {
-          title: '开发者',
+          title: '第三方客户端',
           items: [
-            {label: 'API 文档', to: '/docs/api/overview'},
-            {label: 'GitHub', href: 'https://github.com/duomihost/flux'},
+            {label: 'iPhone / iPad', to: '/docs/installation/ios'},
+            {label: 'Clash Verge', to: '/docs/third-party/windows-clash-verge'},
+            {label: '路由器', to: '/docs/third-party/router-openwrt-merlin'},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Flux.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Paxora.`,
     },
     prism: {
       theme: prismThemes.github,
