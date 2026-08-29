@@ -76,7 +76,7 @@ export default function Home(): ReactNode {
           <div className="container">
             <div className={styles.heroLayout}>
               <div className={styles.heroContent}>
-                <img className={styles.logo} src="/img/logo.svg" alt="" />
+                <img className={styles.logo} src="/img/logo.png" alt="" />
                 <span className={styles.eyebrow}>Paxora Download Center</span>
                 <Heading as="h1" className={styles.title}>
                   下载 Paxora

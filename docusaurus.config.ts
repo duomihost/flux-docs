@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Paxora Docs',
   tagline: 'Paxora 客户端下载与使用文档',
-  favicon: 'img/logo.svg',
+  favicon: 'img/logo.png',
   customFields: {
     crispWebsiteId: process.env.CRISP_WEBSITE_ID ?? null,
     posthogProjectApiKey: process.env.POSTHOG_PROJECT_API_KEY ?? null,
@@ -97,7 +97,7 @@ const config: Config = {
       style: 'dark',
       logo: {
         alt: 'Paxora Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
