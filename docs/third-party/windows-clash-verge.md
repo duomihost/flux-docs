@@ -86,6 +86,9 @@ description: 在 Windows 上安装 Clash Verge Rev，导入 Paxora 订阅、选�
 
 不再使用时，应先关闭“系统代理”，再退出 Clash Verge Rev。不要同时运行 Paxora 或其他代理/VPN 客户端。
 
+<details>
+<summary>以后如何更新或重新导入订阅</summary>
+
 ## 七、更新订阅
 
 节点变化或套餐更新后，可以手动刷新配置。
@@ -118,6 +121,11 @@ description: 在 Windows 上安装 Clash Verge Rev，导入 Paxora 订阅、选�
 
 ![删除旧订阅并重新导入](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FJpC1EXT7KFVMHuRMu81Q%2Fimage.png?alt=media&token=07d8e2f5-2e99-49aa-8410-0c3125412034)
 
+</details>
+
+<details>
+<summary>可选：全局模式</summary>
+
 ## 九、规则模式与全局模式
 
 日常使用建议保持“规则”模式。只有明确需要全部流量经过所选节点时，再切换到“全局”模式：
@@ -130,6 +138,8 @@ description: 在 Windows 上安装 Clash Verge Rev，导入 Paxora 订阅、选�
 ![在 Clash Verge 中选择全局模式](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2F10xrkUbXg7Q0NQbdKquM%2Fimage.png?alt=media&token=116f898f-e1d6-4cf7-8407-87d6943445da)
 
 切换后如果国内网站变慢或访问异常，请改回“规则”模式并重新连接。
+
+</details>
 
 ## 常见问题
 

@@ -100,6 +100,9 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 
 打开浏览器访问网页测试网络。不再使用时，返回 Shadowrocket 关闭连接开关。
 
+<details>
+<summary>以后如何更新或重新导入订阅</summary>
+
 ## 八、更新订阅
 
 节点失效或套餐更新后，可以刷新订阅：
@@ -126,6 +129,8 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 
 3. 回到用户中心重新复制订阅地址。
 4. 按照“手动导入订阅”重新添加。
+
+</details>
 
 ## 常见问题
 

@@ -13,6 +13,12 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 看到 Paxora 显示连接成功，或手机状态栏出现 VPN 标志后，再打开浏览器测试网页。
 
+## 下载地址
+
+- **[Android 主下载](https://vault.paxoras.com/index.php/s/3nSzKWyjqDiP7WR/download)**
+- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
+- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
+
 ## 使用要求
 
 - Android 9 或更高版本
@@ -20,11 +26,10 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 ## 下载与安装
 
-1. 打开 [Paxora 官方下载目录](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)。
-2. 下载 Android 的 `.apk` 安装包。
-3. 打开下载的文件并确认安装。
-4. 如果系统阻止安装，按照提示允许浏览器或文件管理器“安装未知应用”。
-5. 安装完成后立即关闭该授权。
+1. 点击上方“Android 主下载”获取 `.apk` 安装包。主下载无法打开时，再使用备用下载目录选择 Android 安装包。
+2. 打开下载的文件并确认安装。
+3. 如果系统阻止安装，按照提示允许浏览器或文件管理器“安装未知应用”。
+4. 安装完成后立即关闭该授权。
 
 :::warning
 不同品牌手机的菜单名称可能不同。只对本次使用的官方安装包授权，不要长期开放未知应用安装权限。
@@ -36,7 +41,7 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 ![Paxora Android 登录界面](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-480ffbab9721f39f50e7c1cc5f5a73accf10733f%2F888.jpg?alt=media)
 
-第一次登录时，客户端会拉取账号和节点信息。等待期间不要连续点击连接按钮：
+登录后会自动加载账号和节点。加载期间不要连续点击连接按钮：
 
 ![第一次登录正在同步节点](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-bb0eda5a192013a6b00809ba21771fbade3eeb28%2F777.jpg?alt=media)
 
@@ -56,7 +61,7 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 4. 首次连接时，系统会请求创建 VPN 连接，请选择“允许”。
 5. 等待 Paxora 显示连接成功。
 
-先打开节点列表，再按需要选择地区和节点。图片中的节点仅用于演示：
+打开节点列表，再按需要选择地区和节点。图片中的节点仅用于演示：
 
 ![打开 Paxora Android 节点列表](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-d2c5e2f5e1c1b5471f9d629903905b39983b0df1%2F555%20%281%29.jpg?alt=media)
 

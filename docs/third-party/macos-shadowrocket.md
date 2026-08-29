@@ -5,6 +5,12 @@ description: 在 Apple 芯片 Mac 上安装 Shadowrocket，导入 Paxora 订阅�
 
 # Apple 芯片 Mac 使用 Shadowrocket
 
+## 先看完整流程
+
+**从 Mac App Store 安装 Shadowrocket → 复制 Paxora 订阅 → 导入订阅 → 选择节点 → 点击连接。**
+
+本教程只适用于 Apple 芯片 Mac；Intel Mac 请使用 Paxora 官方客户端或 Clash Verge Rev。
+
 本教程仅适用于 Apple Silicon 芯片的 Mac，例如 M1、M2、M3、M4 系列。Intel Mac 无法按照本教程运行 iPhone/iPad 版 Shadowrocket，请改用 [Paxora macOS 官方客户端](../installation/macos.md) 或 [Clash Verge Rev](./macos-clash-verge.md)。
 
 ## 一、确认 Mac 芯片

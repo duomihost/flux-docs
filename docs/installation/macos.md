@@ -5,13 +5,17 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 # macOS 安装与使用 Paxora
 
-本教程适用于第一次在 Mac 上使用 Paxora 的用户。完成下面的步骤后，你就可以选择节点并建立连接。
-
 ## 先看完整流程
 
 **确认芯片类型 → 下载对应的 `.dmg` → 拖入应用程序 → 登录 → 选择节点 → 快速连接。**
 
 看到 Paxora 显示“已连接”后，再打开浏览器测试网页。第一次使用不需要修改代理模式，保持默认设置即可。
+
+## 下载地址
+
+- **[macOS 主下载](https://vault.paxoras.com/index.php/s/LXYQXs85jxxcn58/download)**
+- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
+- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 ## 使用要求
 
@@ -21,7 +25,7 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ## 第一步：下载客户端
 
-打开 [Paxora 官方下载目录](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)，进入 macOS 文件夹并下载 `.dmg` 安装包。
+点击上方“macOS 主下载”获取 `.dmg` 安装包。主下载无法打开时，再使用备用下载目录进入 macOS 文件夹选择对应版本。
 
 下载前，请先确认 Mac 的芯片类型：
 
@@ -32,9 +36,7 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ![在关于本机中确认 Mac 芯片类型](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-87cad6c8c0b120ff1d81511537fe25f031e6aa6a%2Fm1.png?alt=media)
 
-如果主下载目录暂时无法访问，可以使用 [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)。
-
-![在官方下载目录中选择 macOS 安装包](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2F3RTcy8YtWYc1ycdazlBt%2Fimage.png?alt=media&token=574fa4bf-63f6-4e9b-ab44-f0fc02a5d6e1)
+![在备用下载目录中选择 macOS 安装包](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2F3RTcy8YtWYc1ycdazlBt%2Fimage.png?alt=media&token=574fa4bf-63f6-4e9b-ab44-f0fc02a5d6e1)
 
 :::warning
 请只使用以上官方目录，不要安装聊天群或其他网站转发的未知文件。
@@ -49,7 +51,7 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ### macOS 提示无法打开怎么办？
 
-Apple 使用 **Gatekeeper（安全验证机制）** 检查从互联网下载的应用。首次启动时，macOS 可能因开发者签名或公证状态阻止 Paxora 打开。这是系统的安全保护，不代表客户端发生故障。
+macOS 的 **Gatekeeper（安全验证机制）** 可能会阻止首次启动。这是系统安全提示，不代表 Paxora 损坏。
 
 确认安装包来自官方渠道后，前往：
 
@@ -69,8 +71,6 @@ Apple 使用 **Gatekeeper（安全验证机制）** 检查从互联网下载的�
 2. 输入密码或邮箱验证码。
 3. 点击“登录”。
 4. 等待客户端加载套餐和节点信息。
-
-登录完成后，首页右侧会显示当前套餐、流量使用情况和已选择的节点。
 
 ## 第四步：选择节点
 
@@ -93,8 +93,6 @@ Apple 使用 **Gatekeeper（安全验证机制）** 检查从互联网下载的�
 2. 首次连接时，macOS 可能要求授权网络或代理配置，请按照系统提示完成授权。
 3. 等待页面状态变为“已连接”。
 4. 打开浏览器访问网页，确认网络可以正常使用。
-
-连接期间请不要退出 Paxora。
 
 ## 断开连接
 
@@ -121,7 +119,3 @@ Apple 使用 **Gatekeeper（安全验证机制）** 检查从互联网下载的�
 5. 重启 Mac 后再次尝试。
 
 如果仍然无法连接，请向客服提供 macOS 版本、Paxora 版本和页面显示的错误信息。
-
-## 关于代理模式
-
-Paxora 首页下方提供“规则转发/代理模式”等高级选项。第一次使用时无需修改，保持默认设置即可。

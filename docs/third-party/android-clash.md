@@ -104,6 +104,9 @@ Paxora Android 官方客户端可以直接登录并同步节点，普通用户�
 
 返回首页确认客户端仍显示运行中，然后打开浏览器测试网络。
 
+<details>
+<summary>以后如何更新或重新导入订阅</summary>
+
 ## 七、更新订阅
 
 1. 先返回首页停止 Clash，确保处于未连接状态。
@@ -129,6 +132,11 @@ Paxora Android 官方客户端可以直接登录并同步节点，普通用户�
 3. 回到用户中心重新复制订阅地址。
 4. 按照“手动导入订阅”重新添加。
 
+</details>
+
+<details>
+<summary>可选：全局模式</summary>
+
 ## 九、规则模式与全局模式
 
 日常建议使用“规则”模式。如果确实需要全局模式：
@@ -150,6 +158,8 @@ Paxora Android 官方客户端可以直接登录并同步节点，普通用户�
 ![返回首页确认全局模式已连接](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FRQlrbtRxu5ge5AOA3wfI%2F%7B2A8DECBC-3F34-41E7-AB8E-DF49D3017464%7D.png?alt=media&token=400737e6-9974-40a2-a9b6-7ede4d4d18bd)
 
 访问变慢或异常时，请改回规则模式。
+
+</details>
 
 ## 常见问题
 

@@ -74,6 +74,9 @@ description: 在 macOS 上安装 Clash Verge Rev，导入 Paxora 订阅并管理
 
 结束使用时先关闭系统代理，再退出客户端。不要同时打开 Paxora、ClashX 或其他代理/VPN 软件。
 
+<details>
+<summary>以后如何更新或重新导入订阅</summary>
+
 ## 六、更新订阅
 
 1. 先进入“设置”，关闭系统代理。
@@ -107,8 +110,15 @@ description: 在 macOS 上安装 Clash Verge Rev，导入 Paxora 订阅并管理
 
 ![重新导入 Paxora 订阅](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FWcDWpAo4lXah3smvJV2N%2Fimage.png?alt=media&token=d4ffc86b-f8ed-4327-a6bf-df23186c144c)
 
+</details>
+
+<details>
+<summary>可选：全局模式</summary>
+
 ## 八、规则模式与全局模式
 
 日常建议保持“规则”模式。只有明确需要全部流量经过所选节点时，再在“代理”页面选择 **Global（全局）**，重新选择节点并开启系统代理。
 
 如果切换后访问变慢或异常，请改回规则模式并重新连接。
+
+</details>

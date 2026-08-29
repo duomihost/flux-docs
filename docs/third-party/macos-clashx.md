@@ -7,6 +7,12 @@ description: 在 macOS 上安装 ClashX，导入 Paxora 订阅并完成系统代
 
 ClashX 是旧版第三方客户端。本页完整保留旧教程流程，方便已有用户继续使用；新用户建议优先选择 Paxora macOS 官方客户端或 Clash Verge Rev。
 
+## 先看完整流程
+
+**安装 ClashX → 复制 Paxora 订阅 → 添加托管配置 → 选择节点 → 设为系统代理。**
+
+看到菜单栏中的 ClashX 图标变为运行状态后，打开浏览器测试网页。
+
 ## 一、安装 ClashX
 
 1. 从 ClashX 开发者的可信发布渠道下载安装包。
