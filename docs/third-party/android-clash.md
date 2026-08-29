@@ -5,6 +5,12 @@ description: 在 Android 或兼容 Android 应用的设备上导入 Paxora 订�
 
 # Android 使用 Clash
 
+## 先看完整流程
+
+**安装 Clash → 复制 Paxora 订阅 → 导入配置 → 启动连接 → 允许 VPN 请求 → 选择节点。**
+
+看到客户端显示运行中，且手机状态栏出现 VPN 标志后，说明连接已经建立。
+
 Paxora Android 官方客户端可以直接登录并同步节点，普通用户建议优先使用。旧版 Clash for Android 已停止维护；本页保留旧教程的完整操作流程，适用于界面相同或相近的兼容客户端。
 
 ## 一、使用前准备

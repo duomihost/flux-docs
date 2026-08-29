@@ -7,6 +7,12 @@ description: 在 Windows 上安装 Clash Verge Rev，导入 Paxora 订阅、选�
 
 本教程适用于 Windows 10 和 Windows 11。Paxora 官方客户端可以直接登录并同步节点；只有确实需要第三方客户端时，才需要手动导入订阅。
 
+## 先看完整流程
+
+**安装 Clash Verge Rev → 复制 Paxora 订阅 → 导入订阅 → 选择节点 → 开启系统代理。**
+
+只导入订阅还不能上网，最后必须开启“系统代理”。不用时先关闭系统代理，再退出软件。
+
 ## 一、下载安装
 
 1. 打开 [Clash Verge Rev 官方 GitHub 发布页](https://github.com/clash-verge-rev/clash-verge-rev/releases)。

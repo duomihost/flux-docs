@@ -7,6 +7,12 @@ description: 在 iPhone 或 iPad 上安装 Shadowrocket，导入 Paxora 订阅�
 
 Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建议使用 iOS 12 或更高版本。应用价格、上架地区和版本变化以 App Store 为准。
 
+## 先看完整流程
+
+**安装 Shadowrocket → 复制 Paxora 订阅 → 添加 Subscribe → 选择节点 → 打开连接开关 → 允许 VPN 配置。**
+
+连接成功时，Shadowrocket 的开关会点亮，状态栏也会出现 VPN 标志。
+
 ## 一、安装前准备
 
 开始前请确认：

@@ -7,6 +7,8 @@ description: 在 iPhone 或 iPad 上选择第三方客户端并导入 Paxora 订
 
 Paxora 暂未提供 iPhone 或 iPad 官方客户端。Apple 移动设备需要使用兼容的第三方客户端。
 
+简单来说，你需要先安装 Shadowrocket，再从 Paxora 用户中心复制自己的订阅并导入。iPhone 和 iPad 不安装 Paxora 安装包。
+
 ## 推荐客户端：Shadowrocket
 
 付费 App Store 客户端，功能成熟，适合希望使用常见订阅方式的用户。

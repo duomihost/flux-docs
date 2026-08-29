@@ -7,6 +7,12 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 本教程适用于 Android 和兼容 Android 应用的 HarmonyOS 手机、平板。
 
+## 先看完整流程
+
+**下载 APK → 允许本次安装 → 登录 → 等待节点加载 → 选择节点 → 允许 VPN 请求。**
+
+看到 Paxora 显示连接成功，或手机状态栏出现 VPN 标志后，再打开浏览器测试网页。
+
 ## 使用要求
 
 - Android 9 或更高版本

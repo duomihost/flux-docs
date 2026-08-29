@@ -5,6 +5,12 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 
 # Windows 安装与使用 Paxora
 
+## 先看完整流程
+
+**下载 Paxora → 安装并登录 → 选择节点 → 点击连接。**
+
+连接成功后，Paxora 会显示已连接状态。此时打开浏览器测试网页即可；不用时请先在 Paxora 中断开连接。
+
 ## 使用要求
 
 - Windows 10 或 Windows 11
@@ -16,6 +22,8 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 2. 下载 Windows 的 `.exe` 安装包。
 3. 双击安装包，按照向导完成安装。
 4. 安装完成后启动 Paxora。
+
+如果 Windows 显示“已保护你的电脑”，请先确认文件来自上面的官方下载目录，再点击“更多信息 → 仍要运行”。
 
 下载目录中，将鼠标移到 Windows 安装包上，点击出现的下载按钮：
 

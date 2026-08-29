@@ -5,6 +5,12 @@ description: 在 macOS 上安装 Clash Verge Rev，导入 Paxora 订阅并管理
 
 # macOS 使用 Clash Verge Rev
 
+## 先看完整流程
+
+**安装 Clash Verge Rev → 复制 Paxora 订阅 → 导入订阅 → 选择节点 → 开启系统代理。**
+
+导入成功只代表节点已经进入客户端；还要选择节点并开启“系统代理”，浏览器才能通过该节点访问网络。
+
 普通用户建议优先使用 Paxora macOS 官方客户端。本页适合需要在 Mac 上使用 Clash Verge Rev 的用户。
 
 ## 一、确认芯片并下载
