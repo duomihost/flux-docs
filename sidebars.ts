@@ -72,22 +72,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '公告日志',
-      items: ['announcements/2026', 'announcements/2025'],
-    },
-    {
-      type: 'category',
-      label: '更新日志',
-      items: [
-        'changelog/windows',
-        'changelog/macos',
-        'changelog/android',
-        'changelog/ios',
-        'changelog/index',
-      ],
-    },
-    {
-      type: 'category',
       label: '服务与支持',
       items: [
         'support/tiktok',
@@ -95,6 +79,14 @@ const sidebars: SidebarsConfig = {
         'support/terms',
       ],
     },
+  ],
+  announcements: ['announcements/2026', 'announcements/2025'],
+  changelog: [
+    'changelog/index',
+    'changelog/windows',
+    'changelog/macos',
+    'changelog/android',
+    'changelog/ios',
   ],
 };
 

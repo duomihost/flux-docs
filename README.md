@@ -94,6 +94,9 @@ When this value is not configured, the Crisp script is not loaded.
 
 ## 公告与更新日志（客户端同步）
 
+顶部菜单提供独立的「公告日志」（按年份）和「更新日志」（总览与各平台）入口。
+两者各使用独立侧栏，不混入教程侧栏。
+
 公告 `docs/announcements/<年份>.md` 每年一篇；更新日志 `docs/changelog/index.md` 全平台
 一篇，每条以**发布日期**为标题（`## 2026.0904`；版本号最后一段按平台各自计数，同一天各平台
 尾号不同，客户端比对只看前两段）。每条里用三级标题按平台分小节：
