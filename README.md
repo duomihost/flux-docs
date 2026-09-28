@@ -94,6 +94,8 @@ When this value is not configured, the Crisp script is not loaded.
 
 ## 公告与更新日志（客户端同步）
 
+写作约定与清单字段的完整约定见 [FEED_CONTRACT.md](./FEED_CONTRACT.md)（两仓共用，改格式先改它）。
+
 顶部菜单提供独立的「公告日志」（按年份）和「更新日志」（总览与各平台）入口。
 两者各使用独立侧栏，不混入教程侧栏。
 
