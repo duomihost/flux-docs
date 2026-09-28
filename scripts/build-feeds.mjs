@@ -1,6 +1,8 @@
 // 站点构建后，把「公告日志」与「更新日志」的年份文章转成客户端可直接消费的产物：
 //   build/<feed>/<part>.html   正文 HTML 片段（无站点导航与样式，客户端用富文本组件渲染）
-//   build/<feed>/index.json    分片清单 + 每条条目的标识、标题、发布/最后更新日期、封面图
+//   build/<feed>/index.json    分片清单 + 每条条目的标识、标题、发布/最后更新日期、封面图、
+//                              正文 HTML（客户端只拉这一个文件就能显示近期公告与最新版本，
+//                              历史内容跳转文档站网页）
 //
 // 公告按年份分片（docs/announcements/<year>.md）；更新日志全平台一篇
 // （docs/changelog/index.md，版本号各平台统一，不按年份、不按平台拆分）。
@@ -20,8 +22,8 @@ import {marked} from 'marked';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const buildDir = path.join(root, 'build');
 const FEEDS = [
-  {name: 'announcements', source: 'docs/announcements', parts: 'years'},
-  {name: 'changelog', source: 'docs/changelog', parts: 'single'},
+  {name: 'announcements', source: 'docs/announcements', parts: 'years', page: '/docs/announcements/'},
+  {name: 'changelog', source: 'docs/changelog', parts: 'single', page: '/docs/changelog'},
 ];
 const IMAGE_RE = /!\[[^\]]*\]\(([^)\s]+)[^)]*\)/;
 const DATE_RE = /\b(20\d{2})[.\-/](\d{2})[.\-/](\d{2})\b/g;
@@ -56,7 +58,16 @@ function firstImage(text) {
   return m ? m[1] : null;
 }
 
-function parseEntries(part, body, fallbackDate) {
+// 与 Docusaurus 默认标题锚点一致：小写、空白转连字符、去掉标点。
+function slugify(title) {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[\s]+/g, '-')
+    .replace(/[^\p{L}\p{N}-]/gu, '');
+}
+
+function parseEntries(part, body, fallbackDate, pageUrl) {
   const entries = [];
   const lines = body.split(/\r?\n/);
   let current = null;
@@ -80,6 +91,8 @@ function parseEntries(part, body, fallbackDate) {
       published: dates[0] ?? fallbackDate,
       updated: dates[dates.length - 1] ?? fallbackDate,
       ...(image ? {image} : {}),
+      url: `${pageUrl}#${slugify(entry.title)}`,
+      html: marked.parse(text.trim(), {gfm: true}),
     };
   });
 }
@@ -107,10 +120,12 @@ for (const feed of FEEDS) {
     const html = marked.parse(body, {gfm: true});
     writeFileSync(path.join(outDir, `${part}.html`), html);
     const fallbackDate = /^\d{4}$/.test(part) ? `${part}-01-01` : '1970-01-01';
+    const pageUrl = feed.parts === 'years' ? `${feed.page}${part}` : feed.page;
     index.parts.push({
       ...(feed.parts === 'years' ? {year: Number(part)} : {}),
+      page: pageUrl,
       html: `${feed.name}/${part}.html`,
-      entries: parseEntries(part, body, fallbackDate),
+      entries: parseEntries(part, body, fallbackDate, pageUrl),
     });
   }
   const all = index.parts.flatMap((p) => p.entries);
