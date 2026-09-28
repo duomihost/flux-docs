@@ -78,7 +78,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '更新日志',
-      items: ['changelog/index'],
+      items: [
+        'changelog/windows',
+        'changelog/macos',
+        'changelog/android',
+        'changelog/ios',
+        'changelog/index',
+      ],
     },
     {
       type: 'category',

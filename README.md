@@ -95,7 +95,10 @@ When this value is not configured, the Crisp script is not loaded.
 ## 公告与更新日志（客户端同步）
 
 公告 `docs/announcements/<年份>.md` 每年一篇；更新日志 `docs/changelog/index.md` 全平台
-一篇（版本号各平台统一，不按年份、不按平台拆分，只影响单一平台的改动在条目里注明）。
+一篇（版本号各平台统一，不按年份拆分）。每个版本里用三级标题按平台分小节：
+`### 全平台` / `### Windows` / `### macOS` / `### Android` / `### iOS`，某平台这版没改动
+就不写。构建前 `scripts/build-changelog-pages.mjs` 从它生成四个平台页面
+（`docs/changelog/{windows,macos,android,ios}.md`，不入库），每页只含该平台 + 全平台小节。
 每个二级标题（`## `）是一条公告 / 一个版本，正文里的日期（如 `2026.08.28`）会被自动识别，
 条目里的第一张图片会作为封面图写入清单，供客户端做卡片式展示。
 `npm run build` 结束后由 `scripts/build-feeds.mjs` 额外产出：
@@ -104,7 +107,7 @@ When this value is not configured, the Crisp script is not loaded.
 build/announcements/<年份>.html   正文 HTML 片段，客户端直接渲染
 build/announcements/index.json    年份清单 + 每条的标识、标题、日期、封面图、网页锚点、正文 HTML
 build/changelog/index.html
-build/changelog/index.json
+build/changelog/index.json    每条版本另带 platforms(按平台拆好的 HTML)与 pages(平台页面地址)
 ```
 
 同一条公告追加进展时只需在该条正文里补一段带日期的内容，最后更新日期会自动前进，

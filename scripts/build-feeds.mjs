@@ -1,100 +1,34 @@
-// 站点构建后，把「公告日志」与「更新日志」的年份文章转成客户端可直接消费的产物：
+// 站点构建后，把「公告日志」与「更新日志」文章转成客户端可直接消费的产物：
 //   build/<feed>/<part>.html   正文 HTML 片段（无站点导航与样式，客户端用富文本组件渲染）
 //   build/<feed>/index.json    分片清单 + 每条条目的标识、标题、发布/最后更新日期、封面图、
-//                              正文 HTML（客户端只拉这一个文件就能显示近期公告与最新版本，
-//                              历史内容跳转文档站网页）
+//                              网页锚点、正文 HTML；更新日志的条目另带 platforms
+//                              （按平台拆好的 HTML：all / windows / macos / android / ios / linux）
+//                              和 pages（各平台页面地址），客户端只显示本平台 + 全平台。
 //
 // 公告按年份分片（docs/announcements/<year>.md）；更新日志全平台一篇
-// （docs/changelog/index.md，版本号各平台统一，不按年份、不按平台拆分）。
-// 写作约定：
-//   - 每个二级标题「## 」是一条公告 / 一个版本；
-//   - 条目正文里的第一张图片会作为封面图写入清单，供客户端做卡片式展示；
-//   - 正文里形如 2026.08.28 / 2026-08-28 的日期都会被识别：最小值为发布日期，
-//     最大值为最后更新日期。同一条公告追加进展时，最后更新日期自动前进，
-//     客户端据此重新提醒；
-//   - 条目标识由 年份 + 标题 固定生成，改正文不会变，改标题会变成新条目。
-import {createHash} from 'node:crypto';
+// （docs/changelog/index.md，版本号各平台统一），平台页面由 build-changelog-pages.mjs 生成。
+// 写作约定见 scripts/lib/entries.mjs。
 import {existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {marked} from 'marked';
+import {parseEntries, renderHtml, splitFrontMatter, stripTopHeading} from './lib/entries.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const buildDir = path.join(root, 'build');
 const FEEDS = [
   {name: 'announcements', source: 'docs/announcements', parts: 'years', page: '/docs/announcements/'},
-  {name: 'changelog', source: 'docs/changelog', parts: 'single', page: '/docs/changelog'},
+  {name: 'changelog', source: 'docs/changelog', parts: 'single', page: '/docs/changelog', platforms: true},
 ];
-const IMAGE_RE = /!\[[^\]]*\]\(([^)\s]+)[^)]*\)/;
-const DATE_RE = /\b(20\d{2})[.\-/](\d{2})[.\-/](\d{2})\b/g;
+const CHANGELOG_PAGES = {
+  windows: '/docs/changelog/windows',
+  macos: '/docs/changelog/macos',
+  android: '/docs/changelog/android',
+  ios: '/docs/changelog/ios',
+};
 
 if (!existsSync(buildDir)) {
   console.error('build/ 不存在，请先执行 docusaurus build');
   process.exit(1);
-}
-
-function splitFrontMatter(text) {
-  const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(text);
-  return match ? text.slice(match[0].length) : text;
-}
-
-function stripTopHeading(body) {
-  // 去掉一级标题（页面标题），HTML 片段里由客户端自行显示页面名。
-  return body.replace(/^\s*#\s+[^\n]*\n/, '');
-}
-
-function collectDates(text) {
-  const dates = [];
-  for (const m of text.matchAll(DATE_RE)) dates.push(`${m[1]}-${m[2]}-${m[3]}`);
-  return dates.sort();
-}
-
-function entryId(part, title) {
-  return createHash('sha1').update(`${part}\n${title}`).digest('hex').slice(0, 12);
-}
-
-function firstImage(text) {
-  const m = IMAGE_RE.exec(text);
-  return m ? m[1] : null;
-}
-
-// 与 Docusaurus 默认标题锚点一致：小写、空白转连字符、去掉标点。
-function slugify(title) {
-  return title
-    .toLowerCase()
-    .trim()
-    .replace(/[\s]+/g, '-')
-    .replace(/[^\p{L}\p{N}-]/gu, '');
-}
-
-function parseEntries(part, body, fallbackDate, pageUrl) {
-  const entries = [];
-  const lines = body.split(/\r?\n/);
-  let current = null;
-  for (const line of lines) {
-    const heading = /^##\s+(.+?)\s*#*\s*$/.exec(line);
-    if (heading) {
-      if (current) entries.push(current);
-      current = {title: heading[1].trim(), lines: []};
-    } else if (current) {
-      current.lines.push(line);
-    }
-  }
-  if (current) entries.push(current);
-  return entries.map((entry) => {
-    const text = entry.lines.join('\n');
-    const dates = collectDates(text);
-    const image = firstImage(text);
-    return {
-      id: entryId(part, entry.title),
-      title: entry.title,
-      published: dates[0] ?? fallbackDate,
-      updated: dates[dates.length - 1] ?? fallbackDate,
-      ...(image ? {image} : {}),
-      url: `${pageUrl}#${slugify(entry.title)}`,
-      html: marked.parse(text.trim(), {gfm: true}),
-    };
-  });
 }
 
 for (const feed of FEEDS) {
@@ -113,19 +47,22 @@ for (const feed of FEEDS) {
     console.warn(`${feed.source} 下没有可用文件，跳过`);
     continue;
   }
-  const index = {version: 1, generated_at: new Date().toISOString(), parts: []};
+  const index = {version: 2, generated_at: new Date().toISOString(), parts: []};
+  if (feed.platforms) index.pages = CHANGELOG_PAGES;
   for (const part of parts) {
     const raw = readFileSync(path.join(sourceDir, `${part}.md`), 'utf8');
     const body = stripTopHeading(splitFrontMatter(raw));
-    const html = marked.parse(body, {gfm: true});
-    writeFileSync(path.join(outDir, `${part}.html`), html);
+    writeFileSync(path.join(outDir, `${part}.html`), renderHtml(body));
     const fallbackDate = /^\d{4}$/.test(part) ? `${part}-01-01` : '1970-01-01';
     const pageUrl = feed.parts === 'years' ? `${feed.page}${part}` : feed.page;
+    const entries = parseEntries(part, body, {fallbackDate, pageUrl, platforms: feed.platforms})
+      // sections（Markdown 原文）只给页面生成用，清单里只留 HTML。
+      .map(({sections, ...entry}) => entry);
     index.parts.push({
       ...(feed.parts === 'years' ? {year: Number(part)} : {}),
       page: pageUrl,
       html: `${feed.name}/${part}.html`,
-      entries: parseEntries(part, body, fallbackDate, pageUrl),
+      entries,
     });
   }
   const all = index.parts.flatMap((p) => p.entries);

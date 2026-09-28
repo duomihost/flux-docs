@@ -7,6 +7,11 @@
 # Generated files
 .docusaurus
 .cache-loader
+# 由 scripts/build-changelog-pages.mjs 从 docs/changelog/index.md 生成
+/docs/changelog/windows.md
+/docs/changelog/macos.md
+/docs/changelog/android.md
+/docs/changelog/ios.md
 
 # Misc
 .DS_Store
