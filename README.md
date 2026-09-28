@@ -92,6 +92,22 @@ CRISP_WEBSITE_ID=<your Crisp website id>
 
 When this value is not configured, the Crisp script is not loaded.
 
+## 公告与更新日志（客户端同步）
+
+`docs/announcements/<年份>.md` 与 `docs/changelog/<年份>.md` 每年一篇，每个二级标题
+（`## `）是一条公告 / 一个版本，正文里的日期（如 `2026.08.28`）会被自动识别。
+`npm run build` 结束后由 `scripts/build-feeds.mjs` 额外产出：
+
+```text
+build/announcements/<年份>.html   正文 HTML 片段，客户端直接渲染
+build/announcements/index.json    年份清单 + 每条的标识、标题、发布/最后更新日期
+build/changelog/<年份>.html
+build/changelog/index.json
+```
+
+同一条公告追加进展时只需在该条正文里补一段带日期的内容，最后更新日期会自动前进，
+客户端据此重新提醒。单独重新生成可运行 `npm run feeds`（需先有 `build/`）。
+
 ## Documentation Structure
 
 ```text

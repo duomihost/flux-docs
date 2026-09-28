@@ -72,6 +72,16 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: '公告日志',
+      items: ['announcements/2026', 'announcements/2025'],
+    },
+    {
+      type: 'category',
+      label: '更新日志',
+      items: ['changelog/2026'],
+    },
+    {
+      type: 'category',
       label: '服务与支持',
       items: [
         'support/tiktok',
