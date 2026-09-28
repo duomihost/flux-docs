@@ -26,7 +26,9 @@ for (const platform of PAGE_PLATFORMS) {
     const shared = entry.sections.all;
     const own = entry.sections[platform];
     if (!shared && !own) continue;
-    const parts = [`## ${entry.title}`, '', `**${entry.published.replaceAll('-', '.')}**`, ''];
+    const version = entry.versions?.[platform];
+    const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`;
+    const parts = [`## ${entry.title}`, '', dateLine, ''];
     if (own) parts.push(own, '');
     if (shared) parts.push(shared, '');
     blocks.push(parts.join('\n'));
@@ -36,6 +38,7 @@ for (const platform of PAGE_PLATFORMS) {
     `title: ${label} 更新日志`,
     `description: Paxora ${label} 客户端版本更新记录。`,
     `sidebar_label: ${label}`,
+    'toc_max_heading_level: 2',
     '---',
     '',
     '{/* 本文件由 scripts/build-changelog-pages.mjs 从 index.md 生成，请勿手改 */}',

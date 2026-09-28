@@ -3,11 +3,12 @@ title: 更新日志总览
 description: Paxora 客户端版本更新记录。
 sidebar_label: 总览
 slug: /changelog
+toc_max_heading_level: 2
 ---
 
 # 更新日志总览
 
-按发布日期记录，最新的在最上面。版本号最后一段按平台各自计数，同一天发布的各平台包尾号不同。「全平台」为各平台共有的改动，其余小节只写该平台独有的改动。按平台查看：[Windows](./windows.md) · [macOS](./macos.md) · [Android](./android.md) · [iOS](./ios.md)。
+按发布日期记录，最新的在最上面，每期列出各平台完整版本号（最后一段按平台各自计数）。「全平台」为各平台共有的改动，其余小节只写该平台独有的改动。按平台查看：[Windows](./windows.md) · [macOS](./macos.md) · [Android](./android.md) · [iOS](./ios.md)。
 
 ## 2026.0928
 
@@ -46,6 +47,8 @@ slug: /changelog
 
 **2026.09.04**
 
+版本：Windows 2026.0904.0811 · macOS 2026.0904.0809 · Android 2026.0904.0809
+
 ### 全平台
 
 - 购买套餐可直接打开网站套餐页，多个地址自动切换。
@@ -70,6 +73,8 @@ slug: /changelog
 ## 2026.0818
 
 **2026.08.18**
+
+版本：Windows 2026.0818.0671 · macOS 2026.0818.0671 · Android 2026.0818.0670
 
 ### 全平台
 

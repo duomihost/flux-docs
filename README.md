@@ -99,7 +99,8 @@ When this value is not configured, the Crisp script is not loaded.
 
 公告 `docs/announcements/<年份>.md` 每年一篇；更新日志 `docs/changelog/index.md` 全平台
 一篇，每条以**发布日期**为标题（`## 2026.0904`；版本号最后一段按平台各自计数，同一天各平台
-尾号不同，客户端比对只看前两段）。每条里用三级标题按平台分小节：
+尾号不同，客户端比对只看前两段）。日期下一行用「版本：Windows 2026.0904.0809 · macOS …」
+列出各平台完整版本号（解析进清单 `versions`，平台页面只显示本平台的）。每条里用三级标题按平台分小节：
 `### 全平台` / `### Windows` / `### macOS` / `### Android` / `### iOS`，某平台这版没改动
 就不写。构建前 `scripts/build-changelog-pages.mjs` 从它生成四个平台页面
 （`docs/changelog/{windows,macos,android,ios}.md`，不入库），每页只含该平台 + 全平台小节。
