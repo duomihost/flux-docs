@@ -75,6 +75,25 @@ export function slugify(title) {
     .replace(/[^\p{L}\p{N}-]/gu, '');
 }
 
+const VERSIONS_RE = /^\s*(?:\*\*)?版本[：:]\s*(?:\*\*)?\s*(.+)$/;
+
+/// 解析「版本：Windows 2026.0904.0809 · macOS 2026.0904.0809」→ {windows: …, macos: …}。
+export function parseVersionsLine(lines) {
+  for (const line of lines) {
+    const m = VERSIONS_RE.exec(line);
+    if (!m) continue;
+    const result = {};
+    for (const piece of m[1].split(/[·,，;；|]/)) {
+      const pm = /^\s*([A-Za-z\u4e00-\u9fff\/ ]+?)\s+v?(\d{4}\.\d{4}\.\d{4})\s*$/i.exec(piece);
+      if (!pm) continue;
+      const key = PLATFORM_ALIASES[pm[1].trim().toLowerCase()];
+      if (key && key !== 'all') result[key] = pm[2];
+    }
+    return result;
+  }
+  return {};
+}
+
 export function renderHtml(markdown) {
   return marked.parse(markdown.trim(), {gfm: true});
 }
@@ -89,6 +108,7 @@ export function splitPlatformSections(lines) {
     sections.get(current).push(line);
   };
   for (const line of lines) {
+    if (VERSIONS_RE.test(line)) continue;
     const heading = /^###\s+(.+?)\s*#*\s*$/.exec(line);
     if (heading) {
       const key = PLATFORM_ALIASES[heading[1].trim().toLowerCase()];
@@ -136,6 +156,7 @@ export function parseEntries(part, body, {fallbackDate, pageUrl, platforms = fal
       html: renderHtml(text),
     };
     if (platforms) {
+      result.versions = parseVersionsLine(entry.lines);
       const sections = splitPlatformSections(entry.lines);
       result.sections = sections;
       result.platforms = Object.fromEntries(

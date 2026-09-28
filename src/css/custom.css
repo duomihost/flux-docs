@@ -247,3 +247,47 @@ html[data-theme='dark'] details {
   background: var(--flux-bg-soft);
   border-color: var(--flux-border);
 }
+
+/*
+ * 公告与更新日志页面(docs/changelog/*、docs/announcements/*)用紧凑排版:
+ * 字号、标题、行距、列表间距全部收紧,让用户一屏看到更多内容。
+ * Docusaurus 会把文档 id 写进 <html class="docs-doc-id-…">,这里按前缀匹配。
+ */
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown,
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown {
+  --ifm-h1-font-size: 1.5rem;
+  --ifm-h2-font-size: 1.1rem;
+  --ifm-h3-font-size: 0.9rem;
+  --ifm-heading-margin-bottom: 0.3rem;
+  --ifm-paragraph-margin-bottom: 0.4rem;
+  --ifm-list-item-margin: 0.1rem;
+  --ifm-list-margin: 0.4rem;
+  --ifm-list-left-padding: 1.2rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown h1,
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown h1 {
+  margin-bottom: 0.5rem;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown h2,
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown h2 {
+  margin-top: 1.3rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--flux-border);
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown h3,
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown h3 {
+  margin-top: 0.55rem;
+  color: var(--flux-text-secondary);
+  font-weight: 600;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown hr,
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown hr {
+  margin: 0.6rem 0;
+}
+
