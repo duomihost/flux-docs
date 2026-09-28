@@ -102,13 +102,14 @@ When this value is not configured, the Crisp script is not loaded.
 
 ```text
 build/announcements/<年份>.html   正文 HTML 片段，客户端直接渲染
-build/announcements/index.json    年份清单 + 每条的标识、标题、发布/最后更新日期、封面图
+build/announcements/index.json    年份清单 + 每条的标识、标题、日期、封面图、网页锚点、正文 HTML
 build/changelog/index.html
 build/changelog/index.json
 ```
 
 同一条公告追加进展时只需在该条正文里补一段带日期的内容，最后更新日期会自动前进，
-客户端据此重新提醒。单独重新生成可运行 `npm run feeds`（需先有 `build/`）。
+客户端据此重新提醒。客户端只需拉 `index.json` 即可显示近期公告与最新版本，
+历史内容通过条目的 `url` 跳转到文档站网页。单独重新生成可运行 `npm run feeds`（需先有 `build/`）。
 
 ## Documentation Structure
 
