@@ -37,7 +37,6 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           exclude: [
             'api/**',
-            'changelog/**',
             'faq/**',
             'legal/**',
             'nodes/**',
@@ -103,6 +102,8 @@ const config: Config = {
             {label: 'Apple 移动端', to: '/docs/installation/ios'},
             {label: '第三方客户端', to: '/docs/third-party/windows-clash-verge'},
             {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
+            {label: '公告日志', to: '/docs/announcements/2026'},
+            {label: '更新日志', to: '/docs/changelog'},
           ],
         },
         {to: '/docs/getting-started/download', label: '下载', position: 'right'},
