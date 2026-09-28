@@ -94,14 +94,16 @@ When this value is not configured, the Crisp script is not loaded.
 
 ## 公告与更新日志（客户端同步）
 
-`docs/announcements/<年份>.md` 与 `docs/changelog/<年份>.md` 每年一篇，每个二级标题
-（`## `）是一条公告 / 一个版本，正文里的日期（如 `2026.08.28`）会被自动识别。
+公告 `docs/announcements/<年份>.md` 每年一篇；更新日志 `docs/changelog/index.md` 全平台
+一篇（版本号各平台统一，不按年份、不按平台拆分，只影响单一平台的改动在条目里注明）。
+每个二级标题（`## `）是一条公告 / 一个版本，正文里的日期（如 `2026.08.28`）会被自动识别，
+条目里的第一张图片会作为封面图写入清单，供客户端做卡片式展示。
 `npm run build` 结束后由 `scripts/build-feeds.mjs` 额外产出：
 
 ```text
 build/announcements/<年份>.html   正文 HTML 片段，客户端直接渲染
-build/announcements/index.json    年份清单 + 每条的标识、标题、发布/最后更新日期
-build/changelog/<年份>.html
+build/announcements/index.json    年份清单 + 每条的标识、标题、发布/最后更新日期、封面图
+build/changelog/index.html
 build/changelog/index.json
 ```
 

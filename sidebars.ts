@@ -78,7 +78,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '更新日志',
-      items: ['changelog/2026'],
+      items: ['changelog/index'],
     },
     {
       type: 'category',
