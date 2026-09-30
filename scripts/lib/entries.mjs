@@ -75,6 +75,7 @@ export function slugify(title) {
     .replace(/[^\p{L}\p{N}-]/gu, '');
 }
 
+const HEADER_DATE_RE = /^\s*\*\*20\d{2}[.\-/]\d{2}[.\-/]\d{2}\*\*\s*$/;
 const VERSIONS_RE = /^\s*(?:\*\*)?版本[：:]\s*(?:\*\*)?\s*(.+)$/;
 
 /// 解析「版本：Windows 2026.0904.0809 · macOS 2026.0904.0809」→ {windows: …, macos: …}。
@@ -108,7 +109,8 @@ export function splitPlatformSections(lines) {
     sections.get(current).push(line);
   };
   for (const line of lines) {
-    if (VERSIONS_RE.test(line)) continue;
+    // 条目头部的日期行(**2026.09.28**)与「版本：」行不属于任何平台小节。
+    if (VERSIONS_RE.test(line) || HEADER_DATE_RE.test(line)) continue;
     const heading = /^###\s+(.+?)\s*#*\s*$/.exec(line);
     if (heading) {
       const key = PLATFORM_ALIASES[heading[1].trim().toLowerCase()];
