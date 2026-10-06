@@ -23,7 +23,8 @@ for (const platform of PAGE_PLATFORMS) {
   const label = PLATFORM_LABELS[platform];
   const blocks = [];
   for (const entry of entries) {
-    const shared = entry.sections.all;
+    // 日期由 dateLine 统一展示，源文件首行日期不再作为通用更新正文输出。
+    const shared = entry.sections.all?.replace(/^\*\*\d{4}\.\d{2}\.\d{2}\*\*\s*(?:\n|$)/, '').trim();
     const own = entry.sections[platform];
     if (!shared && !own) continue;
     const version = entry.versions?.[platform];
