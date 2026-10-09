@@ -291,3 +291,14 @@ html[class*='docs-doc-id-announcements/'] .theme-doc-markdown hr {
   margin: 0.6rem 0;
 }
 
+/* Beta(测试包)条目:平台页由 build-changelog-pages.mjs 包上 .changelog-beta,正文比正式版小一号。 */
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-beta {
+  font-size: 0.8125rem;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .badge {
+  margin-left: 0.25rem;
+  font-size: 0.7rem;
+  vertical-align: 0.1em;
+}
+

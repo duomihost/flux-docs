@@ -41,10 +41,15 @@ for (const platform of PAGE_PLATFORMS) {
     const own = entry.sections[platform];
     if (!shared && !own) continue;
     const version = entry.versions?.[platform];
-    const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`;
+    const beta = Boolean(version) && entry.betas?.includes(platform);
+    const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`
+      + (beta ? ' <span className="badge badge--warning">Beta</span>' : '');
     const parts = [`## ${entry.title}`, '', dateLine, ''];
+    // Beta(测试包)正文整体小一号,与正式版区分;标题留在外面,目录照常收录。
+    if (beta) parts.push('<div className="changelog-beta">', '');
     if (own) parts.push(own, '');
     if (shared) parts.push(shared, '');
+    if (beta) parts.push('</div>', '');
     blocks.push(parts.join('\n'));
   }
   const content = [

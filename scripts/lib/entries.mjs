@@ -77,21 +77,26 @@ export function slugify(title) {
 
 const VERSIONS_RE = /^\s*(?:\*\*)?版本[：:]\s*(?:\*\*)?\s*(.+)$/;
 
-/// 解析「版本：Windows 2026.0904.0809 · macOS 2026.0904.0809」→ {windows: …, macos: …}。
-export function parseVersionsLine(lines) {
+/// 解析「版本：Windows 2026.0904.0809 · macOS 2026.1008.1005 Beta」
+/// → {versions: {windows: …, macos: …}, betas: ['macos']}。
+/// 版本号后跟 `Beta`(不区分大小写)表示这一期该平台发的是测试包。
+export function parseVersionTags(lines) {
   for (const line of lines) {
     const m = VERSIONS_RE.exec(line);
     if (!m) continue;
-    const result = {};
+    const versions = {};
+    const betas = [];
     for (const piece of m[1].split(/[·,，;；|]/)) {
-      const pm = /^\s*([A-Za-z\u4e00-\u9fff\/ ]+?)\s+v?(\d{4}\.\d{4}\.\d{4})\s*$/i.exec(piece);
+      const pm = /^\s*([A-Za-z\u4e00-\u9fff\/ ]+?)\s+v?(\d{4}\.\d{4}\.\d{4})(\s+beta)?\s*$/i.exec(piece);
       if (!pm) continue;
       const key = PLATFORM_ALIASES[pm[1].trim().toLowerCase()];
-      if (key && key !== 'all') result[key] = pm[2];
+      if (!key || key === 'all') continue;
+      versions[key] = pm[2];
+      if (pm[3]) betas.push(key);
     }
-    return result;
+    return {versions, betas};
   }
-  return {};
+  return {versions: {}, betas: []};
 }
 
 export function renderHtml(markdown) {
@@ -194,7 +199,9 @@ export function parseEntries(part, body, {fallbackDate, pageUrl, platforms = fal
       html: renderHtml(text),
     };
     if (platforms) {
-      result.versions = parseVersionsLine(entry.lines);
+      const {versions, betas} = parseVersionTags(entry.lines);
+      result.versions = versions;
+      result.betas = betas;
       const sections = splitPlatformSections(entry.lines);
       result.sections = sections;
       result.platforms = Object.fromEntries(
