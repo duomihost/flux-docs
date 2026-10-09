@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {
   PLATFORM_LABELS,
   parseEntries,
+  renderHtml,
   splitFrontMatter,
   stripTopHeading,
   validateChangelog,
@@ -32,6 +33,20 @@ if (problems.length) {
   process.exit(1);
 }
 
+const LIST_ITEM_RE = /^\s*(?:[-*+]|\d+[.)])\s/;
+
+/// 本平台小节在前、全平台小节在后。两段都是列表时用单个换行接成一个紧凑列表:
+/// 中间留空行会把两段并成一个松散列表(`<li><p>`),每项都撑出段落间距。
+function joinSections(own, shared) {
+  if (!own || !shared) return own || shared;
+  const lastOwn = own.split('\n').at(-1);
+  const firstShared = shared.split('\n')[0];
+  const glue = LIST_ITEM_RE.test(lastOwn) && LIST_ITEM_RE.test(firstShared) ? '\n' : '\n\n';
+  return `${own}${glue}${shared}`;
+}
+
+const pageProblems = [];
+
 for (const platform of PAGE_PLATFORMS) {
   const label = PLATFORM_LABELS[platform];
   const blocks = [];
@@ -47,8 +62,11 @@ for (const platform of PAGE_PLATFORMS) {
     const parts = [`## ${entry.title}`, '', dateLine, ''];
     // Beta(测试包)正文整体小一号,与正式版区分;标题留在外面,目录照常收录。
     if (beta) parts.push('<div className="changelog-beta">', '');
-    if (own) parts.push(own, '');
-    if (shared) parts.push(shared, '');
+    const content = joinSections(own, shared);
+    if (renderHtml(content).includes('<li><p>')) {
+      pageProblems.push(`${label} 页 ## ${entry.title}:拼接后成了松散列表`);
+    }
+    parts.push(content, '');
     if (beta) parts.push('</div>', '');
     blocks.push(parts.join('\n'));
   }
@@ -70,5 +88,10 @@ for (const platform of PAGE_PLATFORMS) {
     '',
   ].join('\n');
   writeFileSync(path.join(root, `docs/changelog/${platform}.md`), content);
+}
+if (pageProblems.length) {
+  console.error('生成的平台页不符合写作约束:');
+  for (const problem of pageProblems) console.error(`  - ${problem}`);
+  process.exit(1);
 }
 console.log(`changelog pages: ${PAGE_PLATFORMS.join(', ')} (${entries.length} 个版本)`);
