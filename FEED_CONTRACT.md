@@ -1,8 +1,10 @@
 # 公告与更新日志的清单契约
 
-本文件是 flux-docs（文档站）与 flux（客户端）之间关于**公告**与**更新日志**数据的唯一约定。
-两边任何一方要改格式，先改这里，再改脚本（`scripts/`）和客户端（`lib/services/docs_feed_service.dart`、
-`lib/services/update_notes.dart`）。客户端仓库的《配置下发契约》只指向本文件，不另写一份。
+本文件是**公告**与**更新日志**数据的唯一约定，涉及三方：flux-docs（文档站，唯一源与校验）、
+flux（客户端，展示）、flux-builder（构造器，发布时自动写入更新日志）。三方分工与约束见第 6 节。
+任何一方要改格式，先改这里，再改脚本（`scripts/`）、客户端（`lib/services/docs_feed_service.dart`、
+`lib/services/update_notes.dart`）和构造器（`changelog-writer.js`）。客户端仓库的《配置下发契约》、
+两个仓库的 AI 规则只指向本文件，不另写一份。
 
 ## 1. 哪些东西客户端会读
 
@@ -130,3 +132,62 @@ HTML 只含 Markdown 生成的标签（`p`、`ul`、`ol`、`li`、`strong`、`em
 - 改语义时递增 `version`，客户端先兼容新版再发布文档站。
 - 改动顺序：本文件 → `scripts/lib/entries.mjs`（解析）→ `scripts/build-feeds.mjs` / `scripts/build-changelog-pages.mjs`（产出）→ 客户端 → 两边各自的测试（`scripts/` 无测试时以 `npm run build` 的产物核对为准；客户端 `test/services/docs_feed_service_test.dart`、`update_notes_test.dart`）。
 - 发布检查：`npm run build` 后确认 `build/changelog/index.json` 每条都有 `title`（日期格式）与 `platforms`，公告每条都有 `published`。
+
+## 6. 更新日志全链路：三方分工与约束
+
+```
+flux-builder 发布时写入 ─┐
+人工补写 / 润色 ─────────┴─→ docs/changelog/index.md（唯一源）
+                              │ npm run build：校验 → 生成平台页 → 生成清单
+                              ↓
+          changelog/index.json（+ 预留 en/changelog/index.json）、各平台页面
+                              ↓
+                       flux 客户端「动态」/「发现新版本」
+```
+
+### 6.1 flux-builder：发布即记录
+
+- **必填**：同时勾了「自动上传至网盘」和「同时回填面板字段」、且目标不是 iOS 时，「更新说明」`release_notes`
+  必填（每行一条）。表单、Express、Pages Functions、本机命令行 `--release-notes` 四处校验一致，空的直接拒绝。
+- **时机**：先算出版本号、再由 `enforceMainOnlyPublishing` 关掉非 main 的回填，然后写入，最后才触发构建。
+  写入失败就拒绝触发或中止构建（Pages、Express、本机三条链路都一样）。
+- **写法**（`changelog-writer.js`）：按版本号前两段找到或新建那一期（新建时按倒序插入）；更新「版本：」行里
+  本平台的条目；追加到 `### 平台` 小节。同一版本重复构建不会重复追加。
+  说明会自动整理：去掉序号、合并空白、去重，统一以全角句号结尾。
+- **Beta**：测试包或 Debug 包、且没开 `publish_config_anyway` 时标 Beta，判定和写更新通道是同一个函数
+  （`vault-transport.resolveUpdateChannel`）。`promote:test` 转正成功后去掉对应平台版本的 Beta；
+  这一步失败不回滚转正，只提示去手工删。
+- **凭据**：`DOCS_GITHUB_TOKEN`（只开 flux-docs Contents 读写的细粒度 PAT），没配就回落 `GITHUB_TOKEN`；
+  仓库默认 `duomihost/flux-docs`，可用 `DOCS_REPO` 改。
+- **只写中文**，英文更新日志不由构造器写。
+- **已知限制**：写入发生在构建之前，之后编译或上传失败的话，会留下一条没真正发出去的版本记录，需要手工删。
+
+### 6.2 flux-docs：唯一源与校验
+
+- `docs/changelog/index.md` 是唯一的手写源，平台页由脚本生成、不入库。构造器写入的内容可以润色，
+  但版本行和小节结构必须符合 2.2 节。
+- **构建前校验**（不通过则 `npm run build` 失败，CI 拦截）：
+  - 所有条目的列表中间不得夹空行，否则会渲染成松散列表（`<li><p>`），客户端每项都撑出段落间距；
+  - 拼接后的平台页同样不得出现松散列表：「本平台」与「全平台」两段列表直接相接；
+  - `2026.1006` 起每期必须有「版本：」行，版本号与标题同一天，写了平台小节的平台必须出现在「版本：」行里。
+- **没出包的平台不写版本号**：已有「版本：」行的期里，没列出的平台的小节客户端不会显示，
+  等这个平台真正发布时由构造器记入。
+- **Beta 展示**：平台页显示「V完整版本号」加一枚灰色细边框的 Beta 标签，正文小一号；总览页只在版本行文字里体现。
+- 推送 main 即部署；改动后至少跑一次 `npm run build`。
+
+### 6.3 flux：只展示，不计数
+
+- 只读清单，所有字段缺失时必须有回退（第 5 节）。
+- **软件版本行**：清单有本平台版本号时显示「平台名 V完整版本号」（如「macOS V2026.1008.1005」），没有时显示「V期标题」。
+- **平台判定**：期里有 `versions` 时只认其中列出的平台；没有时看是否有本平台或全平台小节。
+- **Beta**：见第 4 节。补充一条：测试通道的新版本即使文档站还没写这一版，也显示 Beta 标签。标签是灰色细边框，和文档站观感一致。
+- **排版**：清单 HTML 统一用共享的紧凑列表样式（`html_feed_extensions.dart` 的 `htmlFeedListStyles`），
+  即使清单里出现松散列表也不会撑开；摘要拼接时，全角标点后不补空格。
+- **英文**：非中文界面先请求 `en/…` 清单，404 或内容不是清单时退回中文，本次运行内不再重复请求（见 1.1 节）。
+
+### 6.4 改动联动
+
+- 改「版本：」行或 Beta 的语法，三处必须同步：flux-docs `scripts/lib/entries.mjs`（解析与校验）、
+  flux-builder `changelog-writer.js`（写入），以及 flux `lib/services/docs_feed_service.dart` 和
+  `lib/services/update_notes.dart`（消费）。
+- 改校验规则时，先用构造器的写入结果跑一遍 `validateChangelog`，确认自动写入的内容能通过。
