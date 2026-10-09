@@ -296,9 +296,17 @@ html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-beta {
   font-size: 0.8125rem;
 }
 
-html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .badge {
-  margin-left: 0.25rem;
+/* Beta 标签只做轻提示:细边框 + 次要文字色,不用填充色,避免抢过版本号。 */
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-beta-tag {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0 0.4rem;
+  border: 1px solid var(--flux-border);
+  border-radius: 999px;
+  color: var(--flux-text-secondary);
   font-size: 0.7rem;
-  vertical-align: 0.1em;
+  font-weight: 500;
+  line-height: 1.5;
+  vertical-align: 0.08em;
 }
 

@@ -58,7 +58,7 @@ for (const platform of PAGE_PLATFORMS) {
     const version = entry.versions?.[platform];
     const beta = Boolean(version) && entry.betas?.includes(platform);
     const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`
-      + (beta ? ' <span className="badge badge--warning">Beta</span>' : '');
+      + (beta ? ' <span className="changelog-beta-tag">Beta</span>' : '');
     const parts = [`## ${entry.title}`, '', dateLine, ''];
     // Beta(测试包)正文整体小一号,与正式版区分;标题留在外面,目录照常收录。
     if (beta) parts.push('<div className="changelog-beta">', '');
