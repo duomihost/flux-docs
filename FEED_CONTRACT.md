@@ -135,6 +135,9 @@ HTML 只含 Markdown 生成的标签（`p`、`ul`、`ol`、`li`、`strong`、`em
 
 ## 6. 更新日志全链路：三方分工与约束
 
+> Beta（测试包）相关的通用约束（版本号区分不了测试包、唯一口径 `build_kind`、灰色细边框标签、上线顺序等）
+> 以 flux 仓库 [docs/BETA_COMPAT.md](https://github.com/duomihost/flux/blob/main/docs/BETA_COMPAT.md) 为准，本节只写更新日志这条链路上的具体做法。
+
 ```
 flux-builder 发布时写入 ─┐
 人工补写 / 润色 ─────────┴─→ docs/changelog/index.md（唯一源）
