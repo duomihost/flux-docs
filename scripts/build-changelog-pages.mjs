@@ -5,7 +5,13 @@
 import {readFileSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {PLATFORM_LABELS, parseEntries, splitFrontMatter, stripTopHeading} from './lib/entries.mjs';
+import {
+  PLATFORM_LABELS,
+  parseEntries,
+  splitFrontMatter,
+  stripTopHeading,
+  validateChangelog,
+} from './lib/entries.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourcePath = path.join(root, 'docs/changelog/index.md');
@@ -18,6 +24,13 @@ const entries = parseEntries('index', body, {
   pageUrl: '/docs/changelog',
   platforms: true,
 });
+
+const problems = validateChangelog(entries);
+if (problems.length) {
+  console.error(`docs/changelog/index.md 不符合写作约束(见 scripts/lib/entries.mjs validateChangelog):`);
+  for (const problem of problems) console.error(`  - ${problem}`);
+  process.exit(1);
+}
 
 for (const platform of PAGE_PLATFORMS) {
   const label = PLATFORM_LABELS[platform];

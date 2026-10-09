@@ -127,6 +127,44 @@ export function splitPlatformSections(lines) {
   return result;
 }
 
+/// 从这一版起每期必须写「版本：」行(此前的旧条目不追溯)。
+export const VERSIONS_REQUIRED_SINCE = '2026.1006';
+
+/// 更新日志写作约束,构建前检查,违反直接让构建失败。返回问题列表(空 = 通过)。
+///   - 列表项之间不得夹空行:否则整段变成松散列表(`<li><p>`),客户端每项都撑出
+///     段落间距;
+///   以下两条只约束 [VERSIONS_REQUIRED_SINCE] 及以后的条目:
+///   - 「版本：」行的版本号必须与标题同一天,写了平台小节的平台必须出现在「版本：」里
+///     (客户端只认「版本：」列出的平台,漏写的小节等于白写);
+///   - 每期必须有「版本：」行,客户端「软件版本」据此显示
+///     本平台的完整版本号。
+export function validateChangelog(entries) {
+  const problems = [];
+  for (const entry of entries) {
+    const where = `## ${entry.title}`;
+    if (entry.html.includes('<li><p>')) {
+      problems.push(`${where}:列表项之间有空行(会渲染成松散列表),删掉列表中间的空行`);
+    }
+    if (entry.title < VERSIONS_REQUIRED_SINCE) continue;
+    const versions = entry.versions ?? {};
+    if (Object.keys(versions).length === 0) {
+      problems.push(`${where}:缺少「版本：」行,例如「版本：macOS ${entry.title}.0001」`);
+      continue;
+    }
+    for (const [platform, version] of Object.entries(versions)) {
+      if (!version.startsWith(`${entry.title}.`)) {
+        problems.push(`${where}:${PLATFORM_LABELS[platform]} 版本 ${version} 与标题日期不一致`);
+      }
+    }
+    for (const platform of Object.keys(entry.sections ?? {})) {
+      if (platform !== 'all' && !versions[platform]) {
+        problems.push(`${where}:写了 ${PLATFORM_LABELS[platform]} 小节,但「版本：」行里没有这个平台`);
+      }
+    }
+  }
+  return problems;
+}
+
 /// 解析一篇文章的全部条目。
 export function parseEntries(part, body, {fallbackDate, pageUrl, platforms = false}) {
   const entries = [];
