@@ -75,7 +75,8 @@ export function slugify(title) {
     .replace(/[^\p{L}\p{N}-]/gu, '');
 }
 
-const VERSIONS_RE = /^\s*(?:\*\*)?版本[：:]\s*(?:\*\*)?\s*(.+)$/;
+// 中文源写「版本：」,英文源(预留)写「Version:」。
+const VERSIONS_RE = /^\s*(?:\*\*)?(?:版本|version)[：:]\s*(?:\*\*)?\s*(.+)$/i;
 
 /// 解析「版本：Windows 2026.0904.0809 · macOS 2026.1008.1005 Beta」
 /// → {versions: {windows: …, macos: …}, betas: ['macos']}。
