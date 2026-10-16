@@ -57,8 +57,11 @@ for (const platform of PAGE_PLATFORMS) {
     if (!shared && !own) continue;
     const version = entry.versions?.[platform];
     const beta = Boolean(version) && entry.betas?.includes(platform);
-    const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`
-      + (beta ? ' <span className="changelog-beta-tag">Beta</span>' : '');
+    // 「Beta」/「正式版」小标挂在版本号右上角(上标),颜色见 custom.css。
+    const kind = version
+      ? (beta ? ' <sup className="changelog-kind changelog-kind-beta">Beta</sup>' : ' <sup className="changelog-kind">正式版</sup>')
+      : '';
+    const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}${kind}` : ''}`;
     const parts = [`## ${entry.title}`, ''];
     // Beta(测试包)整期缩小:日期行与正文包进 .changelog-beta,标题留在外面让目录照常收录,
     // 标题本身由样式按「后面紧跟 .changelog-beta」缩小(custom.css)。

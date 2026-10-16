@@ -302,17 +302,33 @@ html[class*='docs-doc-id-changelog/'] .theme-doc-markdown h2:has(+ .changelog-be
   margin-top: 1.1rem;
 }
 
-/* Beta 标签只做轻提示:细边框 + 次要文字色,不用填充色,避免抢过版本号。 */
-html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-beta-tag {
+/* 「正式版」「Beta」小标:挂在日期行版本号右上角的上标。正式版绿色、Beta 橙色,浅底深字,深浅色主题都可读。 */
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-kind {
   display: inline-block;
-  margin-left: 0.3rem;
-  padding: 0 0.4rem;
-  border: 1px solid var(--flux-border);
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.4rem;
   border-radius: 999px;
-  color: var(--flux-text-secondary);
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 1.5;
-  vertical-align: 0.08em;
+  background: rgba(22, 163, 74, 0.14);
+  color: #15803d;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.4;
+  vertical-align: super;
+  white-space: nowrap;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-kind-beta {
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+
+html[data-theme='dark'][class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-kind {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+html[data-theme='dark'][class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-kind-beta {
+  background: rgba(251, 191, 36, 0.18);
+  color: #fbbf24;
 }
 
