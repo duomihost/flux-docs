@@ -59,9 +59,11 @@ for (const platform of PAGE_PLATFORMS) {
     const beta = Boolean(version) && entry.betas?.includes(platform);
     const dateLine = `**${entry.published.replaceAll('-', '.')}**${version ? ` · V${version}` : ''}`
       + (beta ? ' <span className="changelog-beta-tag">Beta</span>' : '');
-    const parts = [`## ${entry.title}`, '', dateLine, ''];
-    // Beta(测试包)正文整体小一号,与正式版区分;标题留在外面,目录照常收录。
+    const parts = [`## ${entry.title}`, ''];
+    // Beta(测试包)整期缩小:日期行与正文包进 .changelog-beta,标题留在外面让目录照常收录,
+    // 标题本身由样式按「后面紧跟 .changelog-beta」缩小(custom.css)。
     if (beta) parts.push('<div className="changelog-beta">', '');
+    parts.push(dateLine, '');
     const content = joinSections(own, shared);
     if (renderHtml(content).includes('<li><p>')) {
       pageProblems.push(`${label} 页 ## ${entry.title}:拼接后成了松散列表`);

@@ -291,9 +291,15 @@ html[class*='docs-doc-id-announcements/'] .theme-doc-markdown hr {
   margin: 0.6rem 0;
 }
 
-/* Beta(测试包)条目:平台页由 build-changelog-pages.mjs 包上 .changelog-beta,正文比正式版小一号。 */
+/* Beta(测试包)条目:平台页由 build-changelog-pages.mjs 把日期行和正文包进 .changelog-beta,
+ * 整期(含标题)比正式版小一号,一眼区分测试版与正式版。 */
 html[class*='docs-doc-id-changelog/'] .theme-doc-markdown .changelog-beta {
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
+}
+
+html[class*='docs-doc-id-changelog/'] .theme-doc-markdown h2:has(+ .changelog-beta) {
+  font-size: 0.95rem;
+  margin-top: 1.1rem;
 }
 
 /* Beta 标签只做轻提示:细边框 + 次要文字色,不用填充色,避免抢过版本号。 */
