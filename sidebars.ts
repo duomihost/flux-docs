@@ -6,8 +6,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '快速开始',
       collapsed: true,
+      link: {type: 'doc', id: 'intro'},
       items: [
-        {type: 'doc', id: 'intro', label: '文档导览'},
         {type: 'doc', id: 'getting-started/overview', label: '客户端选择'},
         'getting-started/download',
         {type: 'doc', id: 'getting-started/first-connection', label: '首次连接'},

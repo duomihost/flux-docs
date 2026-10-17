@@ -1,17 +1,97 @@
-/* Keep documentation navigation compact without changing article typography. */
-.theme-doc-sidebar-container .menu__list .menu__link--sublist,
-.theme-doc-sidebar-container .menu__list a.menu__link--sublist-caret {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  line-height: 1.6;
+/* Shared by desktop and mobile documentation menus. */
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list-item { margin-block: 0; }
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__link {
+  position: relative;
+  min-height: 27px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--flux-text-secondary);
+  font-size: 13px;
+  line-height: 19px;
 }
 
-.theme-doc-sidebar-container .menu__list .menu__list .menu__link--sublist {
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__link--sublist {
+  min-height: 29px;
+  padding-block: 5px;
+  color: var(--flux-text-primary) !important;
   font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 19px;
+}
+
+/* Each nested list owns one indentation step and one vertical guide. */
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list {
+  margin: 2px 0 3px 12px;
+  padding: 0 0 0 12px;
+  border-inline-start: 1px solid var(--flux-border);
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list .menu__list-item {
+  padding-inline-start: 0 !important;
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list .menu__link--sublist {
+  min-height: 27px;
+  padding-block: 4px;
+  color: var(--flux-text-secondary) !important;
+  font-size: 12.5px !important;
   font-weight: 500 !important;
 }
 
-.theme-doc-sidebar-container .menu__link { padding-block: 5px; border-radius: 6px; }
-.theme-doc-sidebar-container .menu .theme-doc-sidebar-item-category { margin-bottom: 3px; }
-.theme-doc-sidebar-container .menu__list .menu__list-item-collapsible { margin-top: 0; }
-.theme-doc-sidebar-container .menu__link--active { color: var(--flux-link); }
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list .menu__link { font-size: 12.5px; }
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu .theme-doc-sidebar-item-category { margin-bottom: 3px; }
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list-item-collapsible { margin-top: 0; border-radius: 5px; }
+
+/* The category text navigates; only the separate button collapses the list. */
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__caret {
+  flex: 0 0 27px;
+  align-self: stretch;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__caret::before {
+  width: 14px;
+  height: 14px;
+  margin: 0 !important;
+  background-size: 14px 14px !important;
+  opacity: 0.65;
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__link--active { color: var(--flux-link) !important; }
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__link[aria-current='page'] {
+  background: var(--flux-accent-soft);
+  color: var(--flux-link) !important;
+  font-weight: 600;
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) .menu__list .menu__list .menu__link[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -14px;
+  top: 7px;
+  bottom: 7px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--flux-link);
+}
+
+:is(.theme-doc-sidebar-container, .navbar-sidebar) :is(.menu__link, .menu__caret):focus-visible {
+  outline: 2px solid var(--flux-link);
+  outline-offset: 1px;
+}
+
+.flux-sidebar-label { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.flux-sidebar-badge {
+  flex: 0 0 auto;
+  margin-inline-start: 6px;
+  padding: 0 4px;
+  border: 1px solid var(--flux-border);
+  border-radius: 4px;
+  color: var(--flux-text-secondary);
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 15px;
+}
