@@ -100,18 +100,19 @@ const config: Config = {
           type: 'dropdown',
           position: 'right',
           items: [
+            {label: '文档导览', to: '/docs/'},
             {label: '快速开始', to: '/docs/getting-started/overview'},
-            {label: 'Paxora 客户端', to: '/docs/installation/windows'},
-            {label: 'Apple 移动端', to: '/docs/installation/ios'},
-            {label: '第三方客户端', to: '/docs/third-party/windows-clash-verge'},
-            {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
+            {label: '服务介绍', to: '/docs/service'},
+            {label: '常见问题', to: '/docs/faq'},
+            {label: '官网地址与联系我们', to: '/docs/support/contact'},
+            {label: '服务条款', to: '/docs/support/terms'},
           ],
         },
         {to: '/docs/getting-started/download', label: '下载', position: 'right'},
-        {to: '/docs/installation/windows', label: 'Paxora 教程', position: 'right'},
-        {to: '/docs/installation/ios', label: '第三方教程', position: 'right'},
+        {to: '/docs/custom-clients', label: '定制客户端', position: 'right'},
+        {to: '/docs/third-party-clients', label: '第三方客户端', position: 'right'},
         {
-          label: '公告日志',
+          label: '通知与公告',
           type: 'dropdown',
           position: 'right',
           items: [
@@ -120,7 +121,7 @@ const config: Config = {
           ],
         },
         {
-          label: '更新日志',
+          label: '客户端更新日志',
           type: 'dropdown',
           position: 'right',
           items: [
@@ -136,7 +137,7 @@ const config: Config = {
     docs: {
       sidebar: {
         hideable: false,
-        autoCollapseCategories: false,
+        autoCollapseCategories: true,
       },
     },
     footer: {
@@ -147,14 +148,15 @@ const config: Config = {
           items: [
             {label: '快速开始', to: '/docs/getting-started/overview'},
             {label: '下载客户端', to: '/docs/getting-started/download'},
-            {label: 'Paxora 教程', to: '/docs/installation/windows'},
+            {label: '定制客户端', to: '/docs/custom-clients'},
+            {label: '第三方客户端', to: '/docs/third-party-clients'},
           ],
         },
         {
           title: '支持',
           items: [
-            {label: '订阅管理', to: '/docs/subscription/overview'},
-            {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
+            {label: '服务介绍', to: '/docs/service'},
+            {label: '常见问题', to: '/docs/faq'},
             {label: '联系我们', to: '/docs/support/contact'},
             {label: '服务条款', to: '/docs/support/terms'},
           ],
@@ -162,9 +164,11 @@ const config: Config = {
         {
           title: '第三方客户端',
           items: [
-            {label: 'iPhone / iPad', to: '/docs/installation/ios'},
-            {label: 'Clash Verge', to: '/docs/third-party/windows-clash-verge'},
-            {label: '路由器', to: '/docs/third-party/router-openwrt-merlin'},
+            {label: 'Windows', to: '/docs/third-party-clients/windows'},
+            {label: 'macOS', to: '/docs/third-party-clients/macos'},
+            {label: 'Android', to: '/docs/third-party-clients/android'},
+            {label: 'iPhone / iPad', to: '/docs/third-party-clients/ios'},
+            {label: '路由器', to: '/docs/third-party-clients/router'},
           ],
         },
       ],

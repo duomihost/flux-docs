@@ -23,15 +23,19 @@ slug: /
 
 如果你的设备支持 Paxora，请优先使用 Paxora。官方客户端登录账号后会自动获取套餐和节点，不需要手动复制订阅链接。
 
-## 快速入口
+## 文档分类
 
-- [下载客户端](./getting-started/download)
-- [首次使用 Paxora](./getting-started/first-connection)
-- [Windows 教程](./installation/windows)
-- [macOS 教程](./installation/macos)
-- [Android 教程](./installation/android)
-- [iPhone / iPad 教程](./installation/ios)
-- [无法连接](./troubleshooting/cannot-connect)
+| 分类 | 内容 |
+| --- | --- |
+| [快速开始](./getting-started/overview) | 选择客户端、下载安装并完成首次连接。 |
+| [定制客户端](/docs/custom-clients) | Paxora 官方定制客户端的 Windows、macOS 和 Android 教程。 |
+| [第三方客户端](/docs/third-party-clients) | 按平台查找兼容客户端和路由器插件的配置教程。 |
+| [服务介绍](/docs/service) | 订阅导入与更新、节点选择、流量倍率和账号安全。 |
+| [常见问题](/docs/faq) | 连接失败、速度慢、DNS、代理冲突和流量异常的排查方法。 |
+| [官网地址与联系我们](./support/contact) | 官网入口、客服与工单渠道，以及问题反馈指南。 |
+| [服务条款](./support/terms) | 服务使用规范与适用条款。 |
+
+[通知与公告](./announcements/2026.md)和[客户端更新日志](./changelog/index.md)提供服务通知与版本变化记录，可从顶部导航独立访问。
 
 :::warning
 客户端界面和功能可能随版本更新而变化。如果页面上的按钮名称与客户端略有不同，请以当前客户端界面为准。

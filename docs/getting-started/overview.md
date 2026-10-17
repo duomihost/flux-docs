@@ -1,13 +1,19 @@
 ---
-title: 快速开始
+title: 客户端选择
 description: 选择正确的客户端并完成第一次连接。
 ---
 
-# 快速开始
+# 客户端选择
 
 :::info
 教程图片可能来自较早版本，按钮位置会随客户端更新变化。当前产品名称统一为 **Paxora**。
 :::
+
+## 选择客户端
+
+- **Windows、macOS 和 Android**：优先使用 [Paxora 定制客户端](/docs/custom-clients)，登录后自动同步套餐和节点。
+- **iPhone / iPad**：使用 [Shadowrocket](../third-party/ios-shadowrocket.md)等兼容的第三方客户端，手动导入个人订阅。
+- **其他兼容客户端或路由器**：按设备平台查阅[第三方客户端教程](/docs/third-party-clients)。
 
 ## 使用 Paxora 官方客户端
 
