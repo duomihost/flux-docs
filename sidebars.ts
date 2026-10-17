@@ -57,6 +57,7 @@ const sidebars: SidebarsConfig = {
         'subscription/import-subscription',
         'subscription/update-subscription',
         'subscription/security',
+        'nodes/choose-node',
       ],
     },
     {
