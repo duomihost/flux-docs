@@ -58,6 +58,7 @@ const config: Config = {
             './src/css/react-native-theme.scss',
             './src/css/react-native-components.scss',
             './src/css/custom.css',
+            './src/css/docs-navigation.css',
           ],
         },
         sitemap: {
@@ -109,7 +110,7 @@ const config: Config = {
           ],
         },
         {to: '/docs/getting-started/download', label: '下载', position: 'right'},
-        {to: '/docs/custom-clients', label: '定制客户端', position: 'right'},
+        {to: '/docs/custom-clients', label: 'Paxora 定制客户端', position: 'right'},
         {to: '/docs/third-party-clients', label: '第三方客户端', position: 'right'},
         {
           label: '通知与公告',
@@ -148,7 +149,7 @@ const config: Config = {
           items: [
             {label: '快速开始', to: '/docs/getting-started/overview'},
             {label: '下载客户端', to: '/docs/getting-started/download'},
-            {label: '定制客户端', to: '/docs/custom-clients'},
+            {label: 'Paxora 定制客户端', to: '/docs/custom-clients'},
             {label: '第三方客户端', to: '/docs/third-party-clients'},
           ],
         },

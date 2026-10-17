@@ -1,0 +1,17 @@
+/* Keep documentation navigation compact without changing article typography. */
+.theme-doc-sidebar-container .menu__list .menu__link--sublist,
+.theme-doc-sidebar-container .menu__list a.menu__link--sublist-caret {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.6;
+}
+
+.theme-doc-sidebar-container .menu__list .menu__list .menu__link--sublist {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.theme-doc-sidebar-container .menu__link { padding-block: 5px; border-radius: 6px; }
+.theme-doc-sidebar-container .menu .theme-doc-sidebar-item-category { margin-bottom: 3px; }
+.theme-doc-sidebar-container .menu__list .menu__list-item-collapsible { margin-top: 0; }
+.theme-doc-sidebar-container .menu__link--active { color: var(--flux-link); }

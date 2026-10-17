@@ -5,7 +5,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '快速开始',
-      collapsed: false,
+      collapsed: true,
       items: [
         {type: 'doc', id: 'intro', label: '文档导览'},
         {type: 'doc', id: 'getting-started/overview', label: '客户端选择'},
@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '定制客户端',
+      label: 'Paxora 定制客户端',
       link: {
         type: 'generated-index',
         slug: '/custom-clients',
