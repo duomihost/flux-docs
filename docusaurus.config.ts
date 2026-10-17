@@ -95,22 +95,21 @@ const config: Config = {
         src: 'img/logo.png',
       },
       items: [
-        {to: '/docs/', label: '文档', position: 'right'},
-        {to: '/docs/getting-started/download', label: '下载', position: 'right'},
         {
-          label: '安装教程',
+          label: '文档',
           type: 'dropdown',
           position: 'right',
           items: [
-            {label: '全部设备', to: '/docs/clients'},
-            {label: 'Windows', to: '/docs/clients/windows'},
-            {label: 'macOS', to: '/docs/clients/macos'},
-            {label: 'Android', to: '/docs/clients/android'},
-            {label: 'iPhone / iPad', to: '/docs/clients/ios'},
-            {label: '路由器', to: '/docs/third-party/router-openwrt-merlin'},
+            {label: '快速开始', to: '/docs/getting-started/overview'},
+            {label: 'Paxora 客户端', to: '/docs/installation/windows'},
+            {label: 'Apple 移动端', to: '/docs/installation/ios'},
+            {label: '第三方客户端', to: '/docs/third-party/windows-clash-verge'},
+            {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
           ],
         },
-        {to: '/docs/troubleshooting/cannot-connect', label: '故障排查', position: 'right'},
+        {to: '/docs/getting-started/download', label: '下载', position: 'right'},
+        {to: '/docs/installation/windows', label: 'Paxora 教程', position: 'right'},
+        {to: '/docs/installation/ios', label: '第三方教程', position: 'right'},
         {
           label: '公告日志',
           type: 'dropdown',
@@ -137,7 +136,7 @@ const config: Config = {
     docs: {
       sidebar: {
         hideable: false,
-        autoCollapseCategories: true,
+        autoCollapseCategories: false,
       },
     },
     footer: {
@@ -148,25 +147,23 @@ const config: Config = {
           items: [
             {label: '快速开始', to: '/docs/getting-started/overview'},
             {label: '下载客户端', to: '/docs/getting-started/download'},
-            {label: '安装教程', to: '/docs/clients'},
+            {label: 'Paxora 教程', to: '/docs/installation/windows'},
           ],
         },
         {
           title: '支持',
           items: [
-            {label: '订阅与节点', to: '/docs/subscription/overview'},
+            {label: '订阅管理', to: '/docs/subscription/overview'},
             {label: '故障排查', to: '/docs/troubleshooting/cannot-connect'},
             {label: '联系我们', to: '/docs/support/contact'},
             {label: '服务条款', to: '/docs/support/terms'},
           ],
         },
         {
-          title: '客户端与设备',
+          title: '第三方客户端',
           items: [
-            {label: 'Windows', to: '/docs/clients/windows'},
-            {label: 'macOS', to: '/docs/clients/macos'},
-            {label: 'Android', to: '/docs/clients/android'},
-            {label: 'iPhone / iPad', to: '/docs/clients/ios'},
+            {label: 'iPhone / iPad', to: '/docs/installation/ios'},
+            {label: 'Clash Verge', to: '/docs/third-party/windows-clash-verge'},
             {label: '路由器', to: '/docs/third-party/router-openwrt-merlin'},
           ],
         },

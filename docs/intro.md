@@ -23,27 +23,15 @@ slug: /
 
 如果你的设备支持 Paxora，请优先使用 Paxora。官方客户端登录账号后会自动获取套餐和节点，不需要手动复制订阅链接。
 
-## 按使用任务查找文档
+## 快速入口
 
-| 你要完成的任务 | 文档入口 |
-| --- | --- |
-| 第一次使用，下载客户端并建立连接 | [快速开始](./getting-started/overview) · [下载客户端](./getting-started/download) · [首次连接](./getting-started/first-connection) |
-| 在电脑、手机或路由器上安装和配置客户端 | [客户端与设备](/docs/clients) |
-| 选择节点，导入、更新或保护个人订阅 | [订阅概览](./subscription/overview) · [选择节点](./nodes/choose-node) |
-| 解决连接失败、速度慢、DNS 或流量问题 | [故障排查](./troubleshooting/cannot-connect) |
-| 查找官网入口、联系客服或了解服务范围 | [官网与联系渠道](./support/contact) · [服务条款](./support/terms) |
-
-## 按设备查找教程
-
-客户端教程统一按设备平台分类，每个平台内标明官方客户端和第三方客户端：
-
-- [Windows](/docs/clients/windows)
-- [macOS](/docs/clients/macos)
-- [Android](/docs/clients/android)
-- [iPhone / iPad](/docs/clients/ios)
-- [路由器（OpenWrt / Merlin）](./third-party/router-openwrt-merlin)
-
-公告与更新日志保留在顶部导航的独立入口，便于查阅服务通知和客户端版本变化。
+- [下载客户端](./getting-started/download)
+- [首次使用 Paxora](./getting-started/first-connection)
+- [Windows 教程](./installation/windows)
+- [macOS 教程](./installation/macos)
+- [Android 教程](./installation/android)
+- [iPhone / iPad 教程](./installation/ios)
+- [无法连接](./troubleshooting/cannot-connect)
 
 :::warning
 客户端界面和功能可能随版本更新而变化。如果页面上的按钮名称与客户端略有不同，请以当前客户端界面为准。
