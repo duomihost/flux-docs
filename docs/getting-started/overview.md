@@ -13,7 +13,8 @@ description: 选择正确的客户端并完成第一次连接。
 
 - **Windows、macOS 和 Android**：优先使用 [Paxora 定制客户端](/docs/custom-clients)，登录后自动同步套餐和节点。
 - **iPhone / iPad**：使用 [Shadowrocket](../third-party/ios-shadowrocket.md)等兼容的第三方客户端，手动导入个人订阅。
-- **其他兼容客户端或路由器**：按设备平台查阅[第三方客户端教程](/docs/third-party-clients)。
+- **路由器**：在 Paxora 定制客户端分类中查阅[OpenWrt / Merlin 插件教程](../third-party/router-openwrt-merlin.md)。
+- **其他兼容客户端**：按设备平台查阅[第三方客户端教程](/docs/third-party-clients)。
 
 ## 使用 Paxora 官方客户端
 

@@ -28,8 +28,8 @@ slug: /
 | 分类 | 内容 |
 | --- | --- |
 | [快速开始](./getting-started/overview) | 选择客户端、下载安装并完成首次连接。 |
-| [Paxora 定制客户端](/docs/custom-clients) | Paxora 官方定制客户端的 Windows、macOS 和 Android 教程。 |
-| [第三方客户端](/docs/third-party-clients) | 按平台查找兼容客户端和路由器插件的配置教程。 |
+| [Paxora 定制客户端](/docs/custom-clients) | Paxora 定制客户端的 Windows、macOS、Android 教程及路由器插件说明。 |
+| [第三方客户端](/docs/third-party-clients) | 按平台查找第三方兼容客户端的安装与配置教程。 |
 | [服务介绍](/docs/service) | 订阅导入与更新、节点选择、流量倍率和账号安全。 |
 | [常见问题](/docs/faq) | 连接失败、速度慢、DNS、代理冲突和流量异常的排查方法。 |
 | [官网地址与联系我们](./support/contact) | 官网入口、客服与工单渠道，以及问题反馈指南。 |

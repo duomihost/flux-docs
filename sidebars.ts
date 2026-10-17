@@ -20,12 +20,25 @@ const sidebars: SidebarsConfig = {
         type: 'generated-index',
         slug: '/custom-clients',
         title: 'Paxora 定制客户端',
-        description: '选择设备平台，查看 Paxora 官方定制客户端的安装、登录和连接步骤。',
+        description: '查看 Windows、macOS、Android 定制客户端与路由器插件的安装和使用说明。',
       },
       items: [
         {type: 'doc', id: 'installation/windows', label: 'Windows'},
         {type: 'doc', id: 'installation/macos', label: 'macOS'},
         {type: 'doc', id: 'installation/android', label: 'Android'},
+        {
+          type: 'category',
+          label: '路由器',
+          link: {
+            type: 'generated-index',
+            slug: '/third-party-clients/router',
+            title: '路由器插件',
+            description: '查看 OpenWrt 和 Merlin 路由器插件的安装与订阅配置说明。',
+          },
+          items: [
+            {type: 'doc', id: 'third-party/router-openwrt-merlin', label: 'OpenWrt / Merlin'},
+          ],
+        },
       ],
     },
     {
@@ -91,19 +104,6 @@ const sidebars: SidebarsConfig = {
           items: [
             {type: 'doc', id: 'installation/ios', label: '使用说明'},
             {type: 'doc', id: 'third-party/ios-shadowrocket', label: 'Shadowrocket'},
-          ],
-        },
-        {
-          type: 'category',
-          label: '路由器',
-          link: {
-            type: 'generated-index',
-            slug: '/third-party-clients/router',
-            title: '路由器插件',
-            description: '查看 OpenWrt 和 Merlin 路由器插件的安装与订阅配置说明。',
-          },
-          items: [
-            {type: 'doc', id: 'third-party/router-openwrt-merlin', label: 'OpenWrt / Merlin'},
           ],
         },
       ],
