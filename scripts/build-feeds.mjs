@@ -24,6 +24,7 @@ const CHANGELOG_PAGES = {
   macos: '/docs/changelog/macos',
   android: '/docs/changelog/android',
   ios: '/docs/changelog/ios',
+  linux: '/docs/changelog/linux',
 };
 // 语言版本。默认语言(简体中文)清单在站根 `<feed>/index.json`;其他语言放在
 // `<语言>/<feed>/index.json`,源文件按 Docusaurus i18n 约定放在 i18n/<语言>/… 下,

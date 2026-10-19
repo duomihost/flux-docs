@@ -162,6 +162,7 @@ const sidebars: SidebarsConfig = {
     'changelog/macos',
     'changelog/android',
     'changelog/ios',
+    'changelog/linux',
   ],
 };
 

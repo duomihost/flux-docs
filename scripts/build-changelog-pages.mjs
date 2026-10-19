@@ -1,5 +1,5 @@
-// 站点构建前，从 docs/changelog/index.md（唯一手写源）生成四个平台页面：
-//   docs/changelog/windows.md / macos.md / android.md / ios.md
+// 站点构建前，从 docs/changelog/index.md（唯一手写源）生成五个平台页面：
+//   docs/changelog/windows.md / macos.md / android.md / ios.md / linux.md
 // 每页只保留该平台小节 + 「全平台」小节；某版本两者都没有就整版略过。
 // 生成物不入库（.gitignore），`npm run start` / `npm run build` 前自动执行。
 import {readFileSync, writeFileSync} from 'node:fs';
@@ -16,7 +16,7 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourcePath = path.join(root, 'docs/changelog/index.md');
-const PAGE_PLATFORMS = ['windows', 'macos', 'android', 'ios'];
+const PAGE_PLATFORMS = ['windows', 'macos', 'android', 'ios', 'linux'];
 
 const raw = readFileSync(sourcePath, 'utf8');
 const body = stripTopHeading(splitFrontMatter(raw));
