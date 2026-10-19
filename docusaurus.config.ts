@@ -131,6 +131,7 @@ const config: Config = {
             {label: 'macOS', to: '/docs/changelog/macos'},
             {label: 'Android', to: '/docs/changelog/android'},
             {label: 'iOS', to: '/docs/changelog/ios'},
+            {label: 'Linux', to: '/docs/changelog/linux'},
           ],
         },
       ],
