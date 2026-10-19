@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import changelogVersionBadges from './scripts/remark-changelog-versions.mjs';
 
 const config: Config = {
   title: 'Paxora Docs',
@@ -35,6 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          remarkPlugins: [changelogVersionBadges],
           exclude: [
             'api/**',
             'faq/**',

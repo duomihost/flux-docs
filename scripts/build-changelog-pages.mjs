@@ -51,6 +51,8 @@ for (const platform of PAGE_PLATFORMS) {
   const label = PLATFORM_LABELS[platform];
   const blocks = [];
   for (const entry of entries) {
+    // 有版本清单时，以实际发布的平台为准；全平台说明不能把未发布的平台带进历史记录。
+    if (Object.keys(entry.versions ?? {}).length && !entry.versions[platform]) continue;
     // 日期由 dateLine 统一展示，源文件首行日期不再作为通用更新正文输出。
     const shared = entry.sections.all?.replace(/^\*\*\d{4}\.\d{2}\.\d{2}\*\*\s*(?:\n|$)/, '').trim();
     const own = entry.sections[platform];
@@ -87,7 +89,7 @@ for (const platform of PAGE_PLATFORMS) {
     '',
     `# ${label} 更新日志`,
     '',
-    `各平台版本号统一；本页只列 ${label} 相关与全平台通用的改动，完整记录见[更新日志总览](./index.md)。`,
+    `各平台版本号独立记录；本页只列 ${label} 已发布版本及其适用的通用改动，完整记录见[更新日志总览](./index.md)。`,
     '',
     blocks.length ? blocks.join('\n') : '_暂无记录。_',
     '',
