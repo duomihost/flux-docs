@@ -177,6 +177,7 @@ const config: Config = {
         },
         {
           title: '第三方客户端',
+          className: 'footer__platforms',
           items: [
             {label: 'Windows', to: '/docs/third-party-clients/windows'},
             {label: 'macOS', to: '/docs/third-party-clients/macos'},
