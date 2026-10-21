@@ -8,7 +8,7 @@
   background:
     linear-gradient(135deg, var(--ifm-background-color) 0%, var(--flux-bg-soft) 100%);
   overflow: hidden;
-  padding: 5.5rem 0 4.75rem;
+  padding: 3.5rem 0 3rem;
   position: relative;
 }
 
@@ -52,14 +52,14 @@
 }
 
 .title {
-  font-size: clamp(2.45rem, 5vw, 4.55rem);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
   line-height: 1.04;
   margin: 0 0 1rem;
 }
 
 .subtitle {
   color: var(--flux-text-secondary);
-  font-size: 1.28rem;
+  font-size: 1.07rem;
   font-weight: 500;
   line-height: 1.72;
   margin: 0;
@@ -223,7 +223,7 @@
 
 .guides {
   background: var(--flux-bg-surface);
-  padding: 3.75rem 0 4.25rem;
+  padding: 2.5rem 0 3rem;
 }
 
 .sectionHeader {
@@ -232,7 +232,7 @@
 }
 
 .sectionHeader h2 {
-  font-size: 2rem;
+  font-size: 1.65rem;
   margin: 0 0 0.5rem;
 }
 
@@ -296,7 +296,7 @@ html[data-theme='dark'] .guides {
 
 @media (max-width: 996px) {
   .hero {
-    padding: 4.5rem 0 3rem;
+    padding: 3rem 0 2.5rem;
   }
 
   .heroLayout {
@@ -318,7 +318,7 @@ html[data-theme='dark'] .guides {
 
 @media (max-width: 640px) {
   .hero {
-    padding-top: 3.25rem;
+    padding-top: 2.5rem;
   }
 
   .logo {

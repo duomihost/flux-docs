@@ -1,0 +1,6 @@
+.control { margin: 0; }
+.label { display: block; color: var(--flux-text-secondary); font-size: 12px; margin-bottom: 8px; }
+.segments { display: flex; padding: 3px; gap: 3px; border: 1px solid var(--flux-border); background: var(--flux-bg-raised); border-radius: 8px; }
+.segments button { flex: 1; min-width: 0; min-height: 34px; padding: 5px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--flux-text-secondary); font: inherit; font-size: 13px; cursor: pointer; }
+.segments button:hover { color: var(--flux-text-primary); }
+.segments button[aria-pressed='true'] { background: var(--flux-bg-surface); border-color: var(--flux-border); color: var(--flux-link); box-shadow: 0 1px 3px rgb(0 0 0 / 6%); }

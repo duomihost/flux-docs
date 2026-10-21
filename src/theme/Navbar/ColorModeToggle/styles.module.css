@@ -1,86 +1,22 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-.toggleGroup {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.25rem;
-}
-
-.darkNavbarColorModeToggle:hover,
-.darkNavbarButton:hover {
-  background: var(--ifm-color-gray-800);
-}
-
-.paletteSelector {
-  position: relative;
-}
-
-.paletteButton {
-  align-items: center;
-  border-radius: 999px;
-  display: inline-flex;
-  height: 2rem;
-  justify-content: center;
-  width: 2rem;
-}
-
-.paletteButton:hover {
-  background: var(--ifm-color-emphasis-200);
-}
-
-.previewSwatches {
-  border: 1px solid rgb(255 255 255 / 0.78);
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.18);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 1rem;
-  overflow: hidden;
-  width: 1rem;
-}
-
-.previewSwatches span {
-  display: block;
-}
-
-.paletteMenu {
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--flux-border);
-  border-radius: 8px;
-  box-shadow: 0 14px 32px rgb(15 23 42 / 0.16);
-  display: grid;
-  gap: 0.125rem;
-  min-width: 11rem;
-  padding: 0.35rem;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.5rem);
-  z-index: 1000;
-}
-
-.paletteMenuItem {
-  align-items: center;
-  background: transparent;
-  border: 0;
-  border-radius: 6px;
-  color: var(--ifm-font-color-base);
-  cursor: pointer;
-  display: flex;
-  font: inherit;
-  font-size: 0.875rem;
-  gap: 0.625rem;
-  padding: 0.55rem 0.65rem;
-  text-align: left;
-  width: 100%;
-}
-
-.paletteMenuItem:hover,
-.paletteMenuItem[data-active='true'] {
-  background: var(--flux-accent-soft);
-  color: var(--ifm-font-color-base);
-}
+.root { position: relative; display: inline-flex; align-items: center; }
+.trigger { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; color: inherit; }
+.trigger:hover, .trigger[aria-expanded='true'] { background: rgb(128 128 128 / 16%); }
+.trigger:focus-visible, .panel button:focus-visible { outline: 2px solid var(--flux-link); outline-offset: 3px; }
+.panel { position: absolute; top: calc(100% + 12px); right: 0; width: 272px; padding: 16px; border: 1px solid var(--flux-border); border-radius: 12px; background: var(--flux-bg-surface); color: var(--flux-text-primary); box-shadow: 0 12px 36px rgb(0 0 0 / 16%); z-index: 1000; font-size: 14px; line-height: 1.5; }
+.header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.header strong { font-size: 15px; font-weight: 600; }
+.close { border: 0; background: transparent; color: var(--flux-text-secondary); width: 28px; height: 28px; border-radius: 6px; cursor: pointer; font-size: 22px; line-height: 1; }
+.close:hover { background: var(--flux-bg-raised); }
+.section { margin-bottom: 18px; }
+.label { display: block; color: var(--flux-text-secondary); font-size: 12px; margin-bottom: 8px; }
+.segments { display: flex; padding: 3px; gap: 3px; border: 1px solid var(--flux-border); background: var(--flux-bg-raised); border-radius: 8px; }
+.segments button { flex: 1; min-width: 0; min-height: 34px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--flux-text-secondary); font: inherit; font-size: 13px; cursor: pointer; padding: 5px 3px; white-space: nowrap; }
+.segments button:hover { color: var(--flux-text-primary); }
+.segments button[aria-pressed='true'] { background: var(--flux-bg-surface); border-color: var(--flux-border); color: var(--flux-link); box-shadow: 0 1px 3px rgb(0 0 0 / 6%); }
+.palettes { display: flex; gap: 12px; }
+.palettes button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid transparent; border-radius: 50%; background: transparent; cursor: pointer; }
+.palettes button[aria-pressed='true'] { border-color: var(--flux-link); }
+.palettes button:hover { background: var(--flux-bg-raised); }
+.palettes span { width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgb(128 128 128 / 20%); }
+.hint { font-size: 11px; color: var(--flux-text-secondary); margin: 14px 0 0; }
+@media (max-width: 996px) { .panel { position: fixed; top: calc(var(--ifm-navbar-height) + 8px); right: 12px; width: min(272px, calc(100vw - 24px)); max-height: calc(100dvh - var(--ifm-navbar-height) - 24px); overflow-y: auto; } }

@@ -13,6 +13,15 @@ const config: Config = {
     posthogHost: process.env.POSTHOG_HOST ?? 'https://us.i.posthog.com',
   },
 
+  // Restore before first paint; blocked storage simply keeps the default size.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{var s=localStorage.getItem('flux-docs-font-size');if(['small','standard','large'].indexOf(s)!==-1){document.documentElement.dataset.fluxFontSize=s;}}catch(e){}})();`,
+    },
+  ],
+
   future: {
     v4: true,
   },
