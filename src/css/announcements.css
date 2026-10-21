@@ -1,0 +1,98 @@
+/* 公告页单独控制阅读比例，避免主题的固定大标题覆盖紧凑排版。
+ * 默认正文 14px、页面标题 26px、条目标题 18px；字号偏好按相同比例缩放。
+ * 仅作用于网页，不改变公告 Markdown 或客户端 JSON/HTML。 */
+html[class*='docs-doc-id-announcements/'] {
+  --flux-announcement-size: 14px;
+}
+
+html[data-flux-font-size='small'][class*='docs-doc-id-announcements/'] {
+  --flux-announcement-size: 13px;
+}
+
+html[data-flux-font-size='large'][class*='docs-doc-id-announcements/'] {
+  --flux-announcement-size: 16px;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown {
+  --flux-doc-h1-size: 1.857143em;
+  --flux-doc-h2-size: 1.285714em;
+  --flux-doc-h3-size: 1.071429em;
+  --ifm-paragraph-margin-bottom: 0.65em;
+  --ifm-list-margin: 0.65em;
+  --ifm-list-item-margin: 0.2em;
+  --ifm-list-left-padding: 1.4em;
+  font-size: var(--flux-announcement-size);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* !important 仅用于覆盖上游 article header h1 的固定字号。 */
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown h1 {
+  margin: 0 0 1em;
+  font-size: var(--flux-doc-h1-size) !important;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown h2 {
+  margin: 1.5em 0 0.5em;
+  padding: 1.35em 0 0;
+  border-top: 1px solid var(--flux-border);
+  border-bottom: 0;
+  font-size: var(--flux-doc-h2-size);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 24px);
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown header + h2 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown h3 {
+  margin: 1.2em 0 0.4em;
+  font-size: var(--flux-doc-h3-size);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown p {
+  margin-bottom: 0.65em;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown strong {
+  font-weight: 600;
+}
+
+/* 只装饰条目标题后的发布日期，避免将正文中的加粗提示当成日期。 */
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown h2 + p {
+  margin: 0 0 1.15em;
+  color: var(--flux-text-secondary);
+  font-size: 0.857143em;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown h2 + p > strong {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--flux-border);
+  border-radius: 5px;
+  background: var(--flux-bg-surface);
+  font-weight: 500;
+}
+
+html[class*='docs-doc-id-announcements/'] .breadcrumbs {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+@media (max-width: 996px) {
+  html[class*='docs-doc-id-announcements/'] .theme-doc-markdown.markdown {
+    --flux-doc-h1-size: 1.714286em;
+  }
+}
