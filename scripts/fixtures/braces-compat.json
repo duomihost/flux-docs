@@ -1,0 +1,413 @@
+{
+  "source": "braces 3.0.3, commit 74b2db2938fad48a2ea54a9c8bf27a37a62c350d, MIT; expected outputs captured before patching",
+  "cases": [
+    {
+      "pattern": "docs/{getting-started,installation}/*.{md,mdx}",
+      "options": {},
+      "expected": {
+        "compile": "docs/(getting-started|installation)/*.(md|mdx)",
+        "expand": [
+          "docs/getting-started/*.md",
+          "docs/getting-started/*.mdx",
+          "docs/installation/*.md",
+          "docs/installation/*.mdx"
+        ],
+        "stringify": "docs/{getting-started,installation}/*.{md,mdx}"
+      }
+    },
+    {
+      "pattern": "{a,{b,c}}",
+      "options": {},
+      "expected": {
+        "compile": "(a|(b|c))",
+        "expand": [
+          "a",
+          "b",
+          "c"
+        ],
+        "stringify": "{a,{b,c}}"
+      }
+    },
+    {
+      "pattern": "{,a,,b}",
+      "options": {},
+      "expected": {
+        "compile": "(|a|b)",
+        "expand": [
+          "",
+          "a",
+          "",
+          "b"
+        ],
+        "stringify": "{,a,,b}"
+      }
+    },
+    {
+      "pattern": "{}",
+      "options": {},
+      "expected": {
+        "compile": "{}",
+        "expand": [
+          "{}"
+        ],
+        "stringify": "{}"
+      }
+    },
+    {
+      "pattern": "{a}",
+      "options": {},
+      "expected": {
+        "compile": "{a}",
+        "expand": [
+          "{a}"
+        ],
+        "stringify": "{a}"
+      }
+    },
+    {
+      "pattern": "{a,b}{x,y}",
+      "options": {},
+      "expected": {
+        "compile": "(a|b)(x|y)",
+        "expand": [
+          "ax",
+          "ay",
+          "bx",
+          "by"
+        ],
+        "stringify": "{a,b}{x,y}"
+      }
+    },
+    {
+      "pattern": "{1..8}",
+      "options": {},
+      "expected": {
+        "compile": "([1-8])",
+        "expand": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "stringify": "{1..8}"
+      }
+    },
+    {
+      "pattern": "{8..1}",
+      "options": {},
+      "expected": {
+        "compile": "([1-8])",
+        "expand": [
+          "8",
+          "7",
+          "6",
+          "5",
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "stringify": "{8..1}"
+      }
+    },
+    {
+      "pattern": "{01..08}",
+      "options": {},
+      "expected": {
+        "compile": "(0[1-8])",
+        "expand": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "stringify": "{01..08}"
+      }
+    },
+    {
+      "pattern": "{8..1..2}",
+      "options": {},
+      "expected": {
+        "compile": "(2|4|6|8)",
+        "expand": [
+          "8",
+          "6",
+          "4",
+          "2"
+        ],
+        "stringify": "{8..1..2}"
+      }
+    },
+    {
+      "pattern": "{-5..5..2}",
+      "options": {},
+      "expected": {
+        "compile": "(1|3|5|-(?:1|3|5))",
+        "expand": [
+          "-5",
+          "-3",
+          "-1",
+          "1",
+          "3",
+          "5"
+        ],
+        "stringify": "{-5..5..2}"
+      }
+    },
+    {
+      "pattern": "{a..f}",
+      "options": {},
+      "expected": {
+        "compile": "([a-f])",
+        "expand": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "stringify": "{a..f}"
+      }
+    },
+    {
+      "pattern": "{f..a..2}",
+      "options": {},
+      "expected": {
+        "compile": "(f|d|b)",
+        "expand": [
+          "f",
+          "d",
+          "b"
+        ],
+        "stringify": "{f..a..2}"
+      }
+    },
+    {
+      "pattern": "{a\\,b,c}",
+      "options": {},
+      "expected": {
+        "compile": "(a,b|c)",
+        "expand": [
+          "a,b",
+          "c"
+        ],
+        "stringify": "{a,b,c}"
+      }
+    },
+    {
+      "pattern": "\\{a,b\\}",
+      "options": {},
+      "expected": {
+        "compile": "{a,b}",
+        "expand": [
+          "{a,b}"
+        ],
+        "stringify": "{a,b}"
+      }
+    },
+    {
+      "pattern": "\"{a,b}\"",
+      "options": {},
+      "expected": {
+        "compile": "{a,b}",
+        "expand": [
+          "{a,b}"
+        ],
+        "stringify": "{a,b}"
+      }
+    },
+    {
+      "pattern": "'{a,b}",
+      "options": {},
+      "expected": {
+        "compile": "{a,b}",
+        "expand": [
+          "{a,b}"
+        ],
+        "stringify": "{a,b}"
+      }
+    },
+    {
+      "pattern": "({a,b})",
+      "options": {},
+      "expected": {
+        "compile": "((a|b))",
+        "expand": [
+          "(a)",
+          "(b)"
+        ],
+        "stringify": "({a,b})"
+      }
+    },
+    {
+      "pattern": "((a,b))",
+      "options": {},
+      "expected": {
+        "compile": "((a,b))",
+        "expand": [
+          "((a,b))"
+        ],
+        "stringify": "((a,b))"
+      }
+    },
+    {
+      "pattern": "{a,(b,c)}",
+      "options": {},
+      "expected": {
+        "compile": "(a|(b|c))",
+        "expand": [
+          "a",
+          "(b,c)"
+        ],
+        "stringify": "{a,(b,c)}"
+      }
+    },
+    {
+      "pattern": "${a,b}",
+      "options": {},
+      "expected": {
+        "compile": "${a,b}",
+        "expand": [
+          "${a,b}"
+        ],
+        "stringify": "${a,b}"
+      }
+    },
+    {
+      "pattern": "{[a,b],c}",
+      "options": {},
+      "expected": {
+        "compile": "([a,b]|c)",
+        "expand": [
+          "[a,b]",
+          "c"
+        ],
+        "stringify": "{[a,b],c}"
+      }
+    },
+    {
+      "pattern": "{1..3,x}",
+      "options": {},
+      "expected": {
+        "compile": "(1..3|x)",
+        "expand": [
+          "1..3",
+          "x"
+        ],
+        "stringify": "{1..3,x}"
+      }
+    },
+    {
+      "pattern": "{1...3}",
+      "options": {},
+      "expected": {
+        "compile": "{1...3}",
+        "expand": [
+          "{1...3}"
+        ],
+        "stringify": "{1...3}"
+      }
+    },
+    {
+      "pattern": "{a,b",
+      "options": {},
+      "expected": {
+        "compile": "{a,b",
+        "expand": [
+          "{a,b"
+        ],
+        "stringify": "{a,b"
+      }
+    },
+    {
+      "pattern": "a,b}",
+      "options": {},
+      "expected": {
+        "compile": "a,b}",
+        "expand": [
+          "a,b}"
+        ],
+        "stringify": "a,b}"
+      }
+    },
+    {
+      "pattern": "\"{a,b}\"",
+      "options": {
+        "keepQuotes": true
+      },
+      "expected": {
+        "compile": "\"{a,b}\"",
+        "expand": [
+          "\"{a,b}\""
+        ],
+        "stringify": "\"{a,b}\""
+      }
+    },
+    {
+      "pattern": "{a\\,b,c}",
+      "options": {
+        "keepEscaping": true
+      },
+      "expected": {
+        "compile": "(a\\,b|c)",
+        "expand": [
+          "a\\,b",
+          "c"
+        ],
+        "stringify": "{a\\,b,c}"
+      }
+    },
+    {
+      "pattern": "{a,b",
+      "options": {
+        "escapeInvalid": true
+      },
+      "expected": {
+        "compile": "\\{a,b",
+        "expand": [
+          "{a,b"
+        ],
+        "stringify": "{a,b"
+      }
+    },
+    {
+      "pattern": "{,a,a}",
+      "options": {
+        "noempty": true,
+        "nodupes": true
+      },
+      "expected": {
+        "compile": "(|a|a)",
+        "expand": [
+          "a"
+        ],
+        "stringify": "{,a,a}"
+      }
+    },
+    {
+      "pattern": "{1..8}",
+      "options": {
+        "step": 2
+      },
+      "expected": {
+        "compile": "(1|3|5|7)",
+        "expand": [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        "stringify": "{1..8}"
+      }
+    }
+  ]
+}
