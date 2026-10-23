@@ -32,7 +32,7 @@ slug: /
 | [Paxora 定制客户端](/docs/custom-clients) | Paxora 定制客户端的 Windows、macOS、Android、Linux 教程及路由器插件说明。 |
 | [第三方客户端](/docs/third-party-clients) | 按平台查找第三方兼容客户端的安装与配置教程。 |
 | [服务介绍](/docs/service) | 订阅导入与更新、节点选择、流量倍率和账号安全。 |
-| [常见问题](/docs/faq) | 连接失败、速度慢、DNS、代理冲突和流量异常的排查方法。 |
+| [常见问题](/docs/faq) | 连接失败、订阅下载或更新失败、速度慢、DNS、代理冲突和流量异常的排查方法。 |
 | [官网地址与联系我们](./support/contact) | 官网入口、客服与工单渠道，以及问题反馈指南。 |
 | [服务条款](./support/terms) | 服务使用规范与适用条款。 |
 

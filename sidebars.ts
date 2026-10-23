@@ -137,6 +137,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'troubleshooting/cannot-connect',
+        'troubleshooting/subscription-failed',
         {type: 'doc', id: 'troubleshooting/slow-speed', label: '速度慢与延迟高'},
         {type: 'doc', id: 'troubleshooting/dns-issue', label: 'DNS 与域名解析'},
         {type: 'doc', id: 'troubleshooting/proxy-conflict', label: '代理冲突与浏览器异常'},

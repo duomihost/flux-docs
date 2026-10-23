@@ -5,13 +5,13 @@ description: 登录 Paxora、选择节点并完成第一次连接。
 
 # 首次使用 Paxora
 
-本页适用于 Windows、macOS 和 Android 版 Paxora。
+本页适用于 Windows、macOS、Android 和 Linux 版 Paxora。Linux 的系统、架构和安装授权要求见 [Linux 安装教程](../installation/linux.md)。iPhone / iPad 用户请按 [Shadowrocket 教程](../third-party/ios-shadowrocket.md)导入订阅。
 
 ## 1. 登录账号
 
 打开 Paxora，输入注册邮箱和密码登录。首次登录时，客户端需要同步账号、套餐和节点，加载时间可能比平时更长。
 
-如果长时间没有显示节点，请完全退出 Paxora 后重新打开。
+如果长时间没有显示节点，可以完全退出 Paxora 后重新打开一次。仍然没有节点时，按[节点同步与订阅更新失败](../troubleshooting/subscription-failed.md)排查，不需要为官方客户端手动导入订阅。
 
 ## 2. 选择节点
 

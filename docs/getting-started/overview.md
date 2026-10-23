@@ -16,6 +16,17 @@ description: 选择正确的客户端并完成第一次连接。
 - **路由器**：在 Paxora 定制客户端分类中查阅[OpenWrt / Merlin 插件教程](../third-party/router-openwrt-merlin.md)。
 - **其他兼容客户端**：按设备平台查阅[第三方客户端教程](/docs/third-party-clients)。
 
+## 各个入口有什么用途
+
+| 入口 | 适合处理的事情 |
+| --- | --- |
+| [官网与用户中心](../support/contact.md#官网及相关入口) | 查看当前账号、套餐、可用流量和个人订阅，提交工单；具体状态以登录后显示为准。 |
+| Paxora 官方客户端 | 登录账号、同步节点、建立或断开连接。 |
+| 第三方客户端 | 导入个人订阅并连接节点，具体操作按对应平台教程进行。 |
+| [技术文档](../intro.md) | 查安装步骤、订阅操作、排障和反馈方法；文档不能代替账号状态查询。 |
+
+还未安装时先看[下载页面](./download.md)；已经安装则按[首次连接](./first-connection.md)操作。账号、订单或个人权限需要核查时，使用[客服与工单入口](../support/contact.md)。
+
 ## 使用 Paxora 官方客户端
 
 Windows、macOS、Android 和 Linux 用户按以下流程操作：

@@ -43,3 +43,25 @@ test('Linux 指引已编译并在首页、下载页、导览及定制客户端�
     assert.match(html, /href=["']?\/docs\/installation\/linux["'\s>]/, `${page || '/'} 应包含 Linux 教程链接`);
   }
 });
+
+test('订阅排障可从导览、常见问题及订阅教程到达，反馈锚点可用', () => {
+  const route = '/docs/troubleshooting/subscription-failed';
+  const html = readFileSync(new URL(`build${route}/index.html`, root), 'utf8');
+  assert.equal(metadata('docs/troubleshooting/subscription-failed.md').permalink, route);
+  assert.match(html, /<h1[^>]*>订阅下载或更新失败<\/h1>/);
+  for (const page of ['docs/faq', 'docs/subscription/overview', 'docs/subscription/import-subscription',
+    'docs/subscription/update-subscription', 'docs/troubleshooting/cannot-connect', 'docs/getting-started/first-connection']) {
+    const pageHtml = readFileSync(new URL(`build/${page}/index.html`, root), 'utf8');
+    const main = pageHtml.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
+    assert.ok(main, `${page} 应有主要内容`);
+    assert.match(main, /href=["']?\/docs\/troubleshooting\/subscription-failed["'\s>]/, page);
+  }
+  const feedback = readFileSync(new URL('build/docs/support/feedback/index.html', root), 'utf8');
+  assert.match(feedback, /id=["']?订阅下载或更新问题模板["'\s>]/);
+  const feedbackLinks = [...html.matchAll(/href=["']?(\/docs\/support\/feedback#[^"'\s>]+)/g)]
+    .map(([, href]) => decodeURIComponent(href));
+  assert.ok(feedbackLinks.includes('/docs/support/feedback#订阅下载或更新问题模板'));
+  const firstConnection = readFileSync(new URL('build/docs/getting-started/first-connection/index.html', root), 'utf8');
+  assert.match(firstConnection.match(/<article\b[^>]*>([\s\S]*?)<\/article>/)?.[1] ?? '',
+    /href=["']?\/docs\/installation\/linux["'\s>]/);
+});
