@@ -11,14 +11,14 @@ description: 选择正确的客户端并完成第一次连接。
 
 ## 选择客户端
 
-- **Windows、macOS 和 Android**：优先使用 [Paxora 定制客户端](/docs/custom-clients)，登录后自动同步套餐和节点。
+- **Windows、macOS、Android 和 Linux**：优先使用 [Paxora 定制客户端](/docs/custom-clients)，登录后自动同步套餐和节点。Linux 的系统与架构要求见[安装教程](../installation/linux.md)。
 - **iPhone / iPad**：使用 [Shadowrocket](../third-party/ios-shadowrocket.md)等兼容的第三方客户端，手动导入个人订阅。
 - **路由器**：在 Paxora 定制客户端分类中查阅[OpenWrt / Merlin 插件教程](../third-party/router-openwrt-merlin.md)。
 - **其他兼容客户端**：按设备平台查阅[第三方客户端教程](/docs/third-party-clients)。
 
 ## 使用 Paxora 官方客户端
 
-Windows、macOS 和 Android 用户按以下流程操作：
+Windows、macOS、Android 和 Linux 用户按以下流程操作：
 
 1. 从[下载页面](./download)获取适合设备的 Paxora 安装包。
 2. 安装并启动 Paxora。

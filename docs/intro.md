@@ -19,6 +19,7 @@ slug: /
 | Windows 10 / 11 | Paxora | 官方客户端 |
 | macOS | Paxora | 官方客户端 |
 | Android / HarmonyOS | Paxora | 官方客户端 |
+| Ubuntu 24.04 GNOME（x86_64 / arm64） | [Paxora](./installation/linux.md) | 官方客户端 |
 | iPhone / iPad | Shadowrocket | 第三方客户端 |
 
 如果你的设备支持 Paxora，请优先使用 Paxora。官方客户端登录账号后会自动获取套餐和节点，不需要手动复制订阅链接。
@@ -28,7 +29,7 @@ slug: /
 | 分类 | 内容 |
 | --- | --- |
 | [快速开始](./getting-started/overview) | 选择客户端、下载安装并完成首次连接。 |
-| [Paxora 定制客户端](/docs/custom-clients) | Paxora 定制客户端的 Windows、macOS、Android 教程及路由器插件说明。 |
+| [Paxora 定制客户端](/docs/custom-clients) | Paxora 定制客户端的 Windows、macOS、Android、Linux 教程及路由器插件说明。 |
 | [第三方客户端](/docs/third-party-clients) | 按平台查找第三方兼容客户端的安装与配置教程。 |
 | [服务介绍](/docs/service) | 订阅导入与更新、节点选择、流量倍率和账号安全。 |
 | [常见问题](/docs/faq) | 连接失败、速度慢、DNS、代理冲突和流量异常的排查方法。 |

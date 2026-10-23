@@ -37,6 +37,13 @@ const platforms: Platform[] = [
     name: 'Paxora for Android',
   },
   {
+    badge: 'Linux',
+    description: 'Ubuntu 24.04 GNOME，提供 x86_64 与 arm64 两种架构的 .deb 安装包。',
+    href: '/docs/installation/linux',
+    meta: 'Paxora 官方客户端',
+    name: 'Paxora for Linux',
+  },
+  {
     badge: 'iOS',
     description: 'Paxora 暂无 iOS 客户端，请使用 Shadowrocket。',
     href: '/docs/installation/ios',
@@ -69,7 +76,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="Paxora 下载"
-      description="下载 Paxora 客户端，查看 Windows、macOS、Android 和 Apple 移动端使用教程。">
+      description="下载 Paxora 客户端，查看 Windows、macOS、Android、Linux 和 Apple 移动端使用教程。">
       <main className={styles.homepage}>
         <section className={styles.hero}>
           <div className={styles.heroGrid} aria-hidden="true" />
@@ -82,7 +89,7 @@ export default function Home(): ReactNode {
                   下载 Paxora
                 </Heading>
                 <p className={styles.subtitle}>
-                  Windows、macOS 和 Android 优先使用 Paxora 官方客户端。
+                  Windows、macOS、Android 和 Linux 优先使用 Paxora 官方客户端。
                   iPhone 与 iPad 暂时使用经过说明的第三方客户端。
                 </p>
                 <div className={styles.actions}>

@@ -14,6 +14,7 @@ description: Paxora 官方客户端和 Apple 移动端第三方客户端的下�
 | Windows 10 / 11 | [下载 `.exe`](https://vault.paxoras.com/index.php/s/RoC56zfBoXFbFSS/download) | [查看 Windows 教程](../installation/windows) |
 | macOS | [下载 `.dmg`](https://vault.paxoras.com/index.php/s/LXYQXs85jxxcn58/download) | [查看 macOS 教程](../installation/macos) |
 | Android / HarmonyOS | [下载 `.apk`](https://vault.paxoras.com/index.php/s/3nSzKWyjqDiP7WR/download) | [查看 Android 教程](../installation/android) |
+| Linux（Ubuntu 24.04 GNOME） | [进入官方下载目录选择 `.deb`](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7) | [查看 Linux 教程](../installation/linux) |
 
 主下载无法打开时，可使用统一目录：
 
@@ -21,6 +22,8 @@ description: Paxora 官方客户端和 Apple 移动端第三方客户端的下�
 - [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 macOS 用户应先点击屏幕左上角 Apple 菜单，选择“关于本机”，确认 Mac 使用 Apple 芯片还是 Intel 芯片，再下载对应安装包。
+
+Linux 用户在官方下载目录中选择 **Paxora-Linux** 文件夹，再按设备架构下载 `amd64` 或 `arm64` 安装包。首次使用请选择正式版，避免选到名称带 `test` 或 `debug` 的包；架构确认与安装步骤见 [Linux 教程](../installation/linux)。
 
 ## iPhone / iPad
 

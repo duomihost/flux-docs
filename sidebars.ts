@@ -20,12 +20,13 @@ const sidebars: SidebarsConfig = {
         type: 'generated-index',
         slug: '/custom-clients',
         title: 'Paxora 定制客户端',
-        description: '查看 Windows、macOS、Android 定制客户端与路由器插件的安装和使用说明。',
+        description: '查看 Windows、macOS、Android、Linux 定制客户端与路由器插件的安装和使用说明。',
       },
       items: [
         {type: 'doc', id: 'installation/windows', label: 'Windows'},
         {type: 'doc', id: 'installation/macos', label: 'macOS'},
         {type: 'doc', id: 'installation/android', label: 'Android'},
+        {type: 'doc', id: 'installation/linux', label: 'Linux'},
         {
           type: 'category',
           label: '路由器',

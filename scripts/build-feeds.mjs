@@ -11,7 +11,7 @@
 import {existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {parseEntries, renderHtml, splitFrontMatter, stripTopHeading} from './lib/entries.mjs';
+import {parseEntries, renderHtml, splitFrontMatter, stripTopHeading, validateChangelog, validateFeedEntries} from './lib/entries.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const buildDir = path.join(root, 'build');
@@ -72,10 +72,12 @@ for (const locale of LOCALES) {
     for (const part of parts) {
       const raw = readFileSync(path.join(sourceDir, `${part}.md`), 'utf8');
       const body = stripTopHeading(splitFrontMatter(raw));
-      writeFileSync(path.join(outDir, `${part}.html`), renderHtml(body));
       const fallbackDate = /^\d{4}$/.test(part) ? `${part}-01-01` : '1970-01-01';
       const pageUrl = `${urlPrefix}${feed.parts === 'years' ? `${feed.page}${part}` : feed.page}`;
-      const entries = parseEntries(part, body, {fallbackDate, pageUrl, platforms: feed.platforms})
+      const parsed = parseEntries(part, body, {fallbackDate, pageUrl, platforms: feed.platforms});
+      const problems = feed.platforms ? validateChangelog(parsed) : validateFeedEntries(parsed);
+      if (problems.length) throw new Error(`${locale.docsDir}/${feed.source}/${part}.md:\n${problems.join('\n')}`);
+      const entries = parsed
         // sections（Markdown 原文）只给页面生成用，清单里只留 HTML。
         .map(({sections, ...entry}) => entry);
       index.parts.push({
@@ -84,8 +86,11 @@ for (const locale of LOCALES) {
         html: `${locale.prefix ? `${locale.prefix}/` : ''}${feed.name}/${part}.html`,
         entries,
       });
+      writeFileSync(path.join(outDir, `${part}.html`), renderHtml(body));
     }
     const all = index.parts.flatMap((p) => p.entries);
+    const problems = validateFeedEntries(all);
+    if (problems.length) throw new Error(`${feed.name}:\n${problems.join('\n')}`);
     index.latest = all.reduce(
       (best, e) => (!best || e.updated > best.updated ? e : best),
       null,

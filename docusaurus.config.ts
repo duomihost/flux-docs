@@ -8,7 +8,8 @@ const config: Config = {
   tagline: 'Paxora 客户端下载与使用文档',
   favicon: 'img/logo.png',
   customFields: {
-    crispWebsiteId: process.env.CRISP_WEBSITE_ID ?? null,
+    // Official support is enabled by default; an explicit empty value disables it.
+    crispWebsiteId: (process.env.CRISP_WEBSITE_ID ?? '25fdee9f-2b5f-4b83-87ac-dfc13e638660').trim(),
     posthogProjectApiKey: process.env.POSTHOG_PROJECT_API_KEY ?? null,
     posthogHost: process.env.POSTHOG_HOST ?? 'https://us.i.posthog.com',
   },
@@ -45,6 +46,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
           remarkPlugins: [changelogVersionBadges],
           exclude: [
             'api/**',
@@ -55,7 +57,6 @@ const config: Config = {
             'nodes/idc-regions.md',
             'nodes/latency-test.md',
             'getting-started/account.md',
-            'installation/linux.md',
             'subscription/subscription-expired.md',
             'troubleshooting/login-failed.md',
           ],

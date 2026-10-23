@@ -1,6 +1,7 @@
 import React, {type ReactNode, useEffect, useMemo, useState} from 'react';
 import {useLocation} from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {captureFeedback, readFeedback, saveFeedback} from '@site/src/lib/page-feedback.mjs';
 
 import styles from './styles.module.css';
 
@@ -11,34 +12,6 @@ type FeedbackAnalyticsConfig = {
 };
 
 const STORAGE_PREFIX = 'flux-docs-page-feedback:';
-const DISTINCT_ID_KEY = 'flux-docs-posthog-distinct-id';
-const POSTHOG_CAPTURE_PATH = '/i/v0/e/';
-
-function getPostHogDistinctId(): string {
-  try {
-    const storedId = window.localStorage.getItem(DISTINCT_ID_KEY);
-
-    if (storedId) {
-      return storedId;
-    }
-
-    const randomId =
-      typeof window.crypto?.randomUUID === 'function'
-        ? window.crypto.randomUUID()
-        : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-    const nextId = `anonymous-${randomId}`;
-
-    window.localStorage.setItem(DISTINCT_ID_KEY, nextId);
-
-    return nextId;
-  } catch {
-    return `anonymous-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  }
-}
-
-function normalizePostHogHost(host: string): string {
-  return host.replace(/\/+$/, '');
-}
 
 export default function PageFeedback(): ReactNode {
   const {pathname} = useLocation();
@@ -50,56 +23,14 @@ export default function PageFeedback(): ReactNode {
   const storageKey = useMemo(() => `${STORAGE_PREFIX}${pathname}`, [pathname]);
 
   useEffect(() => {
-    try {
-      const savedVote = window.localStorage.getItem(storageKey);
-
-      if (savedVote === 'yes' || savedVote === 'no') {
-        setVote(savedVote);
-      } else {
-        setVote(null);
-      }
-    } catch {
-      setVote(null);
-    }
+    setVote(readFeedback(storageKey));
   }, [storageKey]);
 
   function handleVote(nextVote: FeedbackVote) {
     setVote(nextVote);
 
-    try {
-      window.localStorage.setItem(storageKey, nextVote);
-    } catch {
-      // The UI still acknowledges the vote if storage is unavailable.
-    }
-
-    if (!posthogProjectApiKey) {
-      return;
-    }
-
-    const host = normalizePostHogHost(
-      posthogHost ?? 'https://us.i.posthog.com',
-    );
-
-    void fetch(`${host}${POSTHOG_CAPTURE_PATH}`, {
-      body: JSON.stringify({
-        api_key: posthogProjectApiKey,
-        distinct_id: getPostHogDistinctId(),
-        event: 'docs_feedback',
-        properties: {
-          $current_url: window.location.href,
-          $process_person_profile: false,
-          path: pathname,
-          vote: nextVote,
-        },
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      keepalive: true,
-      method: 'POST',
-    }).catch(() => {
-      // Feedback should never make the docs page feel broken.
-    });
+    saveFeedback(storageKey, nextVote);
+    void captureFeedback({posthogHost, posthogProjectApiKey}, pathname, nextVote);
   }
 
   return (

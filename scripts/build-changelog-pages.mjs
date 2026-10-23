@@ -3,6 +3,7 @@
 // 每页只保留该平台小节 + 「全平台」小节；某版本两者都没有就整版略过。
 // 生成物不入库（.gitignore），`npm run start` / `npm run build` 前自动执行。
 import {readFileSync, writeFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {
@@ -34,6 +35,17 @@ if (problems.length) {
 }
 
 const LIST_ITEM_RE = /^\s*(?:[-*+]|\d+[.)])\s/;
+
+// Generated pages inherit their handwritten source's date instead of build time.
+let sourceUpdated = entries.reduce((latest, entry) => entry.updated > latest ? entry.updated : latest, '1970-01-01');
+try {
+  const committedAt = execFileSync('git', ['log', '-1', '--format=%cI', '--', 'docs/changelog/index.md'], {
+    cwd: root, encoding: 'utf8', timeout: 5000, stdio: ['ignore', 'pipe', 'pipe'],
+  }).trim();
+  if (committedAt) sourceUpdated = new Date(committedAt).toISOString();
+} catch {
+  console.warn('无法读取更新日志 Git 历史，生成页使用源内容的最新日期。');
+}
 
 /// 本平台小节在前、全平台小节在后。两段都是列表时用单个换行接成一个紧凑列表:
 /// 中间留空行会把两段并成一个松散列表(`<li><p>`),每项都撑出段落间距。
@@ -83,6 +95,8 @@ for (const platform of PAGE_PLATFORMS) {
     `description: Paxora ${label} 客户端版本更新记录。`,
     `sidebar_label: ${label}`,
     'toc_max_heading_level: 2',
+    'last_update:',
+    `  date: '${sourceUpdated}'`,
     '---',
     '',
     '{/* 本文件由 scripts/build-changelog-pages.mjs 从 index.md 生成，请勿手改 */}',

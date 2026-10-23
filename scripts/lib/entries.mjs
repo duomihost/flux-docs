@@ -51,9 +51,19 @@ export function stripTopHeading(body) {
   return body.replace(/^\s*#\s+[^\n]*\n/, '');
 }
 
-function collectDates(text) {
+function isCalendarDate(date) {
+  if (!/^20\d{2}-\d{2}-\d{2}$/.test(date)) return false;
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === date;
+}
+
+function collectDates(text, where) {
   const dates = [];
-  for (const m of text.matchAll(DATE_RE)) dates.push(`${m[1]}-${m[2]}-${m[3]}`);
+  for (const m of text.matchAll(DATE_RE)) {
+    const date = `${m[1]}-${m[2]}-${m[3]}`;
+    if (!isCalendarDate(date)) throw new Error(`${where}:无效日期 ${m[0]}`);
+    dates.push(date);
+  }
   return dates.sort();
 }
 
@@ -136,6 +146,23 @@ export function splitPlatformSections(lines) {
 /// 从这一版起每期必须写「版本：」行(此前的旧条目不追溯)。
 export const VERSIONS_REQUIRED_SINCE = '2026.1006';
 
+// 公告与更新日志共用；各语言清单分别校验，合法历史 ID 的算法保持不变。
+export function validateFeedEntries(entries) {
+  const problems = [];
+  const seen = new Set();
+  for (const entry of entries) {
+    if (seen.has(entry.id)) problems.push(`## ${entry.title}:重复条目标识 ${entry.id}，请检查重复标题`);
+    seen.add(entry.id);
+    for (const field of ['published', 'updated']) {
+      if (!isCalendarDate(entry[field]) && entry[field] !== '1970-01-01') {
+        problems.push(`## ${entry.title}:${field} 日期无效 ${entry[field]}`);
+      }
+    }
+    if (entry.published > entry.updated) problems.push(`## ${entry.title}:发布日期晚于更新日期`);
+  }
+  return problems;
+}
+
 /// 更新日志写作约束,构建前检查,违反直接让构建失败。返回问题列表(空 = 通过)。
 ///   - 列表项之间不得夹空行:否则整段变成松散列表(`<li><p>`),客户端每项都撑出
 ///     段落间距;
@@ -145,9 +172,14 @@ export const VERSIONS_REQUIRED_SINCE = '2026.1006';
 ///   - 每期必须有「版本：」行,客户端「软件版本」据此显示
 ///     本平台的完整版本号。
 export function validateChangelog(entries) {
-  const problems = [];
+  const problems = validateFeedEntries(entries);
   for (const entry of entries) {
     const where = `## ${entry.title}`;
+    const titleDate = /^(20\d{2})\.(\d{2})(\d{2})$/.exec(entry.title);
+    if (!titleDate || !isCalendarDate(`${titleDate[1]}-${titleDate[2]}-${titleDate[3]}`)) {
+      problems.push(`${where}:标题必须为有效发布日期 YYYY.MMDD`);
+      continue;
+    }
     if (entry.html.includes('<li><p>')) {
       problems.push(`${where}:列表项之间有空行(会渲染成松散列表),删掉列表中间的空行`);
     }
@@ -188,7 +220,7 @@ export function parseEntries(part, body, {fallbackDate, pageUrl, platforms = fal
   if (current) entries.push(current);
   return entries.map((entry) => {
     const text = entry.lines.join('\n');
-    const dates = collectDates(text);
+    const dates = collectDates(text, `${part} ## ${entry.title}`);
     const image = firstImage(text);
     const result = {
       id: entryId(part, entry.title),
