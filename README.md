@@ -1,10 +1,10 @@
 # Paxora Docs
 
-Paxora 客户端与服务使用文档，仓库名为 `flux-docs`，基于 Docusaurus 3.10.1，部署到 Cloudflare Pages。
+Paxora 客户端与服务使用文档，仓库名为 `flux-docs`，基于 Docusaurus 3.10.2，部署到 Cloudflare Pages。
 
 ## 本地开发与验证
 
-使用 Node 22（见 `.node-version`）与锁文件安装依赖：
+使用 Node 22（见 `.node-version`，最低 Node 20.19）与锁文件安装依赖：
 
 ```bash
 npm ci
@@ -20,6 +20,7 @@ npm test
 ```
 
 `build` 先生成五个平台的更新日志页面，再编译站点，最后生成客户端清单，输出到 `build/`。
+安装、启动和构建会核验临时的 braces 深度限制补丁；来源、定向覆盖与审计残留见 [依赖维护说明](./DEPENDENCY_MAINTENANCE.md)。
 `npm test` 包含清单校验反例、隔离的客服脚本测试、站点元数据及更新日志回归；部分测试读取生成的页面和清单，需先构建。
 测试使用假浏览器对象或本地文件，不连接真实客服、分析或业务接口。
 
@@ -40,7 +41,7 @@ Root directory: /
 Environment variable: NODE_VERSION=22
 ```
 
-推送 `main` 会触发现有自动部署。GitHub Docs CI 在完整 Git 历史下依次执行依赖安装、类型检查、构建和测试。
+推送 `main` 会触发现有自动部署。GitHub Docs CI 在完整 Git 历史下依次执行依赖安装、类型检查、构建和测试。checkout/setup-node 固定到已核对的官方发布提交，Actions 自身使用 Node 24 运行时，项目构建仍使用 Node 22。
 
 文档的“最后更新于”来自 Git 的文件修改记录，不使用构建日期。CI 已配置 `fetch-depth: 0`；其他构建环境也应保留完整历史，浅克隆需在构建前补齐历史，避免将检出提交时间误当成文档修改时间。生成的平台更新日志页继承手写总览源的 Git 修改时间；没有 Git 的源码归档使用内容的最新记录日期。
 
