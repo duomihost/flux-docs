@@ -7,7 +7,7 @@ description: 在 Apple 芯片 Mac 上安装 Shadowrocket，导入 Paxora 订阅�
 
 ## 先看完整流程
 
-**从 Mac App Store 安装 Shadowrocket → 复制 Paxora 订阅 → 导入订阅 → 选择节点 → 点击连接。**
+**从 Mac App Store 安装 Shadowrocket → 选择订阅地址 → 页面要求时先导入模块 → 添加订阅 → 选择节点 → 点击连接。**
 
 本教程只适用于 Apple 芯片 Mac；Intel Mac 请使用 Paxora 官方客户端或 Clash Verge Rev。
 
@@ -48,8 +48,9 @@ description: 在 Apple 芯片 Mac 上安装 Shadowrocket，导入 Paxora 订阅�
 ## 三、复制 Paxora 订阅
 
 1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录。
-2. 找到适用于 Shadowrocket 的个人订阅地址。
-3. 点击复制。
+2. 打开“复制 / 导入订阅”，通常先选订阅 01；主地址下载失败时可选一个备用地址。编号含义见[订阅 01～04 的关系](../subscription/overview.md#numbered-addresses)。
+3. 选择 Shadowrocket。页面若显示“1 导入模块”“2 添加订阅”，先完成当前所选地址的模块导入，再复制或添加订阅，见[模块步骤](../subscription/import-subscription.md#shadowrocket-module)。
+4. 没有模块步骤时按页面现有引导操作，不自行拼接模块地址。
 
 ![从 Paxora 用户中心复制订阅地址](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FGrO0FJPgoJnasfgNyGfb%2Fimage.png?alt=media&token=105b7715-34d8-454f-8722-79352f08a540)
 
@@ -124,15 +125,14 @@ description: 在 Apple 芯片 Mac 上安装 Shadowrocket，导入 Paxora 订阅�
 
 ## 九、重新配置
 
-反复更新失败时：
+更新失败时先保留已有配置和错误提示，按[订阅排障](../troubleshooting/subscription-failed.md)完成一次核对。确实需要更换入口时：
 
-1. 关闭连接。
-2. 删除旧的 Paxora 订阅标签。
+1. 关闭连接开关，保留原配置和手动规则。
+2. 回到用户中心选择当前可用的主地址或备用地址，并按所选页面确认是否先导入模块。
+3. 优先修改现有订阅地址；客户端支持时也可新建独立条目验证。
+4. 确认新配置更新成功且节点可用后，再处理旧条目，不先删除原配置。
 
-![删除旧的 Paxora 订阅](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FMSxYHUMlgLjNysONEbeT%2F%7B17D70454-E3D3-4276-BC7A-BCEB6A85C519%7D.png?alt=media&token=25f06217-399c-4630-baba-46d8e79c0bf5)
-
-3. 回到用户中心重新复制订阅地址。
-4. 按照“导入订阅”重新添加。
+完整顺序见[更新订阅](../subscription/update-subscription.md)。配置备份可能包含凭据，不随反馈上传。
 
 ## 常见问题
 

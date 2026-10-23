@@ -9,7 +9,7 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 
 ## 先看完整流程
 
-**安装 Shadowrocket → 复制 Paxora 订阅 → 添加 Subscribe → 选择节点 → 打开连接开关 → 允许 VPN 配置。**
+**安装 Shadowrocket → 选择订阅地址 → 页面要求时先导入模块 → 添加 Subscribe → 选择节点 → 打开连接开关 → 允许 VPN 配置。**
 
 连接成功时，Shadowrocket 的开关会点亮，状态栏也会出现 VPN 标志。
 
@@ -40,8 +40,9 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 ## 三、复制 Paxora 订阅
 
 1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录。
-2. 找到“一键订阅”或“订阅地址”。
-3. 复制适用于 Shadowrocket 的个人订阅地址。
+2. 打开“复制 / 导入订阅”，通常先选订阅 01；主地址下载失败时可选一个备用地址。编号含义见[订阅 01～04 的关系](../subscription/overview.md#numbered-addresses)。
+3. 选择 iOS 订阅中的 Shadowrocket。如果显示“1 导入模块”“2 添加订阅”，先导入当前所选地址对应的模块，再添加或复制订阅，见[模块步骤](../subscription/import-subscription.md#shadowrocket-module)。
+4. 完成页面要求的模块步骤后，再复制适用于 Shadowrocket 的个人订阅地址。没有模块步骤时按页面现有引导操作。
 
 ![在 Paxora 用户中心复制个人订阅地址](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FJmMOyUstGItbx7S5NSbv%2Fimage.png?alt=media&token=c9d6199c-5f53-44dc-a19e-38bb07f0252a)
 
@@ -120,15 +121,14 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 
 ## 九、重新配置订阅
 
-反复更新仍失败时：
+更新失败时先保留已有配置和错误提示，按[订阅排障](../troubleshooting/subscription-failed.md)完成一次核对。确实需要更换入口时：
 
-1. 关闭连接开关。
-2. 删除旧的 Paxora 订阅标签。
+1. 关闭连接开关，保留原配置和手动规则。
+2. 回到用户中心选择当前可用的主地址或备用地址，并按所选页面确认是否先导入模块。
+3. 优先修改现有订阅地址；客户端支持时也可新建独立条目验证。
+4. 确认新配置更新成功且节点可用后，再处理旧条目，不先删除原配置。
 
-![在未连接状态删除旧订阅](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-c90a3a84c452fe0238a91a1c2041489800741559%2F33.png?alt=media)
-
-3. 回到用户中心重新复制订阅地址。
-4. 按照“手动导入订阅”重新添加。
+完整顺序见[更新订阅](../subscription/update-subscription.md)。配置备份可能包含凭据，不随反馈上传。
 
 </details>
 
@@ -140,7 +140,7 @@ Shadowrocket 是第三方付费应用。本教程适用于 iPhone 和 iPad，建
 
 ### 更新后节点没有变化
 
-先断开连接，重新更新订阅；仍无变化时删除旧标签并重新导入。
+先断开连接并更新订阅，核对选中的配置和账号状态；仍无变化时按[订阅下载或更新失败](../troubleshooting/subscription-failed.md)排查，先保留已有配置，不直接删除旧标签。
 
 ### 只有部分网站打不开
 
