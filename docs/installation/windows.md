@@ -13,9 +13,8 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 
 ## 下载地址
 
-- **[Windows 主下载](https://vault.paxoras.com/index.php/s/RoC56zfBoXFbFSS/download)**
-- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
-- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
+- **[Windows 主下载](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)**
+- [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 ## 使用要求
 
@@ -24,13 +23,13 @@ description: 在 Windows 10 或 11 上下载安装 Paxora，并完成首次连�
 
 ## 下载与安装
 
-1. 点击上方“Windows 主下载”获取 `.exe` 安装包。主下载无法打开时，再使用备用下载目录选择 Windows 安装包。
+1. 点击上方“Windows 主下载”进入官方下载目录，选择 Windows 对应的 `.exe` 安装包。主下载无法打开时，再尝试备用下载目录。
 2. 双击安装包，按照向导完成安装。
 3. 安装完成后启动 Paxora。
 
 如果 Windows 显示“已保护你的电脑”，请先确认文件来自上面的官方下载目录，再点击“更多信息 → 仍要运行”。
 
-使用备用下载目录时，将鼠标移到 Windows 安装包上，点击出现的下载按钮。
+进入下载目录后，将鼠标移到 Windows 安装包上，点击出现的下载按钮。
 
 如果浏览器提示“此文件通常不会下载”，请先确认网址是 Paxora 官方下载地址，再选择保留文件。
 

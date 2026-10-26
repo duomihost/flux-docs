@@ -7,19 +7,18 @@ description: Paxora 官方客户端和 Apple 移动端第三方客户端的下�
 
 ## Paxora 官方客户端
 
-请根据设备直接下载对应安装包：
+请进入官方下载目录，根据设备选择对应安装包：
 
 | 设备 | 主下载 | 教程 |
 | --- | --- | --- |
-| Windows 10 / 11 | [下载 `.exe`](https://vault.paxoras.com/index.php/s/RoC56zfBoXFbFSS/download) | [查看 Windows 教程](../installation/windows) |
-| macOS | [下载 `.dmg`](https://vault.paxoras.com/index.php/s/LXYQXs85jxxcn58/download) | [查看 macOS 教程](../installation/macos) |
-| Android / HarmonyOS | [下载 `.apk`](https://vault.paxoras.com/index.php/s/3nSzKWyjqDiP7WR/download) | [查看 Android 教程](../installation/android) |
-| Linux（Ubuntu 24.04 GNOME） | [进入官方下载目录选择 `.deb`](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7) | [查看 Linux 教程](../installation/linux) |
+| Windows 10 / 11 | [进入下载目录选择 `.exe`](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7) | [查看 Windows 教程](../installation/windows) |
+| macOS | [进入下载目录选择 `.dmg`](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7) | [查看 macOS 教程](../installation/macos) |
+| Android / HarmonyOS | [进入下载目录选择 `.apk`](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7) | [查看 Android 教程](../installation/android) |
+| Linux（Ubuntu 24.04 GNOME） | [进入下载目录选择 `.deb`](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7) | [查看 Linux 教程](../installation/linux) |
 
-主下载无法打开时，可使用统一目录：
+主下载无法打开时，可尝试：
 
-- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
-- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
+- [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 macOS 用户应先点击屏幕左上角 Apple 菜单，选择“关于本机”，确认 Mac 使用 Apple 芯片还是 Intel 芯片，再下载对应安装包。
 

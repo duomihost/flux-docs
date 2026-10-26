@@ -13,9 +13,8 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ## 下载地址
 
-- **[macOS 主下载](https://vault.paxoras.com/index.php/s/LXYQXs85jxxcn58/download)**
-- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
-- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
+- **[macOS 主下载](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)**
+- [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 ## 使用要求
 
@@ -25,7 +24,7 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ## 第一步：下载客户端
 
-点击上方“macOS 主下载”获取 `.dmg` 安装包。主下载无法打开时，再使用备用下载目录进入 macOS 文件夹选择对应版本。
+点击上方“macOS 主下载”进入官方下载目录，选择 macOS 文件夹中的对应 `.dmg` 安装包。主下载无法打开时，再尝试备用下载目录。
 
 下载前，请先确认 Mac 的芯片类型：
 
@@ -36,7 +35,7 @@ description: 在 Mac 上下载安装 Paxora，并完成登录、选择节点和�
 
 ![在关于本机中确认 Mac 芯片类型](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2Fgit-blob-87cad6c8c0b120ff1d81511537fe25f031e6aa6a%2Fm1.png?alt=media)
 
-![在备用下载目录中选择 macOS 安装包](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2F3RTcy8YtWYc1ycdazlBt%2Fimage.png?alt=media&token=574fa4bf-63f6-4e9b-ab44-f0fc02a5d6e1)
+![在下载目录中选择 macOS 安装包](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2F3RTcy8YtWYc1ycdazlBt%2Fimage.png?alt=media&token=574fa4bf-63f6-4e9b-ab44-f0fc02a5d6e1)
 
 :::warning
 请只使用以上官方目录，不要安装聊天群或其他网站转发的未知文件。

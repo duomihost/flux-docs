@@ -26,8 +26,8 @@ dpkg --print-architecture
 
 ## 下载地址
 
-- [官方下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
-- [备用下载目录](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
+- [官方下载目录](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
+- [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 进入 **Paxora-Linux** 文件夹，按架构下载正式版 `.deb`。文件名包含版本与架构；首次使用不选择带 `test`、`debug` 标记的测试或诊断包。
 

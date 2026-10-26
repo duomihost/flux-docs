@@ -15,9 +15,8 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 ## 下载地址
 
-- **[Android 主下载](https://vault.paxoras.com/index.php/s/3nSzKWyjqDiP7WR/download)**
-- [备用下载 1](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)
-- [备用下载 2](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
+- **[Android 主下载](https://vault.digitalage.services/index.php/s/E8srJpTGLgQNzW7)**
+- [备用下载目录](https://vault.paxoras.com/index.php/s/E8srJpTGLgQNzW7)
 
 ## 使用要求
 
@@ -26,7 +25,7 @@ description: 在 Android 或 HarmonyOS 手机和平板上安装使用 Paxora。
 
 ## 下载与安装
 
-1. 点击上方“Android 主下载”获取 `.apk` 安装包。主下载无法打开时，再使用备用下载目录选择 Android 安装包。
+1. 点击上方“Android 主下载”进入官方下载目录，选择 Android 对应的 `.apk` 安装包。主下载无法打开时，再尝试备用下载目录。
 2. 打开下载的文件并确认安装。
 3. 如果系统阻止安装，按照提示允许浏览器或文件管理器“安装未知应用”。
 4. 安装完成后立即关闭该授权。
