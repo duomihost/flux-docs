@@ -34,7 +34,7 @@ description: 在 Windows 上安装 Clash Verge Rev，导入 Paxora 订阅、选�
 
 ## 三、复制 Paxora 订阅
 
-1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录自己的账号。
+1. 打开 [Paxora 用户中心](https://go.nerwo.top/)并登录自己的账号；无法打开时使用[最新入口 2](https://app.ayu-ssr.com/)。
 2. 找到“一键订阅”或“订阅地址”。
 3. 选择适用于 Clash 的订阅地址并点击复制。
 

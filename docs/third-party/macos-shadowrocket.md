@@ -47,7 +47,7 @@ description: 在 Apple 芯片 Mac 上安装 Shadowrocket，导入 Paxora 订阅�
 
 ## 三、复制 Paxora 订阅
 
-1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录。
+1. 打开 [Paxora 用户中心](https://go.nerwo.top/)并登录；无法打开时使用[最新入口 2](https://app.ayu-ssr.com/)。
 2. 打开“复制 / 导入订阅”，通常先选订阅 01；主地址下载失败时可选一个备用地址。编号含义见[订阅 01～04 的关系](../subscription/overview.md#numbered-addresses)。
 3. 选择 Shadowrocket。页面若显示“1 导入模块”“2 添加订阅”，先完成当前所选地址的模块导入，再复制或添加订阅，见[模块步骤](../subscription/import-subscription.md#shadowrocket-module)。
 4. 没有模块步骤时按页面现有引导操作，不自行拼接模块地址。

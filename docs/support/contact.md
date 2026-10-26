@@ -7,8 +7,10 @@ description: Paxora 用户中心、备用入口、工单和客服联系方式。
 
 ## 官网及相关入口
 
-- [用户中心](https://hi.dmhosts.com/)：推荐收藏，可自动跳转到可访问地址。
-- [备用跳转入口](https://available-domains-detection-2t2.pages.dev/)：用户中心无法访问时使用。
+- **[最新跳转入口 1](https://go.nerwo.top/)**：自动跳转到用户中心。
+- **[最新跳转入口 2](https://app.ayu-ssr.com/)**：自动跳转到用户中心。
+- [备用跳转入口 1](https://hi.dmhosts.com/)：最新入口无法访问时使用。
+- [备用跳转入口 2](https://available-domains-detection-2t2.pages.dev/)：最新入口无法访问时使用。
 - [永久域名](https://www.tabnet.us/)
 - [通用域名](https://ls.tabnetservices.com/)
 - [技术文档](https://doc.tabweb.us/)

@@ -38,7 +38,7 @@ description: 在 macOS 上安装 Clash Verge Rev，导入 Paxora 订阅并管理
 
 ## 三、复制并导入 Paxora 订阅
 
-1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录。
+1. 打开 [Paxora 用户中心](https://go.nerwo.top/)并登录；无法打开时使用[最新入口 2](https://app.ayu-ssr.com/)。
 2. 复制适用于 Clash 的个人订阅地址。
 
 ![在 Paxora 用户中心复制订阅](https://4037264195-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FxSKAXKJRW2vsCyawwV9G%2Fuploads%2FusGJsvCHuTgTJLtCpjIP%2Fimage.png?alt=media&token=adaa08f6-b001-4d6d-937a-11273421a109)

@@ -26,7 +26,7 @@ Paxora Android 官方客户端可以直接登录并同步节点，普通用户�
 
 ## 二、复制 Paxora 订阅
 
-1. 打开 [Paxora 用户中心](https://hi.dmhosts.com/)并登录。
+1. 打开 [Paxora 用户中心](https://go.nerwo.top/)并登录；无法打开时使用[最新入口 2](https://app.ayu-ssr.com/)。
 2. 找到适用于 Clash 的个人订阅地址。
 3. 点击复制。
 
