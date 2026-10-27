@@ -141,7 +141,7 @@ HTML 只含 Markdown 生成的标签（`p`、`ul`、`ol`、`li`、`strong`、`em
 ## 6. 更新日志全链路：三方分工与约束
 
 > Beta（测试包）相关的通用约束（版本号区分不了测试包、唯一口径 `build_kind`、灰色细边框标签、上线顺序等）
-> 以 flux 仓库 [docs/BETA_COMPAT.md](https://github.com/duomihost/flux/blob/main/docs/BETA_COMPAT.md) 为准，本节只写更新日志这条链路上的具体做法。
+> 以 flux 仓库 [docs/BETA_COMPAT.md](https://github.com/duomiworks/flux/blob/main/docs/BETA_COMPAT.md) 为准，本节只写更新日志这条链路上的具体做法。
 
 ```
 flux-builder 发布时写入 ─┐
@@ -166,7 +166,7 @@ flux-builder 发布时写入 ─┐
   （`vault-transport.resolveUpdateChannel`）。`promote:test` 转正成功后去掉对应平台版本的 Beta；
   这一步失败不回滚转正，只提示去手工删。
 - **凭据**：`DOCS_GITHUB_TOKEN`（只开 flux-docs Contents 读写的细粒度 PAT），没配就回落 `GITHUB_TOKEN`；
-  仓库默认 `duomihost/flux-docs`，可用 `DOCS_REPO` 改。
+  仓库默认 `duomiworks/flux-docs`，可用 `DOCS_REPO` 改。
 - **只写中文**，英文更新日志不由构造器写。
 - **已知限制**：写入发生在构建之前，之后编译或上传失败的话，会留下一条没真正发出去的版本记录，需要手工删。
 

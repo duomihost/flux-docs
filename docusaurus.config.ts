@@ -30,7 +30,7 @@ const config: Config = {
   url: 'https://flux-docs.pages.dev',
   baseUrl: '/',
 
-  organizationName: 'duomihost',
+  organizationName: 'duomiworks',
   projectName: 'flux-docs',
 
   onBrokenLinks: 'throw',
